@@ -1,0 +1,26 @@
+numpy
+torch
+torch_geometric
+tqdm
+einops
+psutil
+cma
+pandas
+
+# Learning
+stable-baselines3[extra]
+
+# Simulation
+gymnasium[all]
+panda-gym
+pybullet
+pytorch_kinematics
+
+# Cluster
+wandb
+accelerate
+
+# Utils
+tensorboard
+matplotlib
+imageio

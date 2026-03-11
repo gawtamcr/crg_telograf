@@ -11,7 +11,6 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     command: bash -c "
       cd project/code && 
-      pip install imageio tqdm einops pytorch_kinematics psutil torch_geometric cma pandas matplotlib && 
       bash run.sh"
     stdin_open: true    
     tty: true
@@ -21,4 +20,4 @@ services:
     # run_PF_controller
     # python -B plot_figures.py
     # bash run_icml2025_train.sh
-    # 
+    # pip install imageio tqdm einops pytorch_kinematics psutil torch_geometric cma pandas matplotlib && 
