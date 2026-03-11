@@ -1,0 +1,24 @@
+services:
+  crgstl_1:
+    image: crgstl
+    container_name: crgstl_container_1
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: bash -c "
+      cd project/code && 
+      pip install imageio tqdm einops pytorch_kinematics psutil torch_geometric cma pandas matplotlib && 
+      bash run.sh"
+    stdin_open: true    
+    tty: true
+    runtime: nvidia
+
+    # train_RL_with_BC
+    # run_PF_controller
+    # python -B plot_figures.py
+    # bash run_icml2025_train.sh
+    # 
