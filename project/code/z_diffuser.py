@@ -9,9 +9,7 @@ import utils
 from collections import namedtuple
 Sample = namedtuple('Sample', 'trajectories values chains')
 
-from generate_scene_v1 import generate_trajectories, generate_trajectories_dubins
-from generate_panda_scene import get_trajectories
-
+from generate_scene_v1 import generate_trajectories
 
 #-----------------------------------------------------------------------------#
 #---------------------------------- modules ----------------------------------#
@@ -567,8 +565,6 @@ class GaussianFlow(nn.Module):
             loss_func = guidance_data["loss_func"]
             # dyna_func = guidance_data['dyna_func']
             real_stl_list = guidance_data["real_stl_list"]
-            if args.env=="panda":
-                CA = guidance_data["CA"]
             mini_batch_size = args.batch_size
             test_muls = args.test_muls if args.test_muls is not None else 1
             timesteps = self.n_timesteps
@@ -716,9 +712,6 @@ class GaussianFlow(nn.Module):
                                 loss_list=[]
                                 for ii in range(mini_batch_size):
                                     loss_v, dbg_info = loss_func(x_real_4d[ii], real_stl_list[ii])
-                                    if args.env=="dubins":
-                                        loss_reg = torch.mean(torch.nn.ReLU()(us**2-4)) * 10
-                                        loss_v = loss_v + loss_reg
                                     loss_list.append(loss_v)
                             
                                 loss_list = torch.stack(loss_list, dim=0)

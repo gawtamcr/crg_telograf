@@ -22,22 +22,6 @@ def generate_trajectories(s, us, dt, v_max=None):
     trajs = torch.cat([s[..., None, :], trajs], dim=-2)
     return trajs
 
-def generate_trajectories_dubins(s, us, dt, v_max, unclip=False):
-    trajs=[s]
-    for ti in range(us.shape[-2]):
-        prev_s = trajs[-1]
-        new_x = prev_s[..., 0] + prev_s[..., 3] * torch.cos(prev_s[..., 2]) * dt
-        new_y = prev_s[..., 1] + prev_s[..., 3] * torch.sin(prev_s[..., 2]) * dt
-        new_th = (prev_s[..., 2] + us[..., ti, 0] * dt + np.pi) % (2 * np.pi) - np.pi
-        if unclip:
-            new_v = prev_s[..., 3] + us[..., ti, 1] * dt
-        else:
-            new_v = torch.clip(prev_s[..., 3] + us[..., ti, 1] * dt, -0.01, v_max)
-        new_s = torch.stack([new_x, new_y, new_th, new_v], dim=-1)
-        trajs.append(new_s)
-    trajs = torch.stack(trajs, dim=-2)
-    return trajs
-
 def check_stl_type(node):
     if isinstance(node, SimpleAnd) or isinstance(node, SimpleListAnd):
         node_type=0
@@ -159,14 +143,6 @@ def find_ap_in_lines(id, stl_dict, objects_d, lines, numpy=False, real_stl=False
                         stl = AP(lambda x:obj_r**2 - (x[...,0]-obj_x)**2 - (x[..., 1]-obj_y)**2, comment="R%d"%(obj_id))
                     elif ap_mode=="grid":
                         stl = AP(lambda x:obj_r * 0.5 - torch.maximum(torch.abs(x[...,0]-obj_x), torch.abs(x[..., 1]-obj_y)), comment="R'%d"%(obj_id))
-                    elif ap_mode=="panda":
-                        if ap_type==0:  # reach an object
-                            stl = And(
-                                AP(reach_obj_from_panda_decorator(res), comment="R%d"%(obj_id)),
-                                AP(reach_obj_from_panda_vert_decorator(res), comment="V%d"%(obj_id))
-                            )
-                        elif ap_type==1:  # avoid an obstacle's reach
-                            stl = AP(reach_obj_from_panda_big_decorator(res), comment="R%d"%(obj_id))
                     else:
                         raise NotImplementedError
                 else:
@@ -206,59 +182,6 @@ def find_ap_in_lines(id, stl_dict, objects_d, lines, numpy=False, real_stl=False
             break
     stl_dict[id] = stl
     return stl
-
-def reach_obj_from_panda_decorator(res):
-    obj_id = int(res[5])
-    obj_x = float(res[6])
-    obj_y = float(res[7])
-    obj_z = float(res[8])
-    obj_r = float(res[9])
-    
-    def reach_obj_from_panda(x):
-        # x should be a dict
-        # x["ee"] end effector (B, T+1, 3)
-        # x["points"] joint points (M, B, T+1, 3)
-        # x["joints"] joint angles (B, T+1, dof)
-        # lambda x:obj_r**2 - (x[...,0]-obj_x)**2 - (x[..., 1]-obj_y)**2
-        z_offset = 0.1
-        return ((obj_r**2) - (x["ee"][...,0]-obj_x)**2 - (x["ee"][..., 1]-obj_y)**2 - (x["ee"][..., 2]-obj_z-z_offset)**2)/((obj_r))
-    return reach_obj_from_panda
-
-def reach_obj_from_panda_big_decorator(res):
-    obj_id = int(res[5])
-    obj_x = float(res[6])
-    obj_y = float(res[7])
-    obj_z = float(res[8])
-    obj_r = float(res[9])
-    
-    def reach_obj_from_panda_big(x):
-        # x should be a dict
-        # x["ee"] end effector (B, T+1, 3)
-        # x["points"] joint points (M, B, T+1, 3)
-        # x["joints"] joint angles (B, T+1, dof)
-        # lambda x:obj_r**2 - (x[...,0]-obj_x)**2 - (x[..., 1]-obj_y)**2
-        return (3*(obj_r**2) - (x["ee"][...,0]-obj_x)**2 - (x["ee"][..., 1]-obj_y)**2 - (x["ee"][..., 2]-obj_z)**2)/(np.sqrt(3)*(obj_r))
-    return reach_obj_from_panda_big
-
-def reach_obj_from_panda_vert_decorator(res):
-    obj_id = int(res[5])
-    obj_x = float(res[6])
-    obj_y = float(res[7])
-    obj_z = float(res[8])
-    obj_r = float(res[9])
-    
-    def reach_obj_from_panda_vert(x):
-        # x should be a dict
-        # x["ee"] end effector (B, T+1, 3)
-        # x["points"] joint points (M, B, T+1, 3)
-        # x["joints"] joint angles (B, T+1, dof)
-        # lambda x:obj_r**2 - (x[...,0]-obj_x)**2 - (x[..., 1]-obj_y)**2
-        vector = x["points"][7, :] - x["points"][8, :]
-        vector = vector / torch.clip(torch.norm(vector, dim=-1, keepdim=True), min=1e-4, max=1e4)
-        # unit_vector = torch.tensor([[[0, 0, 1.]]]).to(vector.device)
-        vertical_val = vector[..., 2] - 0.9
-        return vertical_val
-    return reach_obj_from_panda_vert
 
 # only takes notes for storage
 class SimpleSTL:
