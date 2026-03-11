@@ -1,5 +1,4 @@
 import os
-import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -11,24 +10,16 @@ import utils
 import tqdm
 
 from z_diffuser import GaussianDiffusion, GaussianFlow, TemporalUnet, MockNet, MLPNet, GaussianVAE
-from torch_geometric.nn import GCNConv, GATv2Conv
-from torch_geometric.data import Data, Batch
-from torch_geometric.utils import scatter
-from torch_geometric.data import Dataset
+from torch_geometric.data import Data, Dataset
 from torch_geometric.loader import DataLoader
-from torch_geometric.nn import MessagePassing
-from torch_geometric.utils import add_self_loops
-from torch_geometric.transforms import two_hop
 import generate_scene_v1
 
-from matplotlib.patches import Polygon, Rectangle, Ellipse, Circle
+from matplotlib.patches import Circle
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-from generate_scene_v1 import SimpleUntil, SimpleF, SimpleG, SimpleReach
+from stl_to_seq_utils import rand_aug, hard_rand_aug, aug_graph, compute_tree_size
 
-from stl_to_seq_utils import stl_to_seq, rand_aug, hard_rand_aug, aug_graph, compute_tree_size, stl_hash_seq, stl_naive_str, stl_smart_encode, stl_to_1d_array
-
-from z_models import TreeLSTMNet, GCN, GRUEncoder, TransformerModel, ScorePredictor, MLP
+from z_models import GCN, ScorePredictor
 
 from os.path import join as ospj
 
@@ -867,8 +858,7 @@ def main():
                     if args.cls_guidance:
                         guidance_data["score_predictor"] = score_predictor
                         guidance_data["stl_embeds"] = stl_embeds
-                        if True:  # encoder=="goal" path removed, always gnn
-                            guidance_data["stl_embeds_gnn"] = stl_embeds_gnn
+                        guidance_data["stl_embeds_gnn"] = stl_embeds_gnn
                 else:
                     guidance_data = None
 

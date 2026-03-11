@@ -1,0 +1,25 @@
+Env:simple  use data data_0_simple ...
+Finished loading numpy data
+Make absolute idx...
+Finished marking idx
+Clip the dataset from 1000 to 50000 => 1000
+Load STLs ...
+TREESIZE original:17.119 add:0.000 new:17.119
+Filter data...
+{0: np.float64(125.0), 1: np.float64(375.0), 2: np.float64(250.0), 3: np.float64(500.0)}
+********** Stat **********
+Expect ratios: 0.100 0.300 0.200 0.400 | Actual: 0.112 0.337 0.224 0.327
+Sat cases: {0: 63, 1: 189, 2: 129, 3: 213}
+Sat inits: {0: 63, 1: 189, 2: 129, 3: 213}
+Sat sols: {0: 125, 1: 375, 2: 250, 3: 364}
+LEN 1000 SAT ratio 0.13925
+train-len:898
+val-len:216
+seq_max_len 1
+[ models/temporal ] Channel dimensions: [(4, 32), (32, 64), (64, 128), (128, 256)]
+[(4, 32), (32, 64), (64, 128), (128, 256)]
+TRAIN [000/128] acc:1 (1.000) runtime:10.799(10.799)   dt:00.00s  Elapsed:11.13s  ETA:00.00s
+TRAIN [001/128] acc:1 (1.000) runtime:10.374(10.587)   dt:05.91s  Elapsed:22.55s  ETA:25m00s
+TRAIN [002/128] acc:1 (1.000) runtime:13.108(11.427)   dt:07.90s  Elapsed:37.09s  ETA:33m18s
+TRAIN [003/128] acc:1 (1.000) runtime:10.338(11.155)   dt:09.43s  Elapsed:48.45s  ETA:39m37s
+TRAIN [004/128] acc:1 (1.000) runtime:10.334(10.991)   dt:09.87s  Elapsed:01m00s  ETA:41m17s
