@@ -1,7 +1,7 @@
 services:
-  crgstl_1:
-    image: crgstl
-    container_name: crgstl_container_1
+  telograf-simple:
+    image: diffusion
+    container_name: telograf_simple_container
     network_mode: host
     environment:
       - DISPLAY=${DISPLAY}
