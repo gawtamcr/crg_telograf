@@ -1,4 +1,4 @@
-# Training config  (matches current run.sh defaults)
+# Training config  
 flow: true
 first_sat_init: true
 skip_first_eval: true

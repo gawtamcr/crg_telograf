@@ -1,0 +1,311 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            hyd0roqb0wv8yw0tbumdttahblolnqji:
+                args:
+                    - --config
+                    - configs/train.yaml
+                codePath: train.py
+                codePathLocal: train.py
+                cpu_count: 10
+                cpu_count_logical: 20
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "1081101176832"
+                        used: "152855691264"
+                email: gawtam@kth.se
+                executable: /usr/local/bin/python
+                gpu: NVIDIA RTX A500 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      memoryTotal: "4294967296"
+                      name: NVIDIA RTX A500 Laptop GPU
+                      uuid: GPU-a8db0c5c-2430-72e9-8b28-a3aa5fc8b319
+                host: docker-desktop
+                memory:
+                    total: "16589672448"
+                os: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41
+                program: /app/project/code/train.py
+                python: CPython 3.10.19
+                root: /app/project/code
+                startedAt: "2026-03-12T13:57:32.102168Z"
+                writerId: hyd0roqb0wv8yw0tbumdttahblolnqji
+        m: []
+        python_version: 3.10.19
+        t:
+            "1":
+                - 1
+                - 77
+            "2":
+                - 1
+                - 77
+            "3":
+                - 13
+                - 16
+            "4": 3.10.19
+            "5": 0.25.1
+            "12": 0.25.1
+            "13": linux-x86_64
+abs_name:
+    value: false
+action_dim:
+    value: 2
+add_depth:
+    value: false
+add_gnn_loss:
+    value: false
+add_self_loops:
+    value: false
+aggr_type:
+    value: 0
+attention:
+    value: true
+aug_graph:
+    value: false
+batch_size:
+    value: 256
+bidir:
+    value: false
+cached:
+    value: true
+clip_denoised:
+    value: true
+clip_max:
+    value: 50000
+clip_value:
+    value: 3
+cls_guidance:
+    value: false
+cls_path:
+    value: null
+concise:
+    value: false
+condition_dim:
+    value: 256
+cpu:
+    value: false
+data_aug:
+    value: false
+data_dim:
+    value: 4
+data_path:
+    value: data_0_simple
+debug:
+    value: false
+decay_epochs:
+    value: 900
+decay_lr:
+    value: 5e-05
+decay_mode:
+    value: cosine
+dense_edges:
+    value: false
+dim_mults:
+    value:
+        - 1
+        - 2
+        - 4
+        - 8
+dryrun:
+    value: false
+dt:
+    value: 0.5
+encoder:
+    value: gnn
+env:
+    value: simple
+epochs:
+    value: 1000
+eval_freq:
+    value: 200
+exp_dir_full:
+    value: ../../exps_gstl/g0312-135731_simple_gnn_F_crg_big_train
+exp_name:
+    value: simple_gnn_F_crg_big_train
+filtered_types:
+    value: null
+finetune_backbone:
+    value: false
+first_sat_init:
+    value: true
+flow:
+    value: true
+flow_pattern:
+    value: null
+gat:
+    value: false
+gcn_no_self_loops:
+    value: false
+gin_conv:
+    value: false
+gpus:
+    value: "0"
+guidance:
+    value: false
+guidance_before:
+    value: null
+guidance_lr:
+    value: 0.1
+guidance_scale:
+    value: 0.5
+guidance_steps:
+    value: 1
+hashi_gnn:
+    value: false
+hiddens:
+    value:
+        - 256
+        - 256
+        - 256
+        - 256
+horizon:
+    value: 64
+load_encoder:
+    value: false
+load_unet:
+    value: false
+loss_type:
+    value: l2
+loss_weight:
+    value: 1
+lr:
+    value: 0.0005
+max_aug:
+    value: 4
+max_ego_clip:
+    value: null
+max_sol_clip:
+    value: 2
+max_viz:
+    value: 4
+mlp:
+    value: false
+mlp_hiddens:
+    value:
+        - 64
+        - 64
+mock_dup_times:
+    value: null
+mock_indices:
+    value: null
+mock_model:
+    value: false
+model_dir:
+    value: ../../exps_gstl/g0312-135731_simple_gnn_F_crg_big_train/models
+n_timesteps:
+    value: 100
+n_viz_trajs_max:
+    value: 64
+net_pretrained_path:
+    value: null
+no_shuffle:
+    value: false
+normalize:
+    value: false
+num_evals:
+    value: 10
+num_flow_steps:
+    value: null
+num_workers:
+    value: 8
+observation_dim:
+    value: 2
+post_residual:
+    value: false
+predict_score:
+    value: false
+pretraining:
+    value: false
+print_freq:
+    value: 50
+pure_l2_index:
+    value: null
+rand_aug_eval:
+    value: true
+rand_aug_graph:
+    value: false
+rebase:
+    value: null
+residual:
+    value: false
+same_train_val:
+    value: false
+save_freq:
+    value: 1000
+score_hiddens:
+    value:
+        - 64
+        - 64
+seed:
+    value: 1007
+select_indices:
+    value: null
+set_detect_anomaly:
+    value: false
+skip_first_eval:
+    value: true
+smoothing_factor:
+    value: 10
+src_dir:
+    value: ../../exps_gstl/g0312-135731_simple_gnn_F_crg_big_train/src
+sst:
+    value: false
+stat_decay:
+    value: 0.9
+suffix:
+    value: null
+tconv_dim:
+    value: 32
+test:
+    value: false
+test_muls:
+    value: null
+test_path:
+    value: null
+train_classifier:
+    value: false
+train_encoder:
+    value: false
+train_eval_only:
+    value: false
+train_unet_partial:
+    value: false
+traj_hiddens:
+    value:
+        - 256
+        - 256
+        - 256
+        - 256
+two_hop:
+    value: false
+type_ratios:
+    value:
+        - 1
+        - 3
+        - 2
+        - 4
+unet_dropout:
+    value: null
+vae:
+    value: false
+val_eval_only:
+    value: false
+viz_dir:
+    value: ../../exps_gstl/g0312-135731_simple_gnn_F_crg_big_train/viz
+viz_freq:
+    value: 200
+warmup_epochs:
+    value: 0
+warmup_lr:
+    value: null
+with_predict_head:
+    value: false
+word_format:
+    value: false
+xy_mask:
+    value: false
+zero_ego:
+    value: false
