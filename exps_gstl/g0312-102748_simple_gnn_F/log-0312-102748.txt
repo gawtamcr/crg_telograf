@@ -1,0 +1,2036 @@
+Env:simple  use data data_0_simple ...
+Finished loading numpy data
+Make absolute idx...
+Finished marking idx
+Clip the dataset from 1000 to 50000 => 1000
+Load STLs ...
+TREESIZE original:17.119 add:0.000 new:17.119
+Filter data...
+{0: np.float64(125.0), 1: np.float64(375.0), 2: np.float64(250.0), 3: np.float64(500.0)}
+********** Stat **********
+Expect ratios: 0.100 0.300 0.200 0.400 | Actual: 0.112 0.337 0.224 0.327
+Sat cases: {0: 63, 1: 189, 2: 129, 3: 213}
+Sat inits: {0: 63, 1: 189, 2: 129, 3: 213}
+Sat sols: {0: 125, 1: 375, 2: 250, 3: 364}
+LEN 1000 SAT ratio 0.13925
+train-len:898
+val-len:216
+seq_max_len 1
+[ models/temporal ] Channel dimensions: [(4, 32), (32, 64), (64, 128), (128, 256)]
+[(4, 32), (32, 64), (64, 128), (128, 256)]
+Epochs[000/1000] lr:0.0005000
+Epochs[000/1000] (0000/0004) loss:1.373(1.373)  dt:00.00s Elapsed:01.19s ETA:00.03s
+Epochs[001/1000] lr:0.0005000
+Epochs[001/1000] (0000/0004) loss:1.071(1.071)  dt:00.38s Elapsed:02.01s ETA:25m01s
+Epochs[002/1000] lr:0.0005000
+Epochs[002/1000] (0000/0004) loss:0.976(0.976)  dt:00.28s Elapsed:02.63s ETA:18m31s
+Epochs[003/1000] lr:0.0005000
+Epochs[003/1000] (0000/0004) loss:0.905(0.905)  dt:00.24s Elapsed:03.24s ETA:15m53s
+Epochs[004/1000] lr:0.0005000
+Epochs[004/1000] (0000/0004) loss:0.833(0.833)  dt:00.22s Elapsed:03.88s ETA:14m40s
+Epochs[005/1000] lr:0.0005000
+Epochs[005/1000] (0000/0004) loss:0.781(0.781)  dt:00.21s Elapsed:04.49s ETA:13m44s
+Epochs[006/1000] lr:0.0005000
+Epochs[006/1000] (0000/0004) loss:0.721(0.721)  dt:00.20s Elapsed:05.15s ETA:13m16s
+Epochs[007/1000] lr:0.0004999
+Epochs[007/1000] (0000/0004) loss:0.673(0.673)  dt:00.20s Elapsed:06.03s ETA:13m25s
+Epochs[008/1000] lr:0.0004999
+Epochs[008/1000] (0000/0004) loss:0.621(0.621)  dt:00.20s Elapsed:06.70s ETA:13m07s
+Epochs[009/1000] lr:0.0004999
+Epochs[009/1000] (0000/0004) loss:0.579(0.579)  dt:00.19s Elapsed:07.33s ETA:12m52s
+Epochs[010/1000] lr:0.0004999
+Epochs[010/1000] (0000/0004) loss:0.529(0.529)  dt:00.19s Elapsed:07.95s ETA:12m35s
+Epochs[011/1000] lr:0.0004998
+Epochs[011/1000] (0000/0004) loss:0.483(0.483)  dt:00.19s Elapsed:08.65s ETA:12m28s
+Epochs[012/1000] lr:0.0004998
+Epochs[012/1000] (0000/0004) loss:0.439(0.439)  dt:00.19s Elapsed:09.29s ETA:12m18s
+Epochs[013/1000] lr:0.0004998
+Epochs[013/1000] (0000/0004) loss:0.415(0.415)  dt:00.18s Elapsed:09.88s ETA:12m06s
+Epochs[014/1000] lr:0.0004997
+Epochs[014/1000] (0000/0004) loss:0.404(0.404)  dt:00.18s Elapsed:10.49s ETA:11m57s
+Epochs[015/1000] lr:0.0004997
+Epochs[015/1000] (0000/0004) loss:0.344(0.344)  dt:00.18s Elapsed:11.09s ETA:11m48s
+Epochs[016/1000] lr:0.0004996
+Epochs[016/1000] (0000/0004) loss:0.341(0.341)  dt:00.18s Elapsed:11.67s ETA:11m38s
+Epochs[017/1000] lr:0.0004996
+Epochs[017/1000] (0000/0004) loss:0.318(0.318)  dt:00.18s Elapsed:12.27s ETA:11m31s
+Epochs[018/1000] lr:0.0004996
+Epochs[018/1000] (0000/0004) loss:0.311(0.311)  dt:00.17s Elapsed:12.88s ETA:11m25s
+Epochs[019/1000] lr:0.0004995
+Epochs[019/1000] (0000/0004) loss:0.293(0.293)  dt:00.17s Elapsed:13.49s ETA:11m20s
+Epochs[020/1000] lr:0.0004995
+Epochs[020/1000] (0000/0004) loss:0.281(0.281)  dt:00.17s Elapsed:14.11s ETA:11m15s
+Epochs[021/1000] lr:0.0004994
+Epochs[021/1000] (0000/0004) loss:0.275(0.275)  dt:00.17s Elapsed:14.75s ETA:11m13s
+Epochs[022/1000] lr:0.0004993
+Epochs[022/1000] (0000/0004) loss:0.295(0.295)  dt:00.17s Elapsed:15.35s ETA:11m09s
+Epochs[023/1000] lr:0.0004993
+Epochs[023/1000] (0000/0004) loss:0.270(0.270)  dt:00.17s Elapsed:15.99s ETA:11m06s
+Epochs[024/1000] lr:0.0004992
+Epochs[024/1000] (0000/0004) loss:0.268(0.268)  dt:00.17s Elapsed:16.61s ETA:11m03s
+Epochs[025/1000] lr:0.0004991
+Epochs[025/1000] (0000/0004) loss:0.246(0.246)  dt:00.17s Elapsed:17.26s ETA:11m00s
+Epochs[026/1000] lr:0.0004991
+Epochs[026/1000] (0000/0004) loss:0.279(0.279)  dt:00.17s Elapsed:17.93s ETA:10m59s
+Epochs[027/1000] lr:0.0004990
+Epochs[027/1000] (0000/0004) loss:0.250(0.250)  dt:00.17s Elapsed:18.61s ETA:10m59s
+Epochs[028/1000] lr:0.0004989
+Epochs[028/1000] (0000/0004) loss:0.235(0.235)  dt:00.17s Elapsed:19.24s ETA:10m57s
+Epochs[029/1000] lr:0.0004988
+Epochs[029/1000] (0000/0004) loss:0.238(0.238)  dt:00.17s Elapsed:19.89s ETA:10m55s
+Epochs[030/1000] lr:0.0004988
+Epochs[030/1000] (0000/0004) loss:0.228(0.228)  dt:00.17s Elapsed:20.48s ETA:10m52s
+Epochs[031/1000] lr:0.0004987
+Epochs[031/1000] (0000/0004) loss:0.243(0.243)  dt:00.17s Elapsed:21.13s ETA:10m51s
+Epochs[032/1000] lr:0.0004986
+Epochs[032/1000] (0000/0004) loss:0.233(0.233)  dt:00.17s Elapsed:21.71s ETA:10m48s
+Epochs[033/1000] lr:0.0004985
+Epochs[033/1000] (0000/0004) loss:0.217(0.217)  dt:00.17s Elapsed:22.32s ETA:10m45s
+Epochs[034/1000] lr:0.0004984
+Epochs[034/1000] (0000/0004) loss:0.209(0.209)  dt:00.17s Elapsed:22.98s ETA:10m43s
+Epochs[035/1000] lr:0.0004983
+Epochs[035/1000] (0000/0004) loss:0.210(0.210)  dt:00.17s Elapsed:23.65s ETA:10m43s
+Epochs[036/1000] lr:0.0004982
+Epochs[036/1000] (0000/0004) loss:0.212(0.212)  dt:00.17s Elapsed:24.57s ETA:10m47s
+Epochs[037/1000] lr:0.0004981
+Epochs[037/1000] (0000/0004) loss:0.224(0.224)  dt:00.19s Elapsed:28.90s ETA:12m19s
+Epochs[038/1000] lr:0.0004980
+Epochs[038/1000] (0000/0004) loss:0.205(0.205)  dt:00.19s Elapsed:30.00s ETA:12m29s
+Epochs[039/1000] lr:0.0004979
+Epochs[039/1000] (0000/0004) loss:0.201(0.201)  dt:00.20s Elapsed:31.06s ETA:12m34s
+Epochs[040/1000] lr:0.0004978
+Epochs[040/1000] (0000/0004) loss:0.206(0.206)  dt:00.20s Elapsed:32.01s ETA:12m38s
+Epochs[041/1000] lr:0.0004977
+Epochs[041/1000] (0000/0004) loss:0.214(0.214)  dt:00.20s Elapsed:33.08s ETA:12m43s
+Epochs[042/1000] lr:0.0004976
+Epochs[042/1000] (0000/0004) loss:0.191(0.191)  dt:00.20s Elapsed:34.43s ETA:12m52s
+Epochs[043/1000] lr:0.0004975
+Epochs[043/1000] (0000/0004) loss:0.191(0.191)  dt:00.21s Elapsed:36.28s ETA:13m15s
+Epochs[044/1000] lr:0.0004974
+Epochs[044/1000] (0000/0004) loss:0.192(0.192)  dt:00.21s Elapsed:38.13s ETA:13m29s
+Epochs[045/1000] lr:0.0004972
+Epochs[045/1000] (0000/0004) loss:0.194(0.194)  dt:00.22s Elapsed:40.15s ETA:14m00s
+Epochs[046/1000] lr:0.0004971
+Epochs[046/1000] (0000/0004) loss:0.205(0.205)  dt:00.22s Elapsed:41.60s ETA:14m13s
+Epochs[047/1000] lr:0.0004970
+Epochs[047/1000] (0000/0004) loss:0.182(0.182)  dt:00.22s Elapsed:42.66s ETA:14m16s
+Epochs[048/1000] lr:0.0004968
+Epochs[048/1000] (0000/0004) loss:0.180(0.180)  dt:00.23s Elapsed:44.01s ETA:14m21s
+Epochs[049/1000] lr:0.0004967
+Epochs[049/1000] (0000/0004) loss:0.188(0.188)  dt:00.23s Elapsed:45.23s ETA:14m28s
+Epochs[050/1000] lr:0.0004966
+Epochs[050/1000] (0000/0004) loss:0.185(0.185)  dt:00.23s Elapsed:46.30s ETA:14m31s
+Epochs[051/1000] lr:0.0004964
+Epochs[051/1000] (0000/0004) loss:0.182(0.182)  dt:00.23s Elapsed:47.49s ETA:14m35s
+Epochs[052/1000] lr:0.0004963
+Epochs[052/1000] (0000/0004) loss:0.180(0.180)  dt:00.23s Elapsed:48.44s ETA:14m35s
+Epochs[053/1000] lr:0.0004962
+Epochs[053/1000] (0000/0004) loss:0.177(0.177)  dt:00.23s Elapsed:49.41s ETA:14m35s
+Epochs[054/1000] lr:0.0004960
+Epochs[054/1000] (0000/0004) loss:0.172(0.172)  dt:00.23s Elapsed:50.34s ETA:14m33s
+Epochs[055/1000] lr:0.0004959
+Epochs[055/1000] (0000/0004) loss:0.171(0.171)  dt:00.23s Elapsed:51.32s ETA:14m34s
+Epochs[056/1000] lr:0.0004957
+Epochs[056/1000] (0000/0004) loss:0.174(0.174)  dt:00.23s Elapsed:52.22s ETA:14m33s
+Epochs[057/1000] lr:0.0004956
+Epochs[057/1000] (0000/0004) loss:0.179(0.179)  dt:00.23s Elapsed:53.16s ETA:14m32s
+Epochs[058/1000] lr:0.0004954
+Epochs[058/1000] (0000/0004) loss:0.166(0.166)  dt:00.23s Elapsed:54.02s ETA:14m30s
+Epochs[059/1000] lr:0.0004952
+Epochs[059/1000] (0000/0004) loss:0.168(0.168)  dt:00.23s Elapsed:55.15s ETA:14m31s
+Epochs[060/1000] lr:0.0004951
+Epochs[060/1000] (0000/0004) loss:0.175(0.175)  dt:00.24s Elapsed:57.18s ETA:14m46s
+Epochs[061/1000] lr:0.0004949
+Epochs[061/1000] (0000/0004) loss:0.163(0.163)  dt:00.25s Elapsed:01m01s ETA:15m36s
+Epochs[062/1000] lr:0.0004948
+Epochs[062/1000] (0000/0004) loss:0.171(0.171)  dt:00.25s Elapsed:01m02s ETA:15m38s
+Epochs[063/1000] lr:0.0004946
+Epochs[063/1000] (0000/0004) loss:0.160(0.160)  dt:00.25s Elapsed:01m03s ETA:15m38s
+Epochs[064/1000] lr:0.0004944
+Epochs[064/1000] (0000/0004) loss:0.160(0.160)  dt:00.25s Elapsed:01m04s ETA:15m37s
+Epochs[065/1000] lr:0.0004942
+Epochs[065/1000] (0000/0004) loss:0.165(0.165)  dt:00.25s Elapsed:01m05s ETA:15m36s
+Epochs[066/1000] lr:0.0004941
+Epochs[066/1000] (0000/0004) loss:0.149(0.149)  dt:00.25s Elapsed:01m06s ETA:15m35s
+Epochs[067/1000] lr:0.0004939
+Epochs[067/1000] (0000/0004) loss:0.167(0.167)  dt:00.25s Elapsed:01m08s ETA:15m43s
+Epochs[068/1000] lr:0.0004937
+Epochs[068/1000] (0000/0004) loss:0.168(0.168)  dt:00.26s Elapsed:01m09s ETA:15m51s
+Epochs[069/1000] lr:0.0004935
+Epochs[069/1000] (0000/0004) loss:0.160(0.160)  dt:00.26s Elapsed:01m11s ETA:15m55s
+Epochs[070/1000] lr:0.0004933
+Epochs[070/1000] (0000/0004) loss:0.156(0.156)  dt:00.26s Elapsed:01m12s ETA:15m56s
+Epochs[071/1000] lr:0.0004931
+Epochs[071/1000] (0000/0004) loss:0.159(0.159)  dt:00.26s Elapsed:01m13s ETA:15m56s
+Epochs[072/1000] lr:0.0004929
+Epochs[072/1000] (0000/0004) loss:0.157(0.157)  dt:00.26s Elapsed:01m14s ETA:15m55s
+Epochs[073/1000] lr:0.0004927
+Epochs[073/1000] (0000/0004) loss:0.166(0.166)  dt:00.26s Elapsed:01m15s ETA:15m54s
+Epochs[074/1000] lr:0.0004925
+Epochs[074/1000] (0000/0004) loss:0.147(0.147)  dt:00.26s Elapsed:01m17s ETA:16m01s
+Epochs[075/1000] lr:0.0004923
+Epochs[075/1000] (0000/0004) loss:0.149(0.149)  dt:00.26s Elapsed:01m18s ETA:16m02s
+Epochs[076/1000] lr:0.0004921
+Epochs[076/1000] (0000/0004) loss:0.155(0.155)  dt:00.26s Elapsed:01m19s ETA:16m02s
+Epochs[077/1000] lr:0.0004919
+Epochs[077/1000] (0000/0004) loss:0.147(0.147)  dt:00.26s Elapsed:01m20s ETA:16m00s
+Epochs[078/1000] lr:0.0004917
+Epochs[078/1000] (0000/0004) loss:0.143(0.143)  dt:00.26s Elapsed:01m21s ETA:15m59s
+Epochs[079/1000] lr:0.0004915
+Epochs[079/1000] (0000/0004) loss:0.154(0.154)  dt:00.26s Elapsed:01m22s ETA:15m58s
+Epochs[080/1000] lr:0.0004913
+Epochs[080/1000] (0000/0004) loss:0.148(0.148)  dt:00.26s Elapsed:01m23s ETA:15m56s
+Epochs[081/1000] lr:0.0004911
+Epochs[081/1000] (0000/0004) loss:0.142(0.142)  dt:00.26s Elapsed:01m24s ETA:15m56s
+Epochs[082/1000] lr:0.0004908
+Epochs[082/1000] (0000/0004) loss:0.146(0.146)  dt:00.26s Elapsed:01m26s ETA:15m58s
+Epochs[083/1000] lr:0.0004906
+Epochs[083/1000] (0000/0004) loss:0.143(0.143)  dt:00.26s Elapsed:01m27s ETA:16m01s
+Epochs[084/1000] lr:0.0004904
+Epochs[084/1000] (0000/0004) loss:0.143(0.143)  dt:00.26s Elapsed:01m28s ETA:16m03s
+Epochs[085/1000] lr:0.0004902
+Epochs[085/1000] (0000/0004) loss:0.145(0.145)  dt:00.26s Elapsed:01m29s ETA:16m02s
+Epochs[086/1000] lr:0.0004899
+Epochs[086/1000] (0000/0004) loss:0.140(0.140)  dt:00.27s Elapsed:01m33s ETA:16m30s
+Epochs[087/1000] lr:0.0004897
+Epochs[087/1000] (0000/0004) loss:0.129(0.129)  dt:00.27s Elapsed:01m34s ETA:16m31s
+Epochs[088/1000] lr:0.0004895
+Epochs[088/1000] (0000/0004) loss:0.138(0.138)  dt:00.27s Elapsed:01m36s ETA:16m29s
+Epochs[089/1000] lr:0.0004892
+Epochs[089/1000] (0000/0004) loss:0.142(0.142)  dt:00.27s Elapsed:01m37s ETA:16m30s
+Epochs[090/1000] lr:0.0004890
+Epochs[090/1000] (0000/0004) loss:0.140(0.140)  dt:00.27s Elapsed:01m38s ETA:16m33s
+Epochs[091/1000] lr:0.0004887
+Epochs[091/1000] (0000/0004) loss:0.140(0.140)  dt:00.27s Elapsed:01m40s ETA:16m32s
+Epochs[092/1000] lr:0.0004885
+Epochs[092/1000] (0000/0004) loss:0.143(0.143)  dt:00.27s Elapsed:01m41s ETA:16m33s
+Epochs[093/1000] lr:0.0004882
+Epochs[093/1000] (0000/0004) loss:0.130(0.130)  dt:00.27s Elapsed:01m42s ETA:16m32s
+Epochs[094/1000] lr:0.0004880
+Epochs[094/1000] (0000/0004) loss:0.134(0.134)  dt:00.27s Elapsed:01m43s ETA:16m30s
+Epochs[095/1000] lr:0.0004877
+Epochs[095/1000] (0000/0004) loss:0.134(0.134)  dt:00.27s Elapsed:01m44s ETA:16m30s
+Epochs[096/1000] lr:0.0004875
+Epochs[096/1000] (0000/0004) loss:0.133(0.133)  dt:00.27s Elapsed:01m45s ETA:16m28s
+Epochs[097/1000] lr:0.0004872
+Epochs[097/1000] (0000/0004) loss:0.134(0.134)  dt:00.27s Elapsed:01m46s ETA:16m25s
+Epochs[098/1000] lr:0.0004870
+Epochs[098/1000] (0000/0004) loss:0.136(0.136)  dt:00.27s Elapsed:01m47s ETA:16m28s
+Epochs[099/1000] lr:0.0004867
+Epochs[099/1000] (0000/0004) loss:0.129(0.129)  dt:00.28s Elapsed:01m49s ETA:16m31s
+Epochs[100/1000] lr:0.0004864
+Epochs[100/1000] (0000/0004) loss:0.128(0.128)  dt:00.28s Elapsed:01m50s ETA:16m31s
+Epochs[101/1000] lr:0.0004862
+Epochs[101/1000] (0000/0004) loss:0.138(0.138)  dt:00.28s Elapsed:01m51s ETA:16m30s
+Epochs[102/1000] lr:0.0004859
+Epochs[102/1000] (0000/0004) loss:0.133(0.133)  dt:00.28s Elapsed:01m52s ETA:16m28s
+Epochs[103/1000] lr:0.0004856
+Epochs[103/1000] (0000/0004) loss:0.125(0.125)  dt:00.28s Elapsed:01m53s ETA:16m27s
+Epochs[104/1000] lr:0.0004853
+Epochs[104/1000] (0000/0004) loss:0.140(0.140)  dt:00.28s Elapsed:01m54s ETA:16m25s
+Epochs[105/1000] lr:0.0004851
+Epochs[105/1000] (0000/0004) loss:0.121(0.121)  dt:00.27s Elapsed:01m56s ETA:16m23s
+Epochs[106/1000] lr:0.0004848
+Epochs[106/1000] (0000/0004) loss:0.134(0.134)  dt:00.28s Elapsed:01m57s ETA:16m29s
+Epochs[107/1000] lr:0.0004845
+Epochs[107/1000] (0000/0004) loss:0.137(0.137)  dt:00.28s Elapsed:01m58s ETA:16m28s
+Epochs[108/1000] lr:0.0004842
+Epochs[108/1000] (0000/0004) loss:0.125(0.125)  dt:00.28s Elapsed:02m00s ETA:16m29s
+Epochs[109/1000] lr:0.0004839
+Epochs[109/1000] (0000/0004) loss:0.130(0.130)  dt:00.28s Elapsed:02m00s ETA:16m25s
+Epochs[110/1000] lr:0.0004836
+Epochs[110/1000] (0000/0004) loss:0.124(0.124)  dt:00.28s Elapsed:02m01s ETA:16m20s
+Epochs[111/1000] lr:0.0004833
+Epochs[111/1000] (0000/0004) loss:0.126(0.126)  dt:00.27s Elapsed:02m02s ETA:16m16s
+Epochs[112/1000] lr:0.0004830
+Epochs[112/1000] (0000/0004) loss:0.129(0.129)  dt:00.27s Elapsed:02m02s ETA:16m11s
+Epochs[113/1000] lr:0.0004827
+Epochs[113/1000] (0000/0004) loss:0.123(0.123)  dt:00.28s Elapsed:02m06s ETA:16m27s
+Epochs[114/1000] lr:0.0004824
+Epochs[114/1000] (0000/0004) loss:0.120(0.120)  dt:00.28s Elapsed:02m06s ETA:16m23s
+Epochs[115/1000] lr:0.0004821
+Epochs[115/1000] (0000/0004) loss:0.125(0.125)  dt:00.28s Elapsed:02m07s ETA:16m18s
+Epochs[116/1000] lr:0.0004818
+Epochs[116/1000] (0000/0004) loss:0.125(0.125)  dt:00.28s Elapsed:02m08s ETA:16m13s
+Epochs[117/1000] lr:0.0004815
+Epochs[117/1000] (0000/0004) loss:0.126(0.126)  dt:00.27s Elapsed:02m08s ETA:16m09s
+Epochs[118/1000] lr:0.0004812
+Epochs[118/1000] (0000/0004) loss:0.126(0.126)  dt:00.27s Elapsed:02m09s ETA:16m04s
+Epochs[119/1000] lr:0.0004809
+Epochs[119/1000] (0000/0004) loss:0.120(0.120)  dt:00.27s Elapsed:02m10s ETA:16m00s
+Epochs[120/1000] lr:0.0004805
+Epochs[120/1000] (0000/0004) loss:0.119(0.119)  dt:00.27s Elapsed:02m10s ETA:15m56s
+Epochs[121/1000] lr:0.0004802
+Epochs[121/1000] (0000/0004) loss:0.131(0.131)  dt:00.27s Elapsed:02m11s ETA:15m51s
+Epochs[122/1000] lr:0.0004799
+Epochs[122/1000] (0000/0004) loss:0.125(0.125)  dt:00.27s Elapsed:02m12s ETA:15m47s
+Epochs[123/1000] lr:0.0004796
+Epochs[123/1000] (0000/0004) loss:0.126(0.126)  dt:00.27s Elapsed:02m12s ETA:15m43s
+Epochs[124/1000] lr:0.0004792
+Epochs[124/1000] (0000/0004) loss:0.120(0.120)  dt:00.27s Elapsed:02m13s ETA:15m39s
+Epochs[125/1000] lr:0.0004789
+Epochs[125/1000] (0000/0004) loss:0.121(0.121)  dt:00.27s Elapsed:02m14s ETA:15m35s
+Epochs[126/1000] lr:0.0004786
+Epochs[126/1000] (0000/0004) loss:0.115(0.115)  dt:00.27s Elapsed:02m14s ETA:15m30s
+Epochs[127/1000] lr:0.0004783
+Epochs[127/1000] (0000/0004) loss:0.119(0.119)  dt:00.27s Elapsed:02m15s ETA:15m26s
+Epochs[128/1000] lr:0.0004779
+Epochs[128/1000] (0000/0004) loss:0.109(0.109)  dt:00.26s Elapsed:02m15s ETA:15m22s
+Epochs[129/1000] lr:0.0004776
+Epochs[129/1000] (0000/0004) loss:0.117(0.117)  dt:00.26s Elapsed:02m16s ETA:15m18s
+Epochs[130/1000] lr:0.0004772
+Epochs[130/1000] (0000/0004) loss:0.121(0.121)  dt:00.26s Elapsed:02m17s ETA:15m15s
+Epochs[131/1000] lr:0.0004769
+Epochs[131/1000] (0000/0004) loss:0.122(0.122)  dt:00.26s Elapsed:02m17s ETA:15m12s
+Epochs[132/1000] lr:0.0004765
+Epochs[132/1000] (0000/0004) loss:0.119(0.119)  dt:00.26s Elapsed:02m18s ETA:15m08s
+Epochs[133/1000] lr:0.0004762
+Epochs[133/1000] (0000/0004) loss:0.104(0.104)  dt:00.26s Elapsed:02m19s ETA:15m04s
+Epochs[134/1000] lr:0.0004758
+Epochs[134/1000] (0000/0004) loss:0.124(0.124)  dt:00.26s Elapsed:02m19s ETA:15m01s
+Epochs[135/1000] lr:0.0004755
+Epochs[135/1000] (0000/0004) loss:0.116(0.116)  dt:00.26s Elapsed:02m20s ETA:14m58s
+Epochs[136/1000] lr:0.0004751
+Epochs[136/1000] (0000/0004) loss:0.117(0.117)  dt:00.26s Elapsed:02m21s ETA:14m54s
+Epochs[137/1000] lr:0.0004748
+Epochs[137/1000] (0000/0004) loss:0.119(0.119)  dt:00.26s Elapsed:02m22s ETA:14m51s
+Epochs[138/1000] lr:0.0004744
+Epochs[138/1000] (0000/0004) loss:0.115(0.115)  dt:00.26s Elapsed:02m22s ETA:14m48s
+Epochs[139/1000] lr:0.0004740
+Epochs[139/1000] (0000/0004) loss:0.110(0.110)  dt:00.26s Elapsed:02m23s ETA:14m45s
+Epochs[140/1000] lr:0.0004737
+Epochs[140/1000] (0000/0004) loss:0.106(0.106)  dt:00.26s Elapsed:02m23s ETA:14m41s
+Epochs[141/1000] lr:0.0004733
+Epochs[141/1000] (0000/0004) loss:0.117(0.117)  dt:00.26s Elapsed:02m24s ETA:14m38s
+Epochs[142/1000] lr:0.0004729
+Epochs[142/1000] (0000/0004) loss:0.114(0.114)  dt:00.26s Elapsed:02m25s ETA:14m35s
+Epochs[143/1000] lr:0.0004725
+Epochs[143/1000] (0000/0004) loss:0.112(0.112)  dt:00.25s Elapsed:02m26s ETA:14m32s
+Epochs[144/1000] lr:0.0004722
+Epochs[144/1000] (0000/0004) loss:0.110(0.110)  dt:00.25s Elapsed:02m26s ETA:14m29s
+Epochs[145/1000] lr:0.0004718
+Epochs[145/1000] (0000/0004) loss:0.107(0.107)  dt:00.25s Elapsed:02m27s ETA:14m26s
+Epochs[146/1000] lr:0.0004714
+Epochs[146/1000] (0000/0004) loss:0.114(0.114)  dt:00.25s Elapsed:02m28s ETA:14m23s
+Epochs[147/1000] lr:0.0004710
+Epochs[147/1000] (0000/0004) loss:0.112(0.112)  dt:00.25s Elapsed:02m28s ETA:14m20s
+Epochs[148/1000] lr:0.0004706
+Epochs[148/1000] (0000/0004) loss:0.112(0.112)  dt:00.25s Elapsed:02m29s ETA:14m17s
+Epochs[149/1000] lr:0.0004702
+Epochs[149/1000] (0000/0004) loss:0.109(0.109)  dt:00.25s Elapsed:02m30s ETA:14m15s
+Epochs[150/1000] lr:0.0004699
+Epochs[150/1000] (0000/0004) loss:0.118(0.118)  dt:00.25s Elapsed:02m32s ETA:14m17s
+Epochs[151/1000] lr:0.0004695
+Epochs[151/1000] (0000/0004) loss:0.112(0.112)  dt:00.25s Elapsed:02m34s ETA:14m24s
+Epochs[152/1000] lr:0.0004691
+Epochs[152/1000] (0000/0004) loss:0.110(0.110)  dt:00.26s Elapsed:02m36s ETA:14m26s
+Epochs[153/1000] lr:0.0004687
+Epochs[153/1000] (0000/0004) loss:0.108(0.108)  dt:00.26s Elapsed:02m40s ETA:14m43s
+Epochs[154/1000] lr:0.0004683
+Epochs[154/1000] (0000/0004) loss:0.113(0.113)  dt:00.26s Elapsed:02m41s ETA:14m42s
+Epochs[155/1000] lr:0.0004679
+Epochs[155/1000] (0000/0004) loss:0.103(0.103)  dt:00.26s Elapsed:02m42s ETA:14m40s
+Epochs[156/1000] lr:0.0004675
+Epochs[156/1000] (0000/0004) loss:0.105(0.105)  dt:00.26s Elapsed:02m43s ETA:14m39s
+Epochs[157/1000] lr:0.0004670
+Epochs[157/1000] (0000/0004) loss:0.107(0.107)  dt:00.26s Elapsed:02m44s ETA:14m38s
+Epochs[158/1000] lr:0.0004666
+Epochs[158/1000] (0000/0004) loss:0.103(0.103)  dt:00.26s Elapsed:02m45s ETA:14m38s
+Epochs[159/1000] lr:0.0004662
+Epochs[159/1000] (0000/0004) loss:0.098(0.098)  dt:00.26s Elapsed:02m46s ETA:14m37s
+Epochs[160/1000] lr:0.0004658
+Epochs[160/1000] (0000/0004) loss:0.113(0.113)  dt:00.26s Elapsed:02m47s ETA:14m37s
+Epochs[161/1000] lr:0.0004654
+Epochs[161/1000] (0000/0004) loss:0.101(0.101)  dt:00.26s Elapsed:02m49s ETA:14m40s
+Epochs[162/1000] lr:0.0004650
+Epochs[162/1000] (0000/0004) loss:0.109(0.109)  dt:00.26s Elapsed:02m50s ETA:14m40s
+Epochs[163/1000] lr:0.0004646
+Epochs[163/1000] (0000/0004) loss:0.109(0.109)  dt:00.26s Elapsed:02m51s ETA:14m39s
+Epochs[164/1000] lr:0.0004641
+Epochs[164/1000] (0000/0004) loss:0.105(0.105)  dt:00.26s Elapsed:02m52s ETA:14m37s
+Epochs[165/1000] lr:0.0004637
+Epochs[165/1000] (0000/0004) loss:0.105(0.105)  dt:00.26s Elapsed:02m53s ETA:14m35s
+Epochs[166/1000] lr:0.0004633
+Epochs[166/1000] (0000/0004) loss:0.101(0.101)  dt:00.26s Elapsed:02m54s ETA:14m35s
+Epochs[167/1000] lr:0.0004628
+Epochs[167/1000] (0000/0004) loss:0.097(0.097)  dt:00.26s Elapsed:02m55s ETA:14m34s
+Epochs[168/1000] lr:0.0004624
+Epochs[168/1000] (0000/0004) loss:0.103(0.103)  dt:00.26s Elapsed:02m57s ETA:14m34s
+Epochs[169/1000] lr:0.0004620
+Epochs[169/1000] (0000/0004) loss:0.095(0.095)  dt:00.26s Elapsed:02m58s ETA:14m34s
+Epochs[170/1000] lr:0.0004615
+Epochs[170/1000] (0000/0004) loss:0.100(0.100)  dt:00.26s Elapsed:02m59s ETA:14m35s
+Epochs[171/1000] lr:0.0004611
+Epochs[171/1000] (0000/0004) loss:0.092(0.092)  dt:00.26s Elapsed:03m01s ETA:14m36s
+Epochs[172/1000] lr:0.0004607
+Epochs[172/1000] (0000/0004) loss:0.096(0.096)  dt:00.26s Elapsed:03m02s ETA:14m37s
+Epochs[173/1000] lr:0.0004602
+Epochs[173/1000] (0000/0004) loss:0.097(0.097)  dt:00.26s Elapsed:03m03s ETA:14m36s
+Epochs[174/1000] lr:0.0004598
+Epochs[174/1000] (0000/0004) loss:0.104(0.104)  dt:00.26s Elapsed:03m04s ETA:14m34s
+Epochs[175/1000] lr:0.0004593
+Epochs[175/1000] (0000/0004) loss:0.099(0.099)  dt:00.26s Elapsed:03m05s ETA:14m33s
+Epochs[176/1000] lr:0.0004589
+Epochs[176/1000] (0000/0004) loss:0.095(0.095)  dt:00.27s Elapsed:03m07s ETA:14m34s
+Epochs[177/1000] lr:0.0004584
+Epochs[177/1000] (0000/0004) loss:0.095(0.095)  dt:00.27s Elapsed:03m08s ETA:14m34s
+Epochs[178/1000] lr:0.0004579
+Epochs[178/1000] (0000/0004) loss:0.107(0.107)  dt:00.27s Elapsed:03m12s ETA:14m45s
+Epochs[179/1000] lr:0.0004575
+Epochs[179/1000] (0000/0004) loss:0.092(0.092)  dt:00.27s Elapsed:03m13s ETA:14m43s
+Epochs[180/1000] lr:0.0004570
+Epochs[180/1000] (0000/0004) loss:0.093(0.093)  dt:00.27s Elapsed:03m14s ETA:14m41s
+Epochs[181/1000] lr:0.0004566
+Epochs[181/1000] (0000/0004) loss:0.098(0.098)  dt:00.27s Elapsed:03m15s ETA:14m40s
+Epochs[182/1000] lr:0.0004561
+Epochs[182/1000] (0000/0004) loss:0.099(0.099)  dt:00.27s Elapsed:03m15s ETA:14m38s
+Epochs[183/1000] lr:0.0004556
+Epochs[183/1000] (0000/0004) loss:0.101(0.101)  dt:00.27s Elapsed:03m17s ETA:14m37s
+Epochs[184/1000] lr:0.0004552
+Epochs[184/1000] (0000/0004) loss:0.096(0.096)  dt:00.27s Elapsed:03m18s ETA:14m37s
+Epochs[185/1000] lr:0.0004547
+Epochs[185/1000] (0000/0004) loss:0.099(0.099)  dt:00.27s Elapsed:03m19s ETA:14m36s
+Epochs[186/1000] lr:0.0004542
+Epochs[186/1000] (0000/0004) loss:0.094(0.094)  dt:00.27s Elapsed:03m21s ETA:14m37s
+Epochs[187/1000] lr:0.0004537
+Epochs[187/1000] (0000/0004) loss:0.096(0.096)  dt:00.27s Elapsed:03m22s ETA:14m39s
+Epochs[188/1000] lr:0.0004533
+Epochs[188/1000] (0000/0004) loss:0.099(0.099)  dt:00.27s Elapsed:03m24s ETA:14m40s
+Epochs[189/1000] lr:0.0004528
+Epochs[189/1000] (0000/0004) loss:0.094(0.094)  dt:00.27s Elapsed:03m25s ETA:14m40s
+Epochs[190/1000] lr:0.0004523
+Epochs[190/1000] (0000/0004) loss:0.091(0.091)  dt:00.27s Elapsed:03m26s ETA:14m39s
+Epochs[191/1000] lr:0.0004518
+Epochs[191/1000] (0000/0004) loss:0.091(0.091)  dt:00.27s Elapsed:03m28s ETA:14m39s
+Epochs[192/1000] lr:0.0004513
+Epochs[192/1000] (0000/0004) loss:0.089(0.089)  dt:00.27s Elapsed:03m29s ETA:14m37s
+Epochs[193/1000] lr:0.0004508
+Epochs[193/1000] (0000/0004) loss:0.087(0.087)  dt:00.27s Elapsed:03m29s ETA:14m35s
+Epochs[194/1000] lr:0.0004504
+Epochs[194/1000] (0000/0004) loss:0.098(0.098)  dt:00.27s Elapsed:03m30s ETA:14m34s
+Epochs[195/1000] lr:0.0004499
+Epochs[195/1000] (0000/0004) loss:0.096(0.096)  dt:00.27s Elapsed:03m32s ETA:14m33s
+Epochs[196/1000] lr:0.0004494
+Epochs[196/1000] (0000/0004) loss:0.093(0.093)  dt:00.27s Elapsed:03m33s ETA:14m33s
+Epochs[197/1000] lr:0.0004489
+Epochs[197/1000] (0000/0004) loss:0.090(0.090)  dt:00.27s Elapsed:03m34s ETA:14m32s
+Epochs[198/1000] lr:0.0004484
+Epochs[198/1000] (0000/0004) loss:0.093(0.093)  dt:00.27s Elapsed:03m36s ETA:14m32s
+Epochs[199/1000] lr:0.0004479
+Epochs[199/1000] (0000/0004) loss:0.094(0.094)  dt:00.27s Elapsed:03m37s ETA:14m34s
+Epochs[200/1000] lr:0.0004474
+Epochs[200/1000] (0000/0004) loss:0.083(0.083)  dt:00.27s Elapsed:03m39s ETA:14m34s
+train STL Acc:0.033
+val STL Acc:0.046
+STAT train:475 stls, 898 trajs (:0.0334 _0:0.1237 _1:0.0314 _2:0.0348 _3:0.0035) | val:119 stls, 216 trajs (:0.0463 :0.1786 :0.0877 :0.0000 :0.0000)
+Epochs[201/1000] lr:0.0004469
+Epochs[201/1000] (0000/0004) loss:0.095(0.095)  dt:00.40s Elapsed:05m24s ETA:21m26s
+Epochs[202/1000] lr:0.0004463
+Epochs[202/1000] (0000/0004) loss:0.090(0.090)  dt:00.40s Elapsed:05m24s ETA:21m20s
+Epochs[203/1000] lr:0.0004458
+Epochs[203/1000] (0000/0004) loss:0.094(0.094)  dt:00.40s Elapsed:05m25s ETA:21m15s
+Epochs[204/1000] lr:0.0004453
+Epochs[204/1000] (0000/0004) loss:0.087(0.087)  dt:00.40s Elapsed:05m26s ETA:21m10s
+Epochs[205/1000] lr:0.0004448
+Epochs[205/1000] (0000/0004) loss:0.080(0.080)  dt:00.40s Elapsed:05m26s ETA:21m04s
+Epochs[206/1000] lr:0.0004443
+Epochs[206/1000] (0000/0004) loss:0.085(0.085)  dt:00.40s Elapsed:05m27s ETA:20m59s
+Epochs[207/1000] lr:0.0004438
+Epochs[207/1000] (0000/0004) loss:0.084(0.084)  dt:00.40s Elapsed:05m28s ETA:20m54s
+Epochs[208/1000] lr:0.0004433
+Epochs[208/1000] (0000/0004) loss:0.079(0.079)  dt:00.39s Elapsed:05m28s ETA:20m49s
+Epochs[209/1000] lr:0.0004427
+Epochs[209/1000] (0000/0004) loss:0.080(0.080)  dt:00.39s Elapsed:05m29s ETA:20m44s
+Epochs[210/1000] lr:0.0004422
+Epochs[210/1000] (0000/0004) loss:0.091(0.091)  dt:00.39s Elapsed:05m30s ETA:20m39s
+Epochs[211/1000] lr:0.0004417
+Epochs[211/1000] (0000/0004) loss:0.089(0.089)  dt:00.39s Elapsed:05m30s ETA:20m35s
+Epochs[212/1000] lr:0.0004412
+Epochs[212/1000] (0000/0004) loss:0.082(0.082)  dt:00.39s Elapsed:05m31s ETA:20m30s
+Epochs[213/1000] lr:0.0004406
+Epochs[213/1000] (0000/0004) loss:0.079(0.079)  dt:00.39s Elapsed:05m32s ETA:20m25s
+Epochs[214/1000] lr:0.0004401
+Epochs[214/1000] (0000/0004) loss:0.084(0.084)  dt:00.39s Elapsed:05m32s ETA:20m20s
+Epochs[215/1000] lr:0.0004396
+Epochs[215/1000] (0000/0004) loss:0.078(0.078)  dt:00.39s Elapsed:05m33s ETA:20m15s
+Epochs[216/1000] lr:0.0004390
+Epochs[216/1000] (0000/0004) loss:0.081(0.081)  dt:00.39s Elapsed:05m34s ETA:20m10s
+Epochs[217/1000] lr:0.0004385
+Epochs[217/1000] (0000/0004) loss:0.084(0.084)  dt:00.39s Elapsed:05m34s ETA:20m05s
+Epochs[218/1000] lr:0.0004379
+Epochs[218/1000] (0000/0004) loss:0.080(0.080)  dt:00.38s Elapsed:05m35s ETA:20m00s
+Epochs[219/1000] lr:0.0004374
+Epochs[219/1000] (0000/0004) loss:0.086(0.086)  dt:00.38s Elapsed:05m36s ETA:19m56s
+Epochs[220/1000] lr:0.0004369
+Epochs[220/1000] (0000/0004) loss:0.077(0.077)  dt:00.38s Elapsed:05m36s ETA:19m51s
+Epochs[221/1000] lr:0.0004363
+Epochs[221/1000] (0000/0004) loss:0.079(0.079)  dt:00.38s Elapsed:05m37s ETA:19m47s
+Epochs[222/1000] lr:0.0004358
+Epochs[222/1000] (0000/0004) loss:0.074(0.074)  dt:00.38s Elapsed:05m38s ETA:19m42s
+Epochs[223/1000] lr:0.0004352
+Epochs[223/1000] (0000/0004) loss:0.077(0.077)  dt:00.38s Elapsed:05m38s ETA:19m38s
+Epochs[224/1000] lr:0.0004347
+Epochs[224/1000] (0000/0004) loss:0.080(0.080)  dt:00.38s Elapsed:05m39s ETA:19m33s
+Epochs[225/1000] lr:0.0004341
+Epochs[225/1000] (0000/0004) loss:0.076(0.076)  dt:00.38s Elapsed:05m39s ETA:19m28s
+Epochs[226/1000] lr:0.0004335
+Epochs[226/1000] (0000/0004) loss:0.073(0.073)  dt:00.38s Elapsed:05m40s ETA:19m24s
+Epochs[227/1000] lr:0.0004330
+Epochs[227/1000] (0000/0004) loss:0.079(0.079)  dt:00.38s Elapsed:05m41s ETA:19m19s
+Epochs[228/1000] lr:0.0004324
+Epochs[228/1000] (0000/0004) loss:0.075(0.075)  dt:00.37s Elapsed:05m41s ETA:19m15s
+Epochs[229/1000] lr:0.0004319
+Epochs[229/1000] (0000/0004) loss:0.075(0.075)  dt:00.37s Elapsed:05m42s ETA:19m10s
+Epochs[230/1000] lr:0.0004313
+Epochs[230/1000] (0000/0004) loss:0.067(0.067)  dt:00.37s Elapsed:05m43s ETA:19m06s
+Epochs[231/1000] lr:0.0004307
+Epochs[231/1000] (0000/0004) loss:0.069(0.069)  dt:00.37s Elapsed:05m43s ETA:19m02s
+Epochs[232/1000] lr:0.0004302
+Epochs[232/1000] (0000/0004) loss:0.076(0.076)  dt:00.37s Elapsed:05m44s ETA:18m57s
+Epochs[233/1000] lr:0.0004296
+Epochs[233/1000] (0000/0004) loss:0.069(0.069)  dt:00.37s Elapsed:05m44s ETA:18m53s
+Epochs[234/1000] lr:0.0004290
+Epochs[234/1000] (0000/0004) loss:0.078(0.078)  dt:00.37s Elapsed:05m46s ETA:18m50s
+Epochs[235/1000] lr:0.0004284
+Epochs[235/1000] (0000/0004) loss:0.073(0.073)  dt:00.37s Elapsed:05m48s ETA:18m52s
+Epochs[236/1000] lr:0.0004279
+Epochs[236/1000] (0000/0004) loss:0.079(0.079)  dt:00.37s Elapsed:05m50s ETA:18m50s
+Epochs[237/1000] lr:0.0004273
+Epochs[237/1000] (0000/0004) loss:0.072(0.072)  dt:00.37s Elapsed:05m51s ETA:18m48s
+Epochs[238/1000] lr:0.0004267
+Epochs[238/1000] (0000/0004) loss:0.071(0.071)  dt:00.37s Elapsed:05m55s ETA:18m46s
+Epochs[239/1000] lr:0.0004261
+Epochs[239/1000] (0000/0004) loss:0.067(0.067)  dt:00.37s Elapsed:05m56s ETA:18m52s
+Epochs[240/1000] lr:0.0004256
+Epochs[240/1000] (0000/0004) loss:0.075(0.075)  dt:00.37s Elapsed:05m57s ETA:18m49s
+Epochs[241/1000] lr:0.0004250
+Epochs[241/1000] (0000/0004) loss:0.076(0.076)  dt:00.37s Elapsed:05m58s ETA:18m47s
+Epochs[242/1000] lr:0.0004244
+Epochs[242/1000] (0000/0004) loss:0.077(0.077)  dt:00.37s Elapsed:06m00s ETA:18m46s
+Epochs[243/1000] lr:0.0004238
+Epochs[243/1000] (0000/0004) loss:0.072(0.072)  dt:00.37s Elapsed:06m01s ETA:18m44s
+Epochs[244/1000] lr:0.0004232
+Epochs[244/1000] (0000/0004) loss:0.069(0.069)  dt:00.37s Elapsed:06m02s ETA:18m42s
+Epochs[245/1000] lr:0.0004226
+Epochs[245/1000] (0000/0004) loss:0.073(0.073)  dt:00.37s Elapsed:06m04s ETA:18m39s
+Epochs[246/1000] lr:0.0004220
+Epochs[246/1000] (0000/0004) loss:0.064(0.064)  dt:00.37s Elapsed:06m05s ETA:18m38s
+Epochs[247/1000] lr:0.0004214
+Epochs[247/1000] (0000/0004) loss:0.068(0.068)  dt:00.37s Elapsed:06m06s ETA:18m35s
+Epochs[248/1000] lr:0.0004208
+Epochs[248/1000] (0000/0004) loss:0.066(0.066)  dt:00.37s Elapsed:06m07s ETA:18m32s
+Epochs[249/1000] lr:0.0004202
+Epochs[249/1000] (0000/0004) loss:0.064(0.064)  dt:00.37s Elapsed:06m08s ETA:18m30s
+Epochs[250/1000] lr:0.0004196
+Epochs[250/1000] (0000/0004) loss:0.068(0.068)  dt:00.37s Elapsed:06m10s ETA:18m28s
+Epochs[251/1000] lr:0.0004190
+Epochs[251/1000] (0000/0004) loss:0.070(0.070)  dt:00.37s Elapsed:06m11s ETA:18m26s
+Epochs[252/1000] lr:0.0004184
+Epochs[252/1000] (0000/0004) loss:0.071(0.071)  dt:00.37s Elapsed:06m12s ETA:18m23s
+Epochs[253/1000] lr:0.0004178
+Epochs[253/1000] (0000/0004) loss:0.060(0.060)  dt:00.37s Elapsed:06m13s ETA:18m20s
+Epochs[254/1000] lr:0.0004172
+Epochs[254/1000] (0000/0004) loss:0.066(0.066)  dt:00.37s Elapsed:06m14s ETA:18m17s
+Epochs[255/1000] lr:0.0004166
+Epochs[255/1000] (0000/0004) loss:0.067(0.067)  dt:00.37s Elapsed:06m15s ETA:18m14s
+Epochs[256/1000] lr:0.0004160
+Epochs[256/1000] (0000/0004) loss:0.071(0.071)  dt:00.37s Elapsed:06m16s ETA:18m13s
+Epochs[257/1000] lr:0.0004154
+Epochs[257/1000] (0000/0004) loss:0.062(0.062)  dt:00.37s Elapsed:06m18s ETA:18m11s
+Epochs[258/1000] lr:0.0004148
+Epochs[258/1000] (0000/0004) loss:0.064(0.064)  dt:00.37s Elapsed:06m19s ETA:18m09s
+Epochs[259/1000] lr:0.0004141
+Epochs[259/1000] (0000/0004) loss:0.065(0.065)  dt:00.37s Elapsed:06m20s ETA:18m06s
+Epochs[260/1000] lr:0.0004135
+Epochs[260/1000] (0000/0004) loss:0.063(0.063)  dt:00.37s Elapsed:06m21s ETA:18m04s
+Epochs[261/1000] lr:0.0004129
+Epochs[261/1000] (0000/0004) loss:0.058(0.058)  dt:00.37s Elapsed:06m22s ETA:18m01s
+Epochs[262/1000] lr:0.0004123
+Epochs[262/1000] (0000/0004) loss:0.065(0.065)  dt:00.37s Elapsed:06m23s ETA:17m58s
+Epochs[263/1000] lr:0.0004117
+Epochs[263/1000] (0000/0004) loss:0.064(0.064)  dt:00.36s Elapsed:06m24s ETA:17m55s
+Epochs[264/1000] lr:0.0004110
+Epochs[264/1000] (0000/0004) loss:0.062(0.062)  dt:00.36s Elapsed:06m28s ETA:17m52s
+Epochs[265/1000] lr:0.0004104
+Epochs[265/1000] (0000/0004) loss:0.060(0.060)  dt:00.37s Elapsed:06m29s ETA:17m57s
+Epochs[266/1000] lr:0.0004098
+Epochs[266/1000] (0000/0004) loss:0.066(0.066)  dt:00.37s Elapsed:06m30s ETA:17m54s
+Epochs[267/1000] lr:0.0004092
+Epochs[267/1000] (0000/0004) loss:0.058(0.058)  dt:00.37s Elapsed:06m31s ETA:17m51s
+Epochs[268/1000] lr:0.0004085
+Epochs[268/1000] (0000/0004) loss:0.060(0.060)  dt:00.37s Elapsed:06m31s ETA:17m48s
+Epochs[269/1000] lr:0.0004079
+Epochs[269/1000] (0000/0004) loss:0.057(0.057)  dt:00.36s Elapsed:06m32s ETA:17m45s
+Epochs[270/1000] lr:0.0004073
+Epochs[270/1000] (0000/0004) loss:0.057(0.057)  dt:00.36s Elapsed:06m33s ETA:17m42s
+Epochs[271/1000] lr:0.0004066
+Epochs[271/1000] (0000/0004) loss:0.058(0.058)  dt:00.36s Elapsed:06m34s ETA:17m39s
+Epochs[272/1000] lr:0.0004060
+Epochs[272/1000] (0000/0004) loss:0.063(0.063)  dt:00.36s Elapsed:06m35s ETA:17m37s
+Epochs[273/1000] lr:0.0004053
+Epochs[273/1000] (0000/0004) loss:0.061(0.061)  dt:00.36s Elapsed:06m36s ETA:17m34s
+Epochs[274/1000] lr:0.0004047
+Epochs[274/1000] (0000/0004) loss:0.051(0.051)  dt:00.36s Elapsed:06m37s ETA:17m32s
+Epochs[275/1000] lr:0.0004041
+Epochs[275/1000] (0000/0004) loss:0.062(0.062)  dt:00.36s Elapsed:06m38s ETA:17m29s
+Epochs[276/1000] lr:0.0004034
+Epochs[276/1000] (0000/0004) loss:0.053(0.053)  dt:00.36s Elapsed:06m40s ETA:17m28s
+Epochs[277/1000] lr:0.0004028
+Epochs[277/1000] (0000/0004) loss:0.064(0.064)  dt:00.36s Elapsed:06m41s ETA:17m25s
+Epochs[278/1000] lr:0.0004021
+Epochs[278/1000] (0000/0004) loss:0.055(0.055)  dt:00.36s Elapsed:06m42s ETA:17m23s
+Epochs[279/1000] lr:0.0004015
+Epochs[279/1000] (0000/0004) loss:0.060(0.060)  dt:00.36s Elapsed:06m43s ETA:17m20s
+Epochs[280/1000] lr:0.0004008
+Epochs[280/1000] (0000/0004) loss:0.058(0.058)  dt:00.36s Elapsed:06m44s ETA:17m17s
+Epochs[281/1000] lr:0.0004002
+Epochs[281/1000] (0000/0004) loss:0.062(0.062)  dt:00.36s Elapsed:06m45s ETA:17m14s
+Epochs[282/1000] lr:0.0003995
+Epochs[282/1000] (0000/0004) loss:0.056(0.056)  dt:00.36s Elapsed:06m46s ETA:17m13s
+Epochs[283/1000] lr:0.0003989
+Epochs[283/1000] (0000/0004) loss:0.056(0.056)  dt:00.36s Elapsed:06m49s ETA:17m15s
+Epochs[284/1000] lr:0.0003982
+Epochs[284/1000] (0000/0004) loss:0.054(0.054)  dt:00.36s Elapsed:06m52s ETA:17m17s
+Epochs[285/1000] lr:0.0003975
+Epochs[285/1000] (0000/0004) loss:0.056(0.056)  dt:00.36s Elapsed:06m54s ETA:17m16s
+Epochs[286/1000] lr:0.0003969
+Epochs[286/1000] (0000/0004) loss:0.054(0.054)  dt:00.36s Elapsed:06m55s ETA:17m15s
+Epochs[287/1000] lr:0.0003962
+Epochs[287/1000] (0000/0004) loss:0.060(0.060)  dt:00.36s Elapsed:06m56s ETA:17m13s
+Epochs[288/1000] lr:0.0003956
+Epochs[288/1000] (0000/0004) loss:0.059(0.059)  dt:00.36s Elapsed:06m57s ETA:17m11s
+Epochs[289/1000] lr:0.0003949
+Epochs[289/1000] (0000/0004) loss:0.056(0.056)  dt:00.36s Elapsed:07m02s ETA:17m16s
+Epochs[290/1000] lr:0.0003942
+Epochs[290/1000] (0000/0004) loss:0.055(0.055)  dt:00.37s Elapsed:07m04s ETA:17m16s
+Epochs[291/1000] lr:0.0003936
+Epochs[291/1000] (0000/0004) loss:0.052(0.052)  dt:00.36s Elapsed:07m05s ETA:17m14s
+Epochs[292/1000] lr:0.0003929
+Epochs[292/1000] (0000/0004) loss:0.052(0.052)  dt:00.36s Elapsed:07m05s ETA:17m10s
+Epochs[293/1000] lr:0.0003922
+Epochs[293/1000] (0000/0004) loss:0.051(0.051)  dt:00.36s Elapsed:07m06s ETA:17m07s
+Epochs[294/1000] lr:0.0003916
+Epochs[294/1000] (0000/0004) loss:0.056(0.056)  dt:00.36s Elapsed:07m07s ETA:17m04s
+Epochs[295/1000] lr:0.0003909
+Epochs[295/1000] (0000/0004) loss:0.049(0.049)  dt:00.36s Elapsed:07m07s ETA:17m01s
+Epochs[296/1000] lr:0.0003902
+Epochs[296/1000] (0000/0004) loss:0.043(0.043)  dt:00.36s Elapsed:07m08s ETA:16m58s
+Epochs[297/1000] lr:0.0003895
+Epochs[297/1000] (0000/0004) loss:0.054(0.054)  dt:00.36s Elapsed:07m09s ETA:16m54s
+Epochs[298/1000] lr:0.0003889
+Epochs[298/1000] (0000/0004) loss:0.046(0.046)  dt:00.36s Elapsed:07m10s ETA:16m51s
+Epochs[299/1000] lr:0.0003882
+Epochs[299/1000] (0000/0004) loss:0.051(0.051)  dt:00.36s Elapsed:07m10s ETA:16m48s
+Epochs[300/1000] lr:0.0003875
+Epochs[300/1000] (0000/0004) loss:0.047(0.047)  dt:00.36s Elapsed:07m11s ETA:16m44s
+Epochs[301/1000] lr:0.0003868
+Epochs[301/1000] (0000/0004) loss:0.051(0.051)  dt:00.36s Elapsed:07m12s ETA:16m41s
+Epochs[302/1000] lr:0.0003861
+Epochs[302/1000] (0000/0004) loss:0.042(0.042)  dt:00.36s Elapsed:07m12s ETA:16m38s
+Epochs[303/1000] lr:0.0003855
+Epochs[303/1000] (0000/0004) loss:0.047(0.047)  dt:00.36s Elapsed:07m13s ETA:16m35s
+Epochs[304/1000] lr:0.0003848
+Epochs[304/1000] (0000/0004) loss:0.043(0.043)  dt:00.36s Elapsed:07m13s ETA:16m32s
+Epochs[305/1000] lr:0.0003841
+Epochs[305/1000] (0000/0004) loss:0.045(0.045)  dt:00.36s Elapsed:07m14s ETA:16m28s
+Epochs[306/1000] lr:0.0003834
+Epochs[306/1000] (0000/0004) loss:0.047(0.047)  dt:00.36s Elapsed:07m15s ETA:16m25s
+Epochs[307/1000] lr:0.0003827
+Epochs[307/1000] (0000/0004) loss:0.050(0.050)  dt:00.35s Elapsed:07m15s ETA:16m22s
+Epochs[308/1000] lr:0.0003820
+Epochs[308/1000] (0000/0004) loss:0.055(0.055)  dt:00.35s Elapsed:07m16s ETA:16m19s
+Epochs[309/1000] lr:0.0003813
+Epochs[309/1000] (0000/0004) loss:0.051(0.051)  dt:00.35s Elapsed:07m17s ETA:16m16s
+Epochs[310/1000] lr:0.0003806
+Epochs[310/1000] (0000/0004) loss:0.048(0.048)  dt:00.35s Elapsed:07m17s ETA:16m12s
+Epochs[311/1000] lr:0.0003799
+Epochs[311/1000] (0000/0004) loss:0.046(0.046)  dt:00.35s Elapsed:07m18s ETA:16m09s
+Epochs[312/1000] lr:0.0003792
+Epochs[312/1000] (0000/0004) loss:0.046(0.046)  dt:00.35s Elapsed:07m19s ETA:16m06s
+Epochs[313/1000] lr:0.0003785
+Epochs[313/1000] (0000/0004) loss:0.049(0.049)  dt:00.35s Elapsed:07m19s ETA:16m03s
+Epochs[314/1000] lr:0.0003778
+Epochs[314/1000] (0000/0004) loss:0.047(0.047)  dt:00.35s Elapsed:07m20s ETA:16m00s
+Epochs[315/1000] lr:0.0003771
+Epochs[315/1000] (0000/0004) loss:0.048(0.048)  dt:00.35s Elapsed:07m20s ETA:15m57s
+Epochs[316/1000] lr:0.0003764
+Epochs[316/1000] (0000/0004) loss:0.040(0.040)  dt:00.35s Elapsed:07m21s ETA:15m54s
+Epochs[317/1000] lr:0.0003757
+Epochs[317/1000] (0000/0004) loss:0.044(0.044)  dt:00.35s Elapsed:07m22s ETA:15m51s
+Epochs[318/1000] lr:0.0003750
+Epochs[318/1000] (0000/0004) loss:0.045(0.045)  dt:00.35s Elapsed:07m23s ETA:15m48s
+Epochs[319/1000] lr:0.0003743
+Epochs[319/1000] (0000/0004) loss:0.045(0.045)  dt:00.35s Elapsed:07m23s ETA:15m46s
+Epochs[320/1000] lr:0.0003736
+Epochs[320/1000] (0000/0004) loss:0.049(0.049)  dt:00.35s Elapsed:07m24s ETA:15m43s
+Epochs[321/1000] lr:0.0003729
+Epochs[321/1000] (0000/0004) loss:0.045(0.045)  dt:00.35s Elapsed:07m25s ETA:15m40s
+Epochs[322/1000] lr:0.0003722
+Epochs[322/1000] (0000/0004) loss:0.044(0.044)  dt:00.35s Elapsed:07m26s ETA:15m37s
+Epochs[323/1000] lr:0.0003715
+Epochs[323/1000] (0000/0004) loss:0.049(0.049)  dt:00.35s Elapsed:07m26s ETA:15m34s
+Epochs[324/1000] lr:0.0003708
+Epochs[324/1000] (0000/0004) loss:0.043(0.043)  dt:00.34s Elapsed:07m27s ETA:15m31s
+Epochs[325/1000] lr:0.0003701
+Epochs[325/1000] (0000/0004) loss:0.043(0.043)  dt:00.34s Elapsed:07m27s ETA:15m28s
+Epochs[326/1000] lr:0.0003694
+Epochs[326/1000] (0000/0004) loss:0.048(0.048)  dt:00.34s Elapsed:07m28s ETA:15m26s
+Epochs[327/1000] lr:0.0003687
+Epochs[327/1000] (0000/0004) loss:0.046(0.046)  dt:00.34s Elapsed:07m30s ETA:15m24s
+Epochs[328/1000] lr:0.0003679
+Epochs[328/1000] (0000/0004) loss:0.049(0.049)  dt:00.34s Elapsed:07m28s ETA:15m22s
+Epochs[329/1000] lr:0.0003672
+Epochs[329/1000] (0000/0004) loss:0.046(0.046)  dt:00.34s Elapsed:07m34s ETA:15m25s
+Epochs[330/1000] lr:0.0003665
+Epochs[330/1000] (0000/0004) loss:0.047(0.047)  dt:00.34s Elapsed:07m34s ETA:15m22s
+Epochs[331/1000] lr:0.0003658
+Epochs[331/1000] (0000/0004) loss:0.044(0.044)  dt:00.34s Elapsed:07m35s ETA:15m19s
+Epochs[332/1000] lr:0.0003651
+Epochs[332/1000] (0000/0004) loss:0.045(0.045)  dt:00.34s Elapsed:07m36s ETA:15m16s
+Epochs[333/1000] lr:0.0003644
+Epochs[333/1000] (0000/0004) loss:0.047(0.047)  dt:00.34s Elapsed:07m36s ETA:15m13s
+Epochs[334/1000] lr:0.0003636
+Epochs[334/1000] (0000/0004) loss:0.043(0.043)  dt:00.34s Elapsed:07m37s ETA:15m10s
+Epochs[335/1000] lr:0.0003629
+Epochs[335/1000] (0000/0004) loss:0.045(0.045)  dt:00.34s Elapsed:07m38s ETA:15m07s
+Epochs[336/1000] lr:0.0003622
+Epochs[336/1000] (0000/0004) loss:0.046(0.046)  dt:00.34s Elapsed:07m38s ETA:15m04s
+Epochs[337/1000] lr:0.0003615
+Epochs[337/1000] (0000/0004) loss:0.047(0.047)  dt:00.34s Elapsed:07m39s ETA:15m02s
+Epochs[338/1000] lr:0.0003607
+Epochs[338/1000] (0000/0004) loss:0.046(0.046)  dt:00.34s Elapsed:07m40s ETA:15m00s
+Epochs[339/1000] lr:0.0003600
+Epochs[339/1000] (0000/0004) loss:0.041(0.041)  dt:00.34s Elapsed:07m41s ETA:14m58s
+Epochs[340/1000] lr:0.0003593
+Epochs[340/1000] (0000/0004) loss:0.042(0.042)  dt:00.34s Elapsed:07m42s ETA:14m55s
+Epochs[341/1000] lr:0.0003586
+Epochs[341/1000] (0000/0004) loss:0.046(0.046)  dt:00.34s Elapsed:07m42s ETA:14m53s
+Epochs[342/1000] lr:0.0003578
+Epochs[342/1000] (0000/0004) loss:0.042(0.042)  dt:00.34s Elapsed:07m43s ETA:14m50s
+Epochs[343/1000] lr:0.0003571
+Epochs[343/1000] (0000/0004) loss:0.044(0.044)  dt:00.34s Elapsed:07m44s ETA:14m47s
+Epochs[344/1000] lr:0.0003564
+Epochs[344/1000] (0000/0004) loss:0.048(0.048)  dt:00.34s Elapsed:07m44s ETA:14m44s
+Epochs[345/1000] lr:0.0003556
+Epochs[345/1000] (0000/0004) loss:0.049(0.049)  dt:00.34s Elapsed:07m45s ETA:14m42s
+Epochs[346/1000] lr:0.0003549
+Epochs[346/1000] (0000/0004) loss:0.041(0.041)  dt:00.34s Elapsed:07m45s ETA:14m39s
+Epochs[347/1000] lr:0.0003542
+Epochs[347/1000] (0000/0004) loss:0.047(0.047)  dt:00.34s Elapsed:07m46s ETA:14m36s
+Epochs[348/1000] lr:0.0003534
+Epochs[348/1000] (0000/0004) loss:0.039(0.039)  dt:00.34s Elapsed:07m47s ETA:14m33s
+Epochs[349/1000] lr:0.0003527
+Epochs[349/1000] (0000/0004) loss:0.038(0.038)  dt:00.33s Elapsed:07m47s ETA:14m31s
+Epochs[350/1000] lr:0.0003520
+Epochs[350/1000] (0000/0004) loss:0.047(0.047)  dt:00.33s Elapsed:07m48s ETA:14m28s
+Epochs[351/1000] lr:0.0003512
+Epochs[351/1000] (0000/0004) loss:0.048(0.048)  dt:00.33s Elapsed:07m48s ETA:14m26s
+Epochs[352/1000] lr:0.0003505
+Epochs[352/1000] (0000/0004) loss:0.041(0.041)  dt:00.33s Elapsed:07m49s ETA:14m23s
+Epochs[353/1000] lr:0.0003497
+Epochs[353/1000] (0000/0004) loss:0.046(0.046)  dt:00.33s Elapsed:07m50s ETA:14m20s
+Epochs[354/1000] lr:0.0003490
+Epochs[354/1000] (0000/0004) loss:0.044(0.044)  dt:00.33s Elapsed:07m50s ETA:14m18s
+Epochs[355/1000] lr:0.0003483
+Epochs[355/1000] (0000/0004) loss:0.043(0.043)  dt:00.33s Elapsed:07m51s ETA:14m15s
+Epochs[356/1000] lr:0.0003475
+Epochs[356/1000] (0000/0004) loss:0.040(0.040)  dt:00.33s Elapsed:07m52s ETA:14m12s
+Epochs[357/1000] lr:0.0003468
+Epochs[357/1000] (0000/0004) loss:0.048(0.048)  dt:00.33s Elapsed:07m52s ETA:14m10s
+Epochs[358/1000] lr:0.0003460
+Epochs[358/1000] (0000/0004) loss:0.042(0.042)  dt:00.33s Elapsed:07m53s ETA:14m07s
+Epochs[359/1000] lr:0.0003453
+Epochs[359/1000] (0000/0004) loss:0.043(0.043)  dt:00.33s Elapsed:07m53s ETA:14m04s
+Epochs[360/1000] lr:0.0003445
+Epochs[360/1000] (0000/0004) loss:0.039(0.039)  dt:00.33s Elapsed:07m54s ETA:14m02s
+Epochs[361/1000] lr:0.0003438
+Epochs[361/1000] (0000/0004) loss:0.041(0.041)  dt:00.33s Elapsed:07m55s ETA:13m59s
+Epochs[362/1000] lr:0.0003430
+Epochs[362/1000] (0000/0004) loss:0.044(0.044)  dt:00.33s Elapsed:07m55s ETA:13m57s
+Epochs[363/1000] lr:0.0003423
+Epochs[363/1000] (0000/0004) loss:0.042(0.042)  dt:00.33s Elapsed:07m56s ETA:13m54s
+Epochs[364/1000] lr:0.0003415
+Epochs[364/1000] (0000/0004) loss:0.039(0.039)  dt:00.33s Elapsed:07m56s ETA:13m52s
+Epochs[365/1000] lr:0.0003408
+Epochs[365/1000] (0000/0004) loss:0.037(0.037)  dt:00.33s Elapsed:07m57s ETA:13m50s
+Epochs[366/1000] lr:0.0003400
+Epochs[366/1000] (0000/0004) loss:0.040(0.040)  dt:00.33s Elapsed:07m58s ETA:13m47s
+Epochs[367/1000] lr:0.0003393
+Epochs[367/1000] (0000/0004) loss:0.035(0.035)  dt:00.33s Elapsed:07m59s ETA:13m45s
+Epochs[368/1000] lr:0.0003385
+Epochs[368/1000] (0000/0004) loss:0.037(0.037)  dt:00.33s Elapsed:07m59s ETA:13m42s
+Epochs[369/1000] lr:0.0003378
+Epochs[369/1000] (0000/0004) loss:0.038(0.038)  dt:00.33s Elapsed:08m00s ETA:13m40s
+Epochs[370/1000] lr:0.0003370
+Epochs[370/1000] (0000/0004) loss:0.038(0.038)  dt:00.32s Elapsed:08m01s ETA:13m37s
+Epochs[371/1000] lr:0.0003363
+Epochs[371/1000] (0000/0004) loss:0.049(0.049)  dt:00.32s Elapsed:08m02s ETA:13m36s
+Epochs[372/1000] lr:0.0003355
+Epochs[372/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m02s ETA:13m33s
+Epochs[373/1000] lr:0.0003348
+Epochs[373/1000] (0000/0004) loss:0.039(0.039)  dt:00.32s Elapsed:08m03s ETA:13m31s
+Epochs[374/1000] lr:0.0003340
+Epochs[374/1000] (0000/0004) loss:0.037(0.037)  dt:00.33s Elapsed:08m06s ETA:13m33s
+Epochs[375/1000] lr:0.0003332
+Epochs[375/1000] (0000/0004) loss:0.043(0.043)  dt:00.32s Elapsed:08m07s ETA:13m31s
+Epochs[376/1000] lr:0.0003325
+Epochs[376/1000] (0000/0004) loss:0.033(0.033)  dt:00.32s Elapsed:08m08s ETA:13m29s
+Epochs[377/1000] lr:0.0003317
+Epochs[377/1000] (0000/0004) loss:0.041(0.041)  dt:00.32s Elapsed:08m09s ETA:13m27s
+Epochs[378/1000] lr:0.0003310
+Epochs[378/1000] (0000/0004) loss:0.035(0.035)  dt:00.32s Elapsed:08m10s ETA:13m25s
+Epochs[379/1000] lr:0.0003302
+Epochs[379/1000] (0000/0004) loss:0.044(0.044)  dt:00.32s Elapsed:08m10s ETA:13m22s
+Epochs[380/1000] lr:0.0003294
+Epochs[380/1000] (0000/0004) loss:0.036(0.036)  dt:00.32s Elapsed:08m11s ETA:13m20s
+Epochs[381/1000] lr:0.0003287
+Epochs[381/1000] (0000/0004) loss:0.042(0.042)  dt:00.32s Elapsed:08m11s ETA:13m18s
+Epochs[382/1000] lr:0.0003279
+Epochs[382/1000] (0000/0004) loss:0.035(0.035)  dt:00.32s Elapsed:08m12s ETA:13m15s
+Epochs[383/1000] lr:0.0003271
+Epochs[383/1000] (0000/0004) loss:0.039(0.039)  dt:00.32s Elapsed:08m13s ETA:13m13s
+Epochs[384/1000] lr:0.0003264
+Epochs[384/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m14s ETA:13m11s
+Epochs[385/1000] lr:0.0003256
+Epochs[385/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m15s ETA:13m09s
+Epochs[386/1000] lr:0.0003248
+Epochs[386/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m15s ETA:13m07s
+Epochs[387/1000] lr:0.0003241
+Epochs[387/1000] (0000/0004) loss:0.042(0.042)  dt:00.32s Elapsed:08m16s ETA:13m05s
+Epochs[388/1000] lr:0.0003233
+Epochs[388/1000] (0000/0004) loss:0.036(0.036)  dt:00.32s Elapsed:08m16s ETA:13m02s
+Epochs[389/1000] lr:0.0003225
+Epochs[389/1000] (0000/0004) loss:0.039(0.039)  dt:00.32s Elapsed:08m17s ETA:13m00s
+Epochs[390/1000] lr:0.0003218
+Epochs[390/1000] (0000/0004) loss:0.036(0.036)  dt:00.32s Elapsed:08m18s ETA:12m59s
+Epochs[391/1000] lr:0.0003210
+Epochs[391/1000] (0000/0004) loss:0.039(0.039)  dt:00.32s Elapsed:08m20s ETA:12m57s
+Epochs[392/1000] lr:0.0003202
+Epochs[392/1000] (0000/0004) loss:0.034(0.034)  dt:00.32s Elapsed:08m21s ETA:12m56s
+Epochs[393/1000] lr:0.0003195
+Epochs[393/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m22s ETA:12m54s
+Epochs[394/1000] lr:0.0003187
+Epochs[394/1000] (0000/0004) loss:0.038(0.038)  dt:00.32s Elapsed:08m22s ETA:12m52s
+Epochs[395/1000] lr:0.0003179
+Epochs[395/1000] (0000/0004) loss:0.041(0.041)  dt:00.32s Elapsed:08m23s ETA:12m50s
+Epochs[396/1000] lr:0.0003172
+Epochs[396/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m24s ETA:12m48s
+Epochs[397/1000] lr:0.0003164
+Epochs[397/1000] (0000/0004) loss:0.034(0.034)  dt:00.32s Elapsed:08m25s ETA:12m46s
+Epochs[398/1000] lr:0.0003156
+Epochs[398/1000] (0000/0004) loss:0.037(0.037)  dt:00.32s Elapsed:08m25s ETA:12m43s
+Epochs[399/1000] lr:0.0003148
+Epochs[399/1000] (0000/0004) loss:0.044(0.044)  dt:00.32s Elapsed:08m26s ETA:12m41s
+Epochs[400/1000] lr:0.0003141
+Epochs[400/1000] (0000/0004) loss:0.038(0.038)  dt:00.32s Elapsed:08m27s ETA:12m39s
+train STL Acc:0.315
+val STL Acc:0.037
+STAT train:475 stls, 898 trajs (:0.3151 _0:0.7526 _1:0.3648 _2:0.2438 _3:0.1596) | val:119 stls, 216 trajs (:0.0370 :0.1786 :0.0526 :0.0000 :0.0000)
+Epochs[401/1000] lr:0.0003133
+Epochs[401/1000] (0000/0004) loss:0.036(0.036)  dt:00.37s Elapsed:09m51s ETA:14m43s
+Epochs[402/1000] lr:0.0003125
+Epochs[402/1000] (0000/0004) loss:0.032(0.032)  dt:00.37s Elapsed:09m52s ETA:14m40s
+Epochs[403/1000] lr:0.0003117
+Epochs[403/1000] (0000/0004) loss:0.038(0.038)  dt:00.37s Elapsed:09m53s ETA:14m37s
+Epochs[404/1000] lr:0.0003110
+Epochs[404/1000] (0000/0004) loss:0.036(0.036)  dt:00.37s Elapsed:09m53s ETA:14m34s
+Epochs[405/1000] lr:0.0003102
+Epochs[405/1000] (0000/0004) loss:0.041(0.041)  dt:00.37s Elapsed:09m54s ETA:14m31s
+Epochs[406/1000] lr:0.0003094
+Epochs[406/1000] (0000/0004) loss:0.036(0.036)  dt:00.37s Elapsed:09m54s ETA:14m29s
+Epochs[407/1000] lr:0.0003086
+Epochs[407/1000] (0000/0004) loss:0.038(0.038)  dt:00.37s Elapsed:09m55s ETA:14m26s
+Epochs[408/1000] lr:0.0003079
+Epochs[408/1000] (0000/0004) loss:0.043(0.043)  dt:00.36s Elapsed:09m55s ETA:14m23s
+Epochs[409/1000] lr:0.0003071
+Epochs[409/1000] (0000/0004) loss:0.037(0.037)  dt:00.36s Elapsed:09m56s ETA:14m20s
+Epochs[410/1000] lr:0.0003063
+Epochs[410/1000] (0000/0004) loss:0.030(0.030)  dt:00.36s Elapsed:09m57s ETA:14m18s
+Epochs[411/1000] lr:0.0003055
+Epochs[411/1000] (0000/0004) loss:0.033(0.033)  dt:00.36s Elapsed:09m57s ETA:14m15s
+Epochs[412/1000] lr:0.0003048
+Epochs[412/1000] (0000/0004) loss:0.034(0.034)  dt:00.36s Elapsed:09m58s ETA:14m12s
+Epochs[413/1000] lr:0.0003040
+Epochs[413/1000] (0000/0004) loss:0.035(0.035)  dt:00.36s Elapsed:09m58s ETA:14m10s
+Epochs[414/1000] lr:0.0003032
+Epochs[414/1000] (0000/0004) loss:0.034(0.034)  dt:00.36s Elapsed:09m59s ETA:14m07s
+Epochs[415/1000] lr:0.0003024
+Epochs[415/1000] (0000/0004) loss:0.035(0.035)  dt:00.36s Elapsed:10m00s ETA:14m04s
+Epochs[416/1000] lr:0.0003016
+Epochs[416/1000] (0000/0004) loss:0.028(0.028)  dt:00.36s Elapsed:10m00s ETA:14m02s
+Epochs[417/1000] lr:0.0003009
+Epochs[417/1000] (0000/0004) loss:0.036(0.036)  dt:00.36s Elapsed:10m01s ETA:13m59s
+Epochs[418/1000] lr:0.0003001
+Epochs[418/1000] (0000/0004) loss:0.039(0.039)  dt:00.36s Elapsed:10m01s ETA:13m57s
+Epochs[419/1000] lr:0.0002993
+Epochs[419/1000] (0000/0004) loss:0.038(0.038)  dt:00.36s Elapsed:10m02s ETA:13m54s
+Epochs[420/1000] lr:0.0002985
+Epochs[420/1000] (0000/0004) loss:0.038(0.038)  dt:00.36s Elapsed:10m03s ETA:13m52s
+Epochs[421/1000] lr:0.0002977
+Epochs[421/1000] (0000/0004) loss:0.038(0.038)  dt:00.36s Elapsed:10m03s ETA:13m49s
+Epochs[422/1000] lr:0.0002970
+Epochs[422/1000] (0000/0004) loss:0.034(0.034)  dt:00.36s Elapsed:10m04s ETA:13m47s
+Epochs[423/1000] lr:0.0002962
+Epochs[423/1000] (0000/0004) loss:0.031(0.031)  dt:00.36s Elapsed:10m05s ETA:13m44s
+Epochs[424/1000] lr:0.0002954
+Epochs[424/1000] (0000/0004) loss:0.034(0.034)  dt:00.36s Elapsed:10m05s ETA:13m41s
+Epochs[425/1000] lr:0.0002946
+Epochs[425/1000] (0000/0004) loss:0.038(0.038)  dt:00.36s Elapsed:10m06s ETA:13m39s
+Epochs[426/1000] lr:0.0002938
+Epochs[426/1000] (0000/0004) loss:0.035(0.035)  dt:00.36s Elapsed:10m06s ETA:13m36s
+Epochs[427/1000] lr:0.0002930
+Epochs[427/1000] (0000/0004) loss:0.032(0.032)  dt:00.36s Elapsed:10m07s ETA:13m34s
+Epochs[428/1000] lr:0.0002923
+Epochs[428/1000] (0000/0004) loss:0.035(0.035)  dt:00.35s Elapsed:10m08s ETA:13m31s
+Epochs[429/1000] lr:0.0002915
+Epochs[429/1000] (0000/0004) loss:0.030(0.030)  dt:00.35s Elapsed:10m08s ETA:13m29s
+Epochs[430/1000] lr:0.0002907
+Epochs[430/1000] (0000/0004) loss:0.034(0.034)  dt:00.35s Elapsed:10m09s ETA:13m26s
+Epochs[431/1000] lr:0.0002899
+Epochs[431/1000] (0000/0004) loss:0.032(0.032)  dt:00.35s Elapsed:10m10s ETA:13m24s
+Epochs[432/1000] lr:0.0002891
+Epochs[432/1000] (0000/0004) loss:0.036(0.036)  dt:00.35s Elapsed:10m10s ETA:13m21s
+Epochs[433/1000] lr:0.0002883
+Epochs[433/1000] (0000/0004) loss:0.037(0.037)  dt:00.35s Elapsed:10m11s ETA:13m19s
+Epochs[434/1000] lr:0.0002876
+Epochs[434/1000] (0000/0004) loss:0.035(0.035)  dt:00.35s Elapsed:10m11s ETA:13m17s
+Epochs[435/1000] lr:0.0002868
+Epochs[435/1000] (0000/0004) loss:0.038(0.038)  dt:00.35s Elapsed:10m12s ETA:13m14s
+Epochs[436/1000] lr:0.0002860
+Epochs[436/1000] (0000/0004) loss:0.037(0.037)  dt:00.35s Elapsed:10m13s ETA:13m12s
+Epochs[437/1000] lr:0.0002852
+Epochs[437/1000] (0000/0004) loss:0.031(0.031)  dt:00.35s Elapsed:10m13s ETA:13m09s
+Epochs[438/1000] lr:0.0002844
+Epochs[438/1000] (0000/0004) loss:0.038(0.038)  dt:00.35s Elapsed:10m11s ETA:13m07s
+Epochs[439/1000] lr:0.0002836
+Epochs[439/1000] (0000/0004) loss:0.030(0.030)  dt:00.35s Elapsed:10m17s ETA:13m08s
+Epochs[440/1000] lr:0.0002829
+Epochs[440/1000] (0000/0004) loss:0.034(0.034)  dt:00.35s Elapsed:10m18s ETA:13m06s
+Epochs[441/1000] lr:0.0002821
+Epochs[441/1000] (0000/0004) loss:0.034(0.034)  dt:00.35s Elapsed:10m19s ETA:13m03s
+Epochs[442/1000] lr:0.0002813
+Epochs[442/1000] (0000/0004) loss:0.031(0.031)  dt:00.35s Elapsed:10m19s ETA:13m01s
+Epochs[443/1000] lr:0.0002805
+Epochs[443/1000] (0000/0004) loss:0.032(0.032)  dt:00.35s Elapsed:10m20s ETA:12m59s
+Epochs[444/1000] lr:0.0002797
+Epochs[444/1000] (0000/0004) loss:0.031(0.031)  dt:00.35s Elapsed:10m21s ETA:12m56s
+Epochs[445/1000] lr:0.0002789
+Epochs[445/1000] (0000/0004) loss:0.032(0.032)  dt:00.35s Elapsed:10m21s ETA:12m54s
+Epochs[446/1000] lr:0.0002781
+Epochs[446/1000] (0000/0004) loss:0.042(0.042)  dt:00.35s Elapsed:10m22s ETA:12m52s
+Epochs[447/1000] lr:0.0002774
+Epochs[447/1000] (0000/0004) loss:0.036(0.036)  dt:00.35s Elapsed:10m23s ETA:12m49s
+Epochs[448/1000] lr:0.0002766
+Epochs[448/1000] (0000/0004) loss:0.032(0.032)  dt:00.35s Elapsed:10m23s ETA:12m47s
+Epochs[449/1000] lr:0.0002758
+Epochs[449/1000] (0000/0004) loss:0.033(0.033)  dt:00.35s Elapsed:10m24s ETA:12m45s
+Epochs[450/1000] lr:0.0002750
+Epochs[450/1000] (0000/0004) loss:0.027(0.027)  dt:00.35s Elapsed:10m24s ETA:12m42s
+Epochs[451/1000] lr:0.0002742
+Epochs[451/1000] (0000/0004) loss:0.037(0.037)  dt:00.35s Elapsed:10m25s ETA:12m40s
+Epochs[452/1000] lr:0.0002734
+Epochs[452/1000] (0000/0004) loss:0.038(0.038)  dt:00.35s Elapsed:10m26s ETA:12m38s
+Epochs[453/1000] lr:0.0002726
+Epochs[453/1000] (0000/0004) loss:0.031(0.031)  dt:00.35s Elapsed:10m26s ETA:12m36s
+Epochs[454/1000] lr:0.0002719
+Epochs[454/1000] (0000/0004) loss:0.033(0.033)  dt:00.35s Elapsed:10m27s ETA:12m33s
+Epochs[455/1000] lr:0.0002711
+Epochs[455/1000] (0000/0004) loss:0.031(0.031)  dt:00.34s Elapsed:10m28s ETA:12m31s
+Epochs[456/1000] lr:0.0002703
+Epochs[456/1000] (0000/0004) loss:0.034(0.034)  dt:00.34s Elapsed:10m28s ETA:12m29s
+Epochs[457/1000] lr:0.0002695
+Epochs[457/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:10m29s ETA:12m27s
+Epochs[458/1000] lr:0.0002687
+Epochs[458/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m30s ETA:12m24s
+Epochs[459/1000] lr:0.0002679
+Epochs[459/1000] (0000/0004) loss:0.030(0.030)  dt:00.34s Elapsed:10m30s ETA:12m22s
+Epochs[460/1000] lr:0.0002671
+Epochs[460/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:10m31s ETA:12m20s
+Epochs[461/1000] lr:0.0002664
+Epochs[461/1000] (0000/0004) loss:0.030(0.030)  dt:00.34s Elapsed:10m32s ETA:12m18s
+Epochs[462/1000] lr:0.0002656
+Epochs[462/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:10m32s ETA:12m15s
+Epochs[463/1000] lr:0.0002648
+Epochs[463/1000] (0000/0004) loss:0.031(0.031)  dt:00.34s Elapsed:10m33s ETA:12m13s
+Epochs[464/1000] lr:0.0002640
+Epochs[464/1000] (0000/0004) loss:0.030(0.030)  dt:00.34s Elapsed:10m34s ETA:12m11s
+Epochs[465/1000] lr:0.0002632
+Epochs[465/1000] (0000/0004) loss:0.028(0.028)  dt:00.34s Elapsed:10m34s ETA:12m09s
+Epochs[466/1000] lr:0.0002624
+Epochs[466/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:10m35s ETA:12m07s
+Epochs[467/1000] lr:0.0002617
+Epochs[467/1000] (0000/0004) loss:0.028(0.028)  dt:00.34s Elapsed:10m36s ETA:12m05s
+Epochs[468/1000] lr:0.0002609
+Epochs[468/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m36s ETA:12m02s
+Epochs[469/1000] lr:0.0002601
+Epochs[469/1000] (0000/0004) loss:0.036(0.036)  dt:00.34s Elapsed:10m37s ETA:12m00s
+Epochs[470/1000] lr:0.0002593
+Epochs[470/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m37s ETA:11m58s
+Epochs[471/1000] lr:0.0002585
+Epochs[471/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m38s ETA:11m56s
+Epochs[472/1000] lr:0.0002577
+Epochs[472/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m39s ETA:11m54s
+Epochs[473/1000] lr:0.0002570
+Epochs[473/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:10m39s ETA:11m52s
+Epochs[474/1000] lr:0.0002562
+Epochs[474/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m40s ETA:11m50s
+Epochs[475/1000] lr:0.0002554
+Epochs[475/1000] (0000/0004) loss:0.031(0.031)  dt:00.34s Elapsed:10m41s ETA:11m47s
+Epochs[476/1000] lr:0.0002546
+Epochs[476/1000] (0000/0004) loss:0.032(0.032)  dt:00.34s Elapsed:10m41s ETA:11m45s
+Epochs[477/1000] lr:0.0002538
+Epochs[477/1000] (0000/0004) loss:0.031(0.031)  dt:00.34s Elapsed:10m42s ETA:11m43s
+Epochs[478/1000] lr:0.0002530
+Epochs[478/1000] (0000/0004) loss:0.028(0.028)  dt:00.34s Elapsed:10m43s ETA:11m41s
+Epochs[479/1000] lr:0.0002523
+Epochs[479/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:10m43s ETA:11m39s
+Epochs[480/1000] lr:0.0002515
+Epochs[480/1000] (0000/0004) loss:0.030(0.030)  dt:00.34s Elapsed:10m44s ETA:11m37s
+Epochs[481/1000] lr:0.0002507
+Epochs[481/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:10m45s ETA:11m35s
+Epochs[482/1000] lr:0.0002499
+Epochs[482/1000] (0000/0004) loss:0.032(0.032)  dt:00.33s Elapsed:10m46s ETA:11m33s
+Epochs[483/1000] lr:0.0002491
+Epochs[483/1000] (0000/0004) loss:0.031(0.031)  dt:00.34s Elapsed:10m50s ETA:11m35s
+Epochs[484/1000] lr:0.0002484
+Epochs[484/1000] (0000/0004) loss:0.034(0.034)  dt:00.34s Elapsed:10m51s ETA:11m33s
+Epochs[485/1000] lr:0.0002476
+Epochs[485/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:10m51s ETA:11m31s
+Epochs[486/1000] lr:0.0002468
+Epochs[486/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:10m52s ETA:11m29s
+Epochs[487/1000] lr:0.0002460
+Epochs[487/1000] (0000/0004) loss:0.034(0.034)  dt:00.34s Elapsed:10m53s ETA:11m27s
+Epochs[488/1000] lr:0.0002452
+Epochs[488/1000] (0000/0004) loss:0.031(0.031)  dt:00.33s Elapsed:10m54s ETA:11m25s
+Epochs[489/1000] lr:0.0002445
+Epochs[489/1000] (0000/0004) loss:0.030(0.030)  dt:00.33s Elapsed:10m54s ETA:11m23s
+Epochs[490/1000] lr:0.0002437
+Epochs[490/1000] (0000/0004) loss:0.034(0.034)  dt:00.33s Elapsed:10m55s ETA:11m21s
+Epochs[491/1000] lr:0.0002429
+Epochs[491/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:10m56s ETA:11m19s
+Epochs[492/1000] lr:0.0002421
+Epochs[492/1000] (0000/0004) loss:0.034(0.034)  dt:00.33s Elapsed:10m56s ETA:11m17s
+Epochs[493/1000] lr:0.0002414
+Epochs[493/1000] (0000/0004) loss:0.029(0.029)  dt:00.33s Elapsed:10m57s ETA:11m15s
+Epochs[494/1000] lr:0.0002406
+Epochs[494/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:10m58s ETA:11m13s
+Epochs[495/1000] lr:0.0002398
+Epochs[495/1000] (0000/0004) loss:0.033(0.033)  dt:00.33s Elapsed:10m58s ETA:11m11s
+Epochs[496/1000] lr:0.0002390
+Epochs[496/1000] (0000/0004) loss:0.034(0.034)  dt:00.33s Elapsed:10m59s ETA:11m09s
+Epochs[497/1000] lr:0.0002383
+Epochs[497/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:11m00s ETA:11m07s
+Epochs[498/1000] lr:0.0002375
+Epochs[498/1000] (0000/0004) loss:0.032(0.032)  dt:00.33s Elapsed:11m00s ETA:11m05s
+Epochs[499/1000] lr:0.0002367
+Epochs[499/1000] (0000/0004) loss:0.030(0.030)  dt:00.33s Elapsed:11m01s ETA:11m03s
+Epochs[500/1000] lr:0.0002359
+Epochs[500/1000] (0000/0004) loss:0.030(0.030)  dt:00.33s Elapsed:11m02s ETA:11m01s
+Epochs[501/1000] lr:0.0002352
+Epochs[501/1000] (0000/0004) loss:0.030(0.030)  dt:00.33s Elapsed:11m02s ETA:10m59s
+Epochs[502/1000] lr:0.0002344
+Epochs[502/1000] (0000/0004) loss:0.033(0.033)  dt:00.33s Elapsed:11m03s ETA:10m57s
+Epochs[503/1000] lr:0.0002336
+Epochs[503/1000] (0000/0004) loss:0.030(0.030)  dt:00.33s Elapsed:11m04s ETA:10m55s
+Epochs[504/1000] lr:0.0002328
+Epochs[504/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:11m04s ETA:10m53s
+Epochs[505/1000] lr:0.0002321
+Epochs[505/1000] (0000/0004) loss:0.031(0.031)  dt:00.33s Elapsed:11m05s ETA:10m51s
+Epochs[506/1000] lr:0.0002313
+Epochs[506/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:11m05s ETA:10m49s
+Epochs[507/1000] lr:0.0002305
+Epochs[507/1000] (0000/0004) loss:0.026(0.026)  dt:00.33s Elapsed:11m06s ETA:10m47s
+Epochs[508/1000] lr:0.0002298
+Epochs[508/1000] (0000/0004) loss:0.027(0.027)  dt:00.33s Elapsed:11m07s ETA:10m45s
+Epochs[509/1000] lr:0.0002290
+Epochs[509/1000] (0000/0004) loss:0.032(0.032)  dt:00.33s Elapsed:11m07s ETA:10m43s
+Epochs[510/1000] lr:0.0002282
+Epochs[510/1000] (0000/0004) loss:0.029(0.029)  dt:00.33s Elapsed:11m08s ETA:10m41s
+Epochs[511/1000] lr:0.0002275
+Epochs[511/1000] (0000/0004) loss:0.033(0.033)  dt:00.33s Elapsed:11m09s ETA:10m39s
+Epochs[512/1000] lr:0.0002267
+Epochs[512/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:11m09s ETA:10m37s
+Epochs[513/1000] lr:0.0002259
+Epochs[513/1000] (0000/0004) loss:0.030(0.030)  dt:00.33s Elapsed:11m10s ETA:10m35s
+Epochs[514/1000] lr:0.0002252
+Epochs[514/1000] (0000/0004) loss:0.032(0.032)  dt:00.33s Elapsed:11m11s ETA:10m33s
+Epochs[515/1000] lr:0.0002244
+Epochs[515/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:11m11s ETA:10m31s
+Epochs[516/1000] lr:0.0002236
+Epochs[516/1000] (0000/0004) loss:0.027(0.027)  dt:00.33s Elapsed:11m12s ETA:10m29s
+Epochs[517/1000] lr:0.0002229
+Epochs[517/1000] (0000/0004) loss:0.033(0.033)  dt:00.33s Elapsed:11m13s ETA:10m28s
+Epochs[518/1000] lr:0.0002221
+Epochs[518/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m13s ETA:10m26s
+Epochs[519/1000] lr:0.0002213
+Epochs[519/1000] (0000/0004) loss:0.030(0.030)  dt:00.32s Elapsed:11m14s ETA:10m24s
+Epochs[520/1000] lr:0.0002206
+Epochs[520/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:11m15s ETA:10m22s
+Epochs[521/1000] lr:0.0002198
+Epochs[521/1000] (0000/0004) loss:0.026(0.026)  dt:00.32s Elapsed:11m15s ETA:10m20s
+Epochs[522/1000] lr:0.0002190
+Epochs[522/1000] (0000/0004) loss:0.030(0.030)  dt:00.32s Elapsed:11m16s ETA:10m18s
+Epochs[523/1000] lr:0.0002183
+Epochs[523/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m17s ETA:10m16s
+Epochs[524/1000] lr:0.0002175
+Epochs[524/1000] (0000/0004) loss:0.029(0.029)  dt:00.32s Elapsed:11m17s ETA:10m14s
+Epochs[525/1000] lr:0.0002168
+Epochs[525/1000] (0000/0004) loss:0.029(0.029)  dt:00.32s Elapsed:11m18s ETA:10m13s
+Epochs[526/1000] lr:0.0002160
+Epochs[526/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m19s ETA:10m11s
+Epochs[527/1000] lr:0.0002152
+Epochs[527/1000] (0000/0004) loss:0.030(0.030)  dt:00.32s Elapsed:11m22s ETA:10m09s
+Epochs[528/1000] lr:0.0002145
+Epochs[528/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m23s ETA:10m10s
+Epochs[529/1000] lr:0.0002137
+Epochs[529/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m24s ETA:10m08s
+Epochs[530/1000] lr:0.0002130
+Epochs[530/1000] (0000/0004) loss:0.029(0.029)  dt:00.32s Elapsed:11m24s ETA:10m06s
+Epochs[531/1000] lr:0.0002122
+Epochs[531/1000] (0000/0004) loss:0.029(0.029)  dt:00.32s Elapsed:11m25s ETA:10m04s
+Epochs[532/1000] lr:0.0002115
+Epochs[532/1000] (0000/0004) loss:0.026(0.026)  dt:00.32s Elapsed:11m26s ETA:10m03s
+Epochs[533/1000] lr:0.0002107
+Epochs[533/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:11m27s ETA:10m01s
+Epochs[534/1000] lr:0.0002100
+Epochs[534/1000] (0000/0004) loss:0.026(0.026)  dt:00.32s Elapsed:11m27s ETA:09m59s
+Epochs[535/1000] lr:0.0002092
+Epochs[535/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:11m28s ETA:09m57s
+Epochs[536/1000] lr:0.0002085
+Epochs[536/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m29s ETA:09m56s
+Epochs[537/1000] lr:0.0002077
+Epochs[537/1000] (0000/0004) loss:0.026(0.026)  dt:00.32s Elapsed:11m30s ETA:09m54s
+Epochs[538/1000] lr:0.0002070
+Epochs[538/1000] (0000/0004) loss:0.034(0.034)  dt:00.32s Elapsed:11m30s ETA:09m52s
+Epochs[539/1000] lr:0.0002062
+Epochs[539/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m31s ETA:09m50s
+Epochs[540/1000] lr:0.0002055
+Epochs[540/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m32s ETA:09m48s
+Epochs[541/1000] lr:0.0002047
+Epochs[541/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:11m32s ETA:09m47s
+Epochs[542/1000] lr:0.0002040
+Epochs[542/1000] (0000/0004) loss:0.030(0.030)  dt:00.32s Elapsed:11m33s ETA:09m45s
+Epochs[543/1000] lr:0.0002032
+Epochs[543/1000] (0000/0004) loss:0.030(0.030)  dt:00.32s Elapsed:11m34s ETA:09m43s
+Epochs[544/1000] lr:0.0002025
+Epochs[544/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m34s ETA:09m41s
+Epochs[545/1000] lr:0.0002017
+Epochs[545/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m35s ETA:09m39s
+Epochs[546/1000] lr:0.0002010
+Epochs[546/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:11m36s ETA:09m38s
+Epochs[547/1000] lr:0.0002003
+Epochs[547/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m36s ETA:09m36s
+Epochs[548/1000] lr:0.0001995
+Epochs[548/1000] (0000/0004) loss:0.026(0.026)  dt:00.32s Elapsed:11m37s ETA:09m34s
+Epochs[549/1000] lr:0.0001988
+Epochs[549/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m38s ETA:09m32s
+Epochs[550/1000] lr:0.0001980
+Epochs[550/1000] (0000/0004) loss:0.028(0.028)  dt:00.32s Elapsed:11m39s ETA:09m31s
+Epochs[551/1000] lr:0.0001973
+Epochs[551/1000] (0000/0004) loss:0.023(0.023)  dt:00.32s Elapsed:11m39s ETA:09m29s
+Epochs[552/1000] lr:0.0001966
+Epochs[552/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m40s ETA:09m27s
+Epochs[553/1000] lr:0.0001958
+Epochs[553/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:11m41s ETA:09m26s
+Epochs[554/1000] lr:0.0001951
+Epochs[554/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:11m41s ETA:09m24s
+Epochs[555/1000] lr:0.0001944
+Epochs[555/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:11m42s ETA:09m22s
+Epochs[556/1000] lr:0.0001936
+Epochs[556/1000] (0000/0004) loss:0.032(0.032)  dt:00.32s Elapsed:11m43s ETA:09m20s
+Epochs[557/1000] lr:0.0001929
+Epochs[557/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m43s ETA:09m18s
+Epochs[558/1000] lr:0.0001922
+Epochs[558/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m44s ETA:09m17s
+Epochs[559/1000] lr:0.0001914
+Epochs[559/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:11m44s ETA:09m15s
+Epochs[560/1000] lr:0.0001907
+Epochs[560/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:11m45s ETA:09m13s
+Epochs[561/1000] lr:0.0001900
+Epochs[561/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:11m46s ETA:09m12s
+Epochs[562/1000] lr:0.0001893
+Epochs[562/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:11m47s ETA:09m10s
+Epochs[563/1000] lr:0.0001885
+Epochs[563/1000] (0000/0004) loss:0.029(0.029)  dt:00.31s Elapsed:11m47s ETA:09m08s
+Epochs[564/1000] lr:0.0001878
+Epochs[564/1000] (0000/0004) loss:0.029(0.029)  dt:00.31s Elapsed:11m48s ETA:09m07s
+Epochs[565/1000] lr:0.0001871
+Epochs[565/1000] (0000/0004) loss:0.025(0.025)  dt:00.31s Elapsed:11m49s ETA:09m05s
+Epochs[566/1000] lr:0.0001864
+Epochs[566/1000] (0000/0004) loss:0.033(0.033)  dt:00.31s Elapsed:11m49s ETA:09m03s
+Epochs[567/1000] lr:0.0001856
+Epochs[567/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:11m50s ETA:09m02s
+Epochs[568/1000] lr:0.0001849
+Epochs[568/1000] (0000/0004) loss:0.030(0.030)  dt:00.31s Elapsed:11m51s ETA:09m00s
+Epochs[569/1000] lr:0.0001842
+Epochs[569/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:11m51s ETA:08m58s
+Epochs[570/1000] lr:0.0001835
+Epochs[570/1000] (0000/0004) loss:0.029(0.029)  dt:00.31s Elapsed:11m55s ETA:08m57s
+Epochs[571/1000] lr:0.0001828
+Epochs[571/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:11m56s ETA:08m57s
+Epochs[572/1000] lr:0.0001821
+Epochs[572/1000] (0000/0004) loss:0.025(0.025)  dt:00.31s Elapsed:11m56s ETA:08m55s
+Epochs[573/1000] lr:0.0001813
+Epochs[573/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:11m57s ETA:08m54s
+Epochs[574/1000] lr:0.0001806
+Epochs[574/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:11m58s ETA:08m52s
+Epochs[575/1000] lr:0.0001799
+Epochs[575/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:11m59s ETA:08m50s
+Epochs[576/1000] lr:0.0001792
+Epochs[576/1000] (0000/0004) loss:0.028(0.028)  dt:00.31s Elapsed:11m59s ETA:08m49s
+Epochs[577/1000] lr:0.0001785
+Epochs[577/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:12m00s ETA:08m47s
+Epochs[578/1000] lr:0.0001778
+Epochs[578/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:12m01s ETA:08m46s
+Epochs[579/1000] lr:0.0001771
+Epochs[579/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:12m02s ETA:08m44s
+Epochs[580/1000] lr:0.0001764
+Epochs[580/1000] (0000/0004) loss:0.029(0.029)  dt:00.31s Elapsed:12m02s ETA:08m42s
+Epochs[581/1000] lr:0.0001757
+Epochs[581/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:12m03s ETA:08m41s
+Epochs[582/1000] lr:0.0001750
+Epochs[582/1000] (0000/0004) loss:0.027(0.027)  dt:00.31s Elapsed:12m04s ETA:08m39s
+Epochs[583/1000] lr:0.0001743
+Epochs[583/1000] (0000/0004) loss:0.028(0.028)  dt:00.31s Elapsed:12m04s ETA:08m37s
+Epochs[584/1000] lr:0.0001736
+Epochs[584/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:12m05s ETA:08m36s
+Epochs[585/1000] lr:0.0001729
+Epochs[585/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:12m06s ETA:08m34s
+Epochs[586/1000] lr:0.0001722
+Epochs[586/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:12m06s ETA:08m32s
+Epochs[587/1000] lr:0.0001715
+Epochs[587/1000] (0000/0004) loss:0.025(0.025)  dt:00.31s Elapsed:12m07s ETA:08m31s
+Epochs[588/1000] lr:0.0001708
+Epochs[588/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:12m08s ETA:08m29s
+Epochs[589/1000] lr:0.0001701
+Epochs[589/1000] (0000/0004) loss:0.025(0.025)  dt:00.31s Elapsed:12m08s ETA:08m28s
+Epochs[590/1000] lr:0.0001694
+Epochs[590/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:12m09s ETA:08m26s
+Epochs[591/1000] lr:0.0001687
+Epochs[591/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:12m10s ETA:08m24s
+Epochs[592/1000] lr:0.0001680
+Epochs[592/1000] (0000/0004) loss:0.027(0.027)  dt:00.31s Elapsed:12m11s ETA:08m23s
+Epochs[593/1000] lr:0.0001673
+Epochs[593/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:12m11s ETA:08m21s
+Epochs[594/1000] lr:0.0001666
+Epochs[594/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:12m12s ETA:08m19s
+Epochs[595/1000] lr:0.0001659
+Epochs[595/1000] (0000/0004) loss:0.027(0.027)  dt:00.31s Elapsed:12m13s ETA:08m18s
+Epochs[596/1000] lr:0.0001652
+Epochs[596/1000] (0000/0004) loss:0.027(0.027)  dt:00.31s Elapsed:12m13s ETA:08m16s
+Epochs[597/1000] lr:0.0001645
+Epochs[597/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:12m14s ETA:08m15s
+Epochs[598/1000] lr:0.0001639
+Epochs[598/1000] (0000/0004) loss:0.026(0.026)  dt:00.31s Elapsed:12m15s ETA:08m13s
+Epochs[599/1000] lr:0.0001632
+Epochs[599/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:12m15s ETA:08m11s
+Epochs[600/1000] lr:0.0001625
+Epochs[600/1000] (0000/0004) loss:0.032(0.032)  dt:00.31s Elapsed:12m16s ETA:08m10s
+train STL Acc:0.509
+val STL Acc:0.051
+STAT train:475 stls, 898 trajs (:0.5089 _0:0.9381 _1:0.6321 _2:0.4328 _3:0.2766) | val:119 stls, 216 trajs (:0.0509 :0.1786 :0.0702 :0.0000 :0.0244)
+Epochs[601/1000] lr:0.0001618
+Epochs[601/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:13m45s ETA:09m07s
+Epochs[602/1000] lr:0.0001611
+Epochs[602/1000] (0000/0004) loss:0.028(0.028)  dt:00.34s Elapsed:13m46s ETA:09m05s
+Epochs[603/1000] lr:0.0001605
+Epochs[603/1000] (0000/0004) loss:0.023(0.023)  dt:00.34s Elapsed:13m47s ETA:09m03s
+Epochs[604/1000] lr:0.0001598
+Epochs[604/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:13m47s ETA:09m01s
+Epochs[605/1000] lr:0.0001591
+Epochs[605/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:13m48s ETA:09m00s
+Epochs[606/1000] lr:0.0001584
+Epochs[606/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:13m48s ETA:08m58s
+Epochs[607/1000] lr:0.0001578
+Epochs[607/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:13m49s ETA:08m56s
+Epochs[608/1000] lr:0.0001571
+Epochs[608/1000] (0000/0004) loss:0.029(0.029)  dt:00.34s Elapsed:13m50s ETA:08m54s
+Epochs[609/1000] lr:0.0001564
+Epochs[609/1000] (0000/0004) loss:0.024(0.024)  dt:00.34s Elapsed:13m50s ETA:08m52s
+Epochs[610/1000] lr:0.0001558
+Epochs[610/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:13m51s ETA:08m50s
+Epochs[611/1000] lr:0.0001551
+Epochs[611/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:13m51s ETA:08m49s
+Epochs[612/1000] lr:0.0001544
+Epochs[612/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:13m52s ETA:08m47s
+Epochs[613/1000] lr:0.0001538
+Epochs[613/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:13m53s ETA:08m45s
+Epochs[614/1000] lr:0.0001531
+Epochs[614/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:13m53s ETA:08m43s
+Epochs[615/1000] lr:0.0001525
+Epochs[615/1000] (0000/0004) loss:0.025(0.025)  dt:00.34s Elapsed:13m54s ETA:08m41s
+Epochs[616/1000] lr:0.0001518
+Epochs[616/1000] (0000/0004) loss:0.024(0.024)  dt:00.34s Elapsed:13m54s ETA:08m39s
+Epochs[617/1000] lr:0.0001511
+Epochs[617/1000] (0000/0004) loss:0.030(0.030)  dt:00.34s Elapsed:13m55s ETA:08m38s
+Epochs[618/1000] lr:0.0001505
+Epochs[618/1000] (0000/0004) loss:0.024(0.024)  dt:00.34s Elapsed:13m56s ETA:08m36s
+Epochs[619/1000] lr:0.0001498
+Epochs[619/1000] (0000/0004) loss:0.024(0.024)  dt:00.34s Elapsed:13m56s ETA:08m34s
+Epochs[620/1000] lr:0.0001492
+Epochs[620/1000] (0000/0004) loss:0.026(0.026)  dt:00.34s Elapsed:13m57s ETA:08m32s
+Epochs[621/1000] lr:0.0001485
+Epochs[621/1000] (0000/0004) loss:0.027(0.027)  dt:00.34s Elapsed:13m58s ETA:08m30s
+Epochs[622/1000] lr:0.0001479
+Epochs[622/1000] (0000/0004) loss:0.025(0.025)  dt:00.34s Elapsed:13m58s ETA:08m29s
+Epochs[623/1000] lr:0.0001472
+Epochs[623/1000] (0000/0004) loss:0.023(0.023)  dt:00.34s Elapsed:13m59s ETA:08m27s
+Epochs[624/1000] lr:0.0001466
+Epochs[624/1000] (0000/0004) loss:0.028(0.028)  dt:00.34s Elapsed:13m59s ETA:08m25s
+Epochs[625/1000] lr:0.0001459
+Epochs[625/1000] (0000/0004) loss:0.024(0.024)  dt:00.34s Elapsed:14m00s ETA:08m23s
+Epochs[626/1000] lr:0.0001453
+Epochs[626/1000] (0000/0004) loss:0.025(0.025)  dt:00.34s Elapsed:14m01s ETA:08m21s
+Epochs[627/1000] lr:0.0001447
+Epochs[627/1000] (0000/0004) loss:0.022(0.022)  dt:00.34s Elapsed:14m01s ETA:08m20s
+Epochs[628/1000] lr:0.0001440
+Epochs[628/1000] (0000/0004) loss:0.028(0.028)  dt:00.34s Elapsed:14m02s ETA:08m18s
+Epochs[629/1000] lr:0.0001434
+Epochs[629/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m02s ETA:08m16s
+Epochs[630/1000] lr:0.0001427
+Epochs[630/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m03s ETA:08m14s
+Epochs[631/1000] lr:0.0001421
+Epochs[631/1000] (0000/0004) loss:0.024(0.024)  dt:00.34s Elapsed:14m06s ETA:08m14s
+Epochs[632/1000] lr:0.0001415
+Epochs[632/1000] (0000/0004) loss:0.023(0.023)  dt:00.34s Elapsed:14m07s ETA:08m12s
+Epochs[633/1000] lr:0.0001408
+Epochs[633/1000] (0000/0004) loss:0.025(0.025)  dt:00.33s Elapsed:14m08s ETA:08m11s
+Epochs[634/1000] lr:0.0001402
+Epochs[634/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:14m08s ETA:08m09s
+Epochs[635/1000] lr:0.0001396
+Epochs[635/1000] (0000/0004) loss:0.026(0.026)  dt:00.33s Elapsed:14m09s ETA:08m07s
+Epochs[636/1000] lr:0.0001390
+Epochs[636/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m09s ETA:08m05s
+Epochs[637/1000] lr:0.0001383
+Epochs[637/1000] (0000/0004) loss:0.020(0.020)  dt:00.33s Elapsed:14m10s ETA:08m04s
+Epochs[638/1000] lr:0.0001377
+Epochs[638/1000] (0000/0004) loss:0.028(0.028)  dt:00.33s Elapsed:14m11s ETA:08m02s
+Epochs[639/1000] lr:0.0001371
+Epochs[639/1000] (0000/0004) loss:0.024(0.024)  dt:00.33s Elapsed:14m11s ETA:08m00s
+Epochs[640/1000] lr:0.0001365
+Epochs[640/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m12s ETA:07m58s
+Epochs[641/1000] lr:0.0001359
+Epochs[641/1000] (0000/0004) loss:0.026(0.026)  dt:00.33s Elapsed:14m12s ETA:07m57s
+Epochs[642/1000] lr:0.0001352
+Epochs[642/1000] (0000/0004) loss:0.025(0.025)  dt:00.33s Elapsed:14m13s ETA:07m55s
+Epochs[643/1000] lr:0.0001346
+Epochs[643/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m14s ETA:07m53s
+Epochs[644/1000] lr:0.0001340
+Epochs[644/1000] (0000/0004) loss:0.027(0.027)  dt:00.33s Elapsed:14m14s ETA:07m51s
+Epochs[645/1000] lr:0.0001334
+Epochs[645/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m15s ETA:07m50s
+Epochs[646/1000] lr:0.0001328
+Epochs[646/1000] (0000/0004) loss:0.023(0.023)  dt:00.33s Elapsed:14m16s ETA:07m48s
+Epochs[647/1000] lr:0.0001322
+Epochs[647/1000] (0000/0004) loss:0.025(0.025)  dt:00.33s Elapsed:14m16s ETA:07m46s
+Epochs[648/1000] lr:0.0001316
+Epochs[648/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:14m17s ETA:07m45s
+Epochs[649/1000] lr:0.0001310
+Epochs[649/1000] (0000/0004) loss:0.020(0.020)  dt:00.33s Elapsed:14m17s ETA:07m43s
+Epochs[650/1000] lr:0.0001304
+Epochs[650/1000] (0000/0004) loss:0.027(0.027)  dt:00.33s Elapsed:14m18s ETA:07m41s
+Epochs[651/1000] lr:0.0001298
+Epochs[651/1000] (0000/0004) loss:0.026(0.026)  dt:00.33s Elapsed:14m19s ETA:07m40s
+Epochs[652/1000] lr:0.0001292
+Epochs[652/1000] (0000/0004) loss:0.025(0.025)  dt:00.33s Elapsed:14m19s ETA:07m38s
+Epochs[653/1000] lr:0.0001286
+Epochs[653/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m20s ETA:07m36s
+Epochs[654/1000] lr:0.0001280
+Epochs[654/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:14m21s ETA:07m34s
+Epochs[655/1000] lr:0.0001274
+Epochs[655/1000] (0000/0004) loss:0.025(0.025)  dt:00.33s Elapsed:14m21s ETA:07m33s
+Epochs[656/1000] lr:0.0001268
+Epochs[656/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:14m22s ETA:07m31s
+Epochs[657/1000] lr:0.0001262
+Epochs[657/1000] (0000/0004) loss:0.027(0.027)  dt:00.33s Elapsed:14m23s ETA:07m29s
+Epochs[658/1000] lr:0.0001256
+Epochs[658/1000] (0000/0004) loss:0.025(0.025)  dt:00.33s Elapsed:14m23s ETA:07m28s
+Epochs[659/1000] lr:0.0001250
+Epochs[659/1000] (0000/0004) loss:0.023(0.023)  dt:00.33s Elapsed:14m24s ETA:07m26s
+Epochs[660/1000] lr:0.0001244
+Epochs[660/1000] (0000/0004) loss:0.020(0.020)  dt:00.33s Elapsed:14m24s ETA:07m25s
+Epochs[661/1000] lr:0.0001239
+Epochs[661/1000] (0000/0004) loss:0.027(0.027)  dt:00.33s Elapsed:14m25s ETA:07m23s
+Epochs[662/1000] lr:0.0001233
+Epochs[662/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:14m26s ETA:07m21s
+Epochs[663/1000] lr:0.0001227
+Epochs[663/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:14m26s ETA:07m20s
+Epochs[664/1000] lr:0.0001221
+Epochs[664/1000] (0000/0004) loss:0.020(0.020)  dt:00.33s Elapsed:14m27s ETA:07m18s
+Epochs[665/1000] lr:0.0001216
+Epochs[665/1000] (0000/0004) loss:0.023(0.023)  dt:00.33s Elapsed:14m28s ETA:07m16s
+Epochs[666/1000] lr:0.0001210
+Epochs[666/1000] (0000/0004) loss:0.020(0.020)  dt:00.33s Elapsed:14m28s ETA:07m15s
+Epochs[667/1000] lr:0.0001204
+Epochs[667/1000] (0000/0004) loss:0.019(0.019)  dt:00.33s Elapsed:14m29s ETA:07m13s
+Epochs[668/1000] lr:0.0001198
+Epochs[668/1000] (0000/0004) loss:0.018(0.018)  dt:00.33s Elapsed:14m30s ETA:07m11s
+Epochs[669/1000] lr:0.0001193
+Epochs[669/1000] (0000/0004) loss:0.023(0.023)  dt:00.33s Elapsed:14m30s ETA:07m10s
+Epochs[670/1000] lr:0.0001187
+Epochs[670/1000] (0000/0004) loss:0.026(0.026)  dt:00.33s Elapsed:14m31s ETA:07m08s
+Epochs[671/1000] lr:0.0001181
+Epochs[671/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m32s ETA:07m07s
+Epochs[672/1000] lr:0.0001176
+Epochs[672/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m32s ETA:07m05s
+Epochs[673/1000] lr:0.0001170
+Epochs[673/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:14m33s ETA:07m03s
+Epochs[674/1000] lr:0.0001165
+Epochs[674/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:14m34s ETA:07m02s
+Epochs[675/1000] lr:0.0001159
+Epochs[675/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:14m34s ETA:07m00s
+Epochs[676/1000] lr:0.0001153
+Epochs[676/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m35s ETA:06m58s
+Epochs[677/1000] lr:0.0001148
+Epochs[677/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m35s ETA:06m57s
+Epochs[678/1000] lr:0.0001142
+Epochs[678/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:14m39s ETA:06m57s
+Epochs[679/1000] lr:0.0001137
+Epochs[679/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m40s ETA:06m55s
+Epochs[680/1000] lr:0.0001131
+Epochs[680/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m40s ETA:06m53s
+Epochs[681/1000] lr:0.0001126
+Epochs[681/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:14m41s ETA:06m52s
+Epochs[682/1000] lr:0.0001121
+Epochs[682/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m42s ETA:06m50s
+Epochs[683/1000] lr:0.0001115
+Epochs[683/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:14m42s ETA:06m49s
+Epochs[684/1000] lr:0.0001110
+Epochs[684/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:14m43s ETA:06m47s
+Epochs[685/1000] lr:0.0001104
+Epochs[685/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:14m43s ETA:06m45s
+Epochs[686/1000] lr:0.0001099
+Epochs[686/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:14m44s ETA:06m44s
+Epochs[687/1000] lr:0.0001094
+Epochs[687/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m45s ETA:06m42s
+Epochs[688/1000] lr:0.0001088
+Epochs[688/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m45s ETA:06m41s
+Epochs[689/1000] lr:0.0001083
+Epochs[689/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m46s ETA:06m39s
+Epochs[690/1000] lr:0.0001078
+Epochs[690/1000] (0000/0004) loss:0.023(0.023)  dt:00.32s Elapsed:14m47s ETA:06m38s
+Epochs[691/1000] lr:0.0001073
+Epochs[691/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:14m47s ETA:06m36s
+Epochs[692/1000] lr:0.0001067
+Epochs[692/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m48s ETA:06m34s
+Epochs[693/1000] lr:0.0001062
+Epochs[693/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m49s ETA:06m33s
+Epochs[694/1000] lr:0.0001057
+Epochs[694/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m49s ETA:06m31s
+Epochs[695/1000] lr:0.0001052
+Epochs[695/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m50s ETA:06m30s
+Epochs[696/1000] lr:0.0001047
+Epochs[696/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m51s ETA:06m28s
+Epochs[697/1000] lr:0.0001042
+Epochs[697/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:14m51s ETA:06m27s
+Epochs[698/1000] lr:0.0001037
+Epochs[698/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m52s ETA:06m25s
+Epochs[699/1000] lr:0.0001031
+Epochs[699/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m53s ETA:06m24s
+Epochs[700/1000] lr:0.0001026
+Epochs[700/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:14m53s ETA:06m22s
+Epochs[701/1000] lr:0.0001021
+Epochs[701/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m54s ETA:06m20s
+Epochs[702/1000] lr:0.0001016
+Epochs[702/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m55s ETA:06m19s
+Epochs[703/1000] lr:0.0001011
+Epochs[703/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:14m55s ETA:06m17s
+Epochs[704/1000] lr:0.0001006
+Epochs[704/1000] (0000/0004) loss:0.023(0.023)  dt:00.32s Elapsed:14m56s ETA:06m16s
+Epochs[705/1000] lr:0.0001001
+Epochs[705/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:14m57s ETA:06m14s
+Epochs[706/1000] lr:0.0000996
+Epochs[706/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:14m57s ETA:06m13s
+Epochs[707/1000] lr:0.0000992
+Epochs[707/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:14m58s ETA:06m11s
+Epochs[708/1000] lr:0.0000987
+Epochs[708/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:14m59s ETA:06m10s
+Epochs[709/1000] lr:0.0000982
+Epochs[709/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:15m00s ETA:06m08s
+Epochs[710/1000] lr:0.0000977
+Epochs[710/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:15m00s ETA:06m07s
+Epochs[711/1000] lr:0.0000972
+Epochs[711/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:15m01s ETA:06m06s
+Epochs[712/1000] lr:0.0000967
+Epochs[712/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:15m02s ETA:06m04s
+Epochs[713/1000] lr:0.0000963
+Epochs[713/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:15m03s ETA:06m03s
+Epochs[714/1000] lr:0.0000958
+Epochs[714/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:15m04s ETA:06m01s
+Epochs[715/1000] lr:0.0000953
+Epochs[715/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:15m05s ETA:06m00s
+Epochs[716/1000] lr:0.0000948
+Epochs[716/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:15m05s ETA:05m58s
+Epochs[717/1000] lr:0.0000944
+Epochs[717/1000] (0000/0004) loss:0.025(0.025)  dt:00.32s Elapsed:15m06s ETA:05m57s
+Epochs[718/1000] lr:0.0000939
+Epochs[718/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:15m07s ETA:05m55s
+Epochs[719/1000] lr:0.0000934
+Epochs[719/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:15m08s ETA:05m54s
+Epochs[720/1000] lr:0.0000930
+Epochs[720/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:15m08s ETA:05m52s
+Epochs[721/1000] lr:0.0000925
+Epochs[721/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:15m12s ETA:05m52s
+Epochs[722/1000] lr:0.0000921
+Epochs[722/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:15m13s ETA:05m51s
+Epochs[723/1000] lr:0.0000916
+Epochs[723/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:15m13s ETA:05m49s
+Epochs[724/1000] lr:0.0000911
+Epochs[724/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:15m14s ETA:05m48s
+Epochs[725/1000] lr:0.0000907
+Epochs[725/1000] (0000/0004) loss:0.023(0.023)  dt:00.32s Elapsed:15m15s ETA:05m46s
+Epochs[726/1000] lr:0.0000902
+Epochs[726/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:15m15s ETA:05m45s
+Epochs[727/1000] lr:0.0000898
+Epochs[727/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m16s ETA:05m43s
+Epochs[728/1000] lr:0.0000893
+Epochs[728/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m17s ETA:05m42s
+Epochs[729/1000] lr:0.0000889
+Epochs[729/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m17s ETA:05m40s
+Epochs[730/1000] lr:0.0000885
+Epochs[730/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m18s ETA:05m39s
+Epochs[731/1000] lr:0.0000880
+Epochs[731/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m19s ETA:05m37s
+Epochs[732/1000] lr:0.0000876
+Epochs[732/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:15m19s ETA:05m36s
+Epochs[733/1000] lr:0.0000872
+Epochs[733/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m20s ETA:05m34s
+Epochs[734/1000] lr:0.0000867
+Epochs[734/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:15m21s ETA:05m33s
+Epochs[735/1000] lr:0.0000863
+Epochs[735/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:15m22s ETA:05m31s
+Epochs[736/1000] lr:0.0000859
+Epochs[736/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m22s ETA:05m30s
+Epochs[737/1000] lr:0.0000854
+Epochs[737/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m23s ETA:05m29s
+Epochs[738/1000] lr:0.0000850
+Epochs[738/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m23s ETA:05m27s
+Epochs[739/1000] lr:0.0000846
+Epochs[739/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:15m24s ETA:05m26s
+Epochs[740/1000] lr:0.0000842
+Epochs[740/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m25s ETA:05m24s
+Epochs[741/1000] lr:0.0000838
+Epochs[741/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:15m26s ETA:05m23s
+Epochs[742/1000] lr:0.0000834
+Epochs[742/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m26s ETA:05m21s
+Epochs[743/1000] lr:0.0000830
+Epochs[743/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m27s ETA:05m20s
+Epochs[744/1000] lr:0.0000825
+Epochs[744/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m28s ETA:05m18s
+Epochs[745/1000] lr:0.0000821
+Epochs[745/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:15m28s ETA:05m17s
+Epochs[746/1000] lr:0.0000817
+Epochs[746/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m29s ETA:05m15s
+Epochs[747/1000] lr:0.0000813
+Epochs[747/1000] (0000/0004) loss:0.023(0.023)  dt:00.31s Elapsed:15m29s ETA:05m14s
+Epochs[748/1000] lr:0.0000809
+Epochs[748/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m30s ETA:05m13s
+Epochs[749/1000] lr:0.0000805
+Epochs[749/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:15m31s ETA:05m11s
+Epochs[750/1000] lr:0.0000801
+Epochs[750/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m31s ETA:05m10s
+Epochs[751/1000] lr:0.0000798
+Epochs[751/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:15m32s ETA:05m08s
+Epochs[752/1000] lr:0.0000794
+Epochs[752/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m33s ETA:05m07s
+Epochs[753/1000] lr:0.0000790
+Epochs[753/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:15m33s ETA:05m05s
+Epochs[754/1000] lr:0.0000786
+Epochs[754/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m34s ETA:05m04s
+Epochs[755/1000] lr:0.0000782
+Epochs[755/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:15m35s ETA:05m03s
+Epochs[756/1000] lr:0.0000778
+Epochs[756/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m35s ETA:05m01s
+Epochs[757/1000] lr:0.0000775
+Epochs[757/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:15m36s ETA:05m00s
+Epochs[758/1000] lr:0.0000771
+Epochs[758/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m37s ETA:04m58s
+Epochs[759/1000] lr:0.0000767
+Epochs[759/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m38s ETA:04m57s
+Epochs[760/1000] lr:0.0000763
+Epochs[760/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m38s ETA:04m55s
+Epochs[761/1000] lr:0.0000760
+Epochs[761/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m39s ETA:04m54s
+Epochs[762/1000] lr:0.0000756
+Epochs[762/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m40s ETA:04m53s
+Epochs[763/1000] lr:0.0000752
+Epochs[763/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m40s ETA:04m51s
+Epochs[764/1000] lr:0.0000749
+Epochs[764/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m41s ETA:04m50s
+Epochs[765/1000] lr:0.0000745
+Epochs[765/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m44s ETA:04m48s
+Epochs[766/1000] lr:0.0000742
+Epochs[766/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:15m45s ETA:04m48s
+Epochs[767/1000] lr:0.0000738
+Epochs[767/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m45s ETA:04m46s
+Epochs[768/1000] lr:0.0000735
+Epochs[768/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m46s ETA:04m45s
+Epochs[769/1000] lr:0.0000731
+Epochs[769/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:15m47s ETA:04m44s
+Epochs[770/1000] lr:0.0000728
+Epochs[770/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m47s ETA:04m42s
+Epochs[771/1000] lr:0.0000724
+Epochs[771/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m48s ETA:04m41s
+Epochs[772/1000] lr:0.0000721
+Epochs[772/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m49s ETA:04m39s
+Epochs[773/1000] lr:0.0000717
+Epochs[773/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m49s ETA:04m38s
+Epochs[774/1000] lr:0.0000714
+Epochs[774/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m50s ETA:04m37s
+Epochs[775/1000] lr:0.0000711
+Epochs[775/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m51s ETA:04m35s
+Epochs[776/1000] lr:0.0000708
+Epochs[776/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:15m51s ETA:04m34s
+Epochs[777/1000] lr:0.0000704
+Epochs[777/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m52s ETA:04m32s
+Epochs[778/1000] lr:0.0000701
+Epochs[778/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m53s ETA:04m31s
+Epochs[779/1000] lr:0.0000698
+Epochs[779/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:15m53s ETA:04m30s
+Epochs[780/1000] lr:0.0000695
+Epochs[780/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m54s ETA:04m28s
+Epochs[781/1000] lr:0.0000691
+Epochs[781/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:15m55s ETA:04m27s
+Epochs[782/1000] lr:0.0000688
+Epochs[782/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:15m55s ETA:04m26s
+Epochs[783/1000] lr:0.0000685
+Epochs[783/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:15m56s ETA:04m24s
+Epochs[784/1000] lr:0.0000682
+Epochs[784/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:15m57s ETA:04m23s
+Epochs[785/1000] lr:0.0000679
+Epochs[785/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:15m57s ETA:04m21s
+Epochs[786/1000] lr:0.0000676
+Epochs[786/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:15m58s ETA:04m20s
+Epochs[787/1000] lr:0.0000673
+Epochs[787/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:15m59s ETA:04m19s
+Epochs[788/1000] lr:0.0000670
+Epochs[788/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:16m00s ETA:04m17s
+Epochs[789/1000] lr:0.0000667
+Epochs[789/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:16m00s ETA:04m16s
+Epochs[790/1000] lr:0.0000664
+Epochs[790/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:16m01s ETA:04m15s
+Epochs[791/1000] lr:0.0000661
+Epochs[791/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:16m02s ETA:04m13s
+Epochs[792/1000] lr:0.0000658
+Epochs[792/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:16m02s ETA:04m12s
+Epochs[793/1000] lr:0.0000655
+Epochs[793/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:16m03s ETA:04m11s
+Epochs[794/1000] lr:0.0000652
+Epochs[794/1000] (0000/0004) loss:0.020(0.020)  dt:00.30s Elapsed:16m04s ETA:04m09s
+Epochs[795/1000] lr:0.0000649
+Epochs[795/1000] (0000/0004) loss:0.022(0.022)  dt:00.30s Elapsed:16m04s ETA:04m08s
+Epochs[796/1000] lr:0.0000647
+Epochs[796/1000] (0000/0004) loss:0.020(0.020)  dt:00.30s Elapsed:16m05s ETA:04m06s
+Epochs[797/1000] lr:0.0000644
+Epochs[797/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:16m06s ETA:04m05s
+Epochs[798/1000] lr:0.0000641
+Epochs[798/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:16m06s ETA:04m04s
+Epochs[799/1000] lr:0.0000638
+Epochs[799/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:16m07s ETA:04m02s
+Epochs[800/1000] lr:0.0000636
+Epochs[800/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:16m08s ETA:04m01s
+train STL Acc:0.692
+val STL Acc:0.056
+STAT train:475 stls, 898 trajs (:0.6915 _0:1.0000 _1:0.8270 _2:0.6119 _3:0.4894) | val:119 stls, 216 trajs (:0.0556 :0.2857 :0.0702 :0.0000 :0.0000)
+Epochs[801/1000] lr:0.0000633
+Epochs[801/1000] (0000/0004) loss:0.015(0.015)  dt:00.33s Elapsed:17m33s ETA:04m21s
+Epochs[802/1000] lr:0.0000630
+Epochs[802/1000] (0000/0004) loss:0.019(0.019)  dt:00.33s Elapsed:17m33s ETA:04m19s
+Epochs[803/1000] lr:0.0000628
+Epochs[803/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:17m34s ETA:04m18s
+Epochs[804/1000] lr:0.0000625
+Epochs[804/1000] (0000/0004) loss:0.017(0.017)  dt:00.33s Elapsed:17m34s ETA:04m16s
+Epochs[805/1000] lr:0.0000623
+Epochs[805/1000] (0000/0004) loss:0.019(0.019)  dt:00.33s Elapsed:17m35s ETA:04m15s
+Epochs[806/1000] lr:0.0000620
+Epochs[806/1000] (0000/0004) loss:0.019(0.019)  dt:00.33s Elapsed:17m36s ETA:04m13s
+Epochs[807/1000] lr:0.0000618
+Epochs[807/1000] (0000/0004) loss:0.017(0.017)  dt:00.33s Elapsed:17m36s ETA:04m12s
+Epochs[808/1000] lr:0.0000615
+Epochs[808/1000] (0000/0004) loss:0.020(0.020)  dt:00.33s Elapsed:17m37s ETA:04m10s
+Epochs[809/1000] lr:0.0000613
+Epochs[809/1000] (0000/0004) loss:0.018(0.018)  dt:00.33s Elapsed:17m37s ETA:04m09s
+Epochs[810/1000] lr:0.0000610
+Epochs[810/1000] (0000/0004) loss:0.018(0.018)  dt:00.33s Elapsed:17m38s ETA:04m07s
+Epochs[811/1000] lr:0.0000608
+Epochs[811/1000] (0000/0004) loss:0.019(0.019)  dt:00.33s Elapsed:17m39s ETA:04m06s
+Epochs[812/1000] lr:0.0000605
+Epochs[812/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:17m39s ETA:04m04s
+Epochs[813/1000] lr:0.0000603
+Epochs[813/1000] (0000/0004) loss:0.022(0.022)  dt:00.33s Elapsed:17m40s ETA:04m03s
+Epochs[814/1000] lr:0.0000601
+Epochs[814/1000] (0000/0004) loss:0.018(0.018)  dt:00.33s Elapsed:17m40s ETA:04m01s
+Epochs[815/1000] lr:0.0000598
+Epochs[815/1000] (0000/0004) loss:0.017(0.017)  dt:00.33s Elapsed:17m41s ETA:04m00s
+Epochs[816/1000] lr:0.0000596
+Epochs[816/1000] (0000/0004) loss:0.021(0.021)  dt:00.33s Elapsed:17m41s ETA:03m59s
+Epochs[817/1000] lr:0.0000594
+Epochs[817/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m42s ETA:03m57s
+Epochs[818/1000] lr:0.0000592
+Epochs[818/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:17m43s ETA:03m56s
+Epochs[819/1000] lr:0.0000589
+Epochs[819/1000] (0000/0004) loss:0.024(0.024)  dt:00.32s Elapsed:17m43s ETA:03m54s
+Epochs[820/1000] lr:0.0000587
+Epochs[820/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:17m44s ETA:03m53s
+Epochs[821/1000] lr:0.0000585
+Epochs[821/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:17m44s ETA:03m51s
+Epochs[822/1000] lr:0.0000583
+Epochs[822/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:17m45s ETA:03m50s
+Epochs[823/1000] lr:0.0000581
+Epochs[823/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:17m46s ETA:03m48s
+Epochs[824/1000] lr:0.0000579
+Epochs[824/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:17m46s ETA:03m47s
+Epochs[825/1000] lr:0.0000577
+Epochs[825/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:17m47s ETA:03m45s
+Epochs[826/1000] lr:0.0000575
+Epochs[826/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:17m47s ETA:03m44s
+Epochs[827/1000] lr:0.0000573
+Epochs[827/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m48s ETA:03m43s
+Epochs[828/1000] lr:0.0000571
+Epochs[828/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:17m49s ETA:03m41s
+Epochs[829/1000] lr:0.0000569
+Epochs[829/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:17m49s ETA:03m40s
+Epochs[830/1000] lr:0.0000567
+Epochs[830/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:17m50s ETA:03m38s
+Epochs[831/1000] lr:0.0000565
+Epochs[831/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:17m51s ETA:03m37s
+Epochs[832/1000] lr:0.0000563
+Epochs[832/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m51s ETA:03m35s
+Epochs[833/1000] lr:0.0000561
+Epochs[833/1000] (0000/0004) loss:0.016(0.016)  dt:00.32s Elapsed:17m52s ETA:03m34s
+Epochs[834/1000] lr:0.0000559
+Epochs[834/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m55s ETA:03m33s
+Epochs[835/1000] lr:0.0000558
+Epochs[835/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m56s ETA:03m32s
+Epochs[836/1000] lr:0.0000556
+Epochs[836/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m56s ETA:03m30s
+Epochs[837/1000] lr:0.0000554
+Epochs[837/1000] (0000/0004) loss:0.023(0.023)  dt:00.32s Elapsed:17m57s ETA:03m29s
+Epochs[838/1000] lr:0.0000552
+Epochs[838/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:17m57s ETA:03m27s
+Epochs[839/1000] lr:0.0000551
+Epochs[839/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:17m58s ETA:03m26s
+Epochs[840/1000] lr:0.0000549
+Epochs[840/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:17m59s ETA:03m25s
+Epochs[841/1000] lr:0.0000548
+Epochs[841/1000] (0000/0004) loss:0.016(0.016)  dt:00.32s Elapsed:17m59s ETA:03m23s
+Epochs[842/1000] lr:0.0000546
+Epochs[842/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:18m00s ETA:03m22s
+Epochs[843/1000] lr:0.0000544
+Epochs[843/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m01s ETA:03m20s
+Epochs[844/1000] lr:0.0000543
+Epochs[844/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m01s ETA:03m19s
+Epochs[845/1000] lr:0.0000541
+Epochs[845/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m02s ETA:03m18s
+Epochs[846/1000] lr:0.0000540
+Epochs[846/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:18m02s ETA:03m16s
+Epochs[847/1000] lr:0.0000538
+Epochs[847/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m03s ETA:03m15s
+Epochs[848/1000] lr:0.0000537
+Epochs[848/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:18m04s ETA:03m13s
+Epochs[849/1000] lr:0.0000536
+Epochs[849/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:18m04s ETA:03m12s
+Epochs[850/1000] lr:0.0000534
+Epochs[850/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:18m05s ETA:03m11s
+Epochs[851/1000] lr:0.0000533
+Epochs[851/1000] (0000/0004) loss:0.016(0.016)  dt:00.32s Elapsed:18m06s ETA:03m09s
+Epochs[852/1000] lr:0.0000532
+Epochs[852/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:18m06s ETA:03m08s
+Epochs[853/1000] lr:0.0000530
+Epochs[853/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m07s ETA:03m06s
+Epochs[854/1000] lr:0.0000529
+Epochs[854/1000] (0000/0004) loss:0.016(0.016)  dt:00.32s Elapsed:18m08s ETA:03m05s
+Epochs[855/1000] lr:0.0000528
+Epochs[855/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:18m08s ETA:03m04s
+Epochs[856/1000] lr:0.0000526
+Epochs[856/1000] (0000/0004) loss:0.022(0.022)  dt:00.32s Elapsed:18m09s ETA:03m02s
+Epochs[857/1000] lr:0.0000525
+Epochs[857/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:18m09s ETA:03m01s
+Epochs[858/1000] lr:0.0000524
+Epochs[858/1000] (0000/0004) loss:0.016(0.016)  dt:00.32s Elapsed:18m10s ETA:03m00s
+Epochs[859/1000] lr:0.0000523
+Epochs[859/1000] (0000/0004) loss:0.015(0.015)  dt:00.32s Elapsed:18m11s ETA:02m58s
+Epochs[860/1000] lr:0.0000522
+Epochs[860/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m11s ETA:02m57s
+Epochs[861/1000] lr:0.0000521
+Epochs[861/1000] (0000/0004) loss:0.027(0.027)  dt:00.32s Elapsed:18m12s ETA:02m55s
+Epochs[862/1000] lr:0.0000520
+Epochs[862/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:18m12s ETA:02m54s
+Epochs[863/1000] lr:0.0000519
+Epochs[863/1000] (0000/0004) loss:0.017(0.017)  dt:00.32s Elapsed:18m13s ETA:02m53s
+Epochs[864/1000] lr:0.0000518
+Epochs[864/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:18m14s ETA:02m51s
+Epochs[865/1000] lr:0.0000517
+Epochs[865/1000] (0000/0004) loss:0.016(0.016)  dt:00.32s Elapsed:18m14s ETA:02m50s
+Epochs[866/1000] lr:0.0000516
+Epochs[866/1000] (0000/0004) loss:0.020(0.020)  dt:00.32s Elapsed:18m15s ETA:02m49s
+Epochs[867/1000] lr:0.0000515
+Epochs[867/1000] (0000/0004) loss:0.021(0.021)  dt:00.32s Elapsed:18m16s ETA:02m47s
+Epochs[868/1000] lr:0.0000514
+Epochs[868/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m16s ETA:02m46s
+Epochs[869/1000] lr:0.0000513
+Epochs[869/1000] (0000/0004) loss:0.015(0.015)  dt:00.32s Elapsed:18m17s ETA:02m45s
+Epochs[870/1000] lr:0.0000512
+Epochs[870/1000] (0000/0004) loss:0.018(0.018)  dt:00.32s Elapsed:18m17s ETA:02m43s
+Epochs[871/1000] lr:0.0000512
+Epochs[871/1000] (0000/0004) loss:0.019(0.019)  dt:00.32s Elapsed:18m18s ETA:02m42s
+Epochs[872/1000] lr:0.0000511
+Epochs[872/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m19s ETA:02m40s
+Epochs[873/1000] lr:0.0000510
+Epochs[873/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m19s ETA:02m39s
+Epochs[874/1000] lr:0.0000509
+Epochs[874/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m20s ETA:02m38s
+Epochs[875/1000] lr:0.0000509
+Epochs[875/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m20s ETA:02m36s
+Epochs[876/1000] lr:0.0000508
+Epochs[876/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m21s ETA:02m35s
+Epochs[877/1000] lr:0.0000507
+Epochs[877/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m22s ETA:02m34s
+Epochs[878/1000] lr:0.0000507
+Epochs[878/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m22s ETA:02m32s
+Epochs[879/1000] lr:0.0000506
+Epochs[879/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:18m23s ETA:02m31s
+Epochs[880/1000] lr:0.0000505
+Epochs[880/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m24s ETA:02m30s
+Epochs[881/1000] lr:0.0000505
+Epochs[881/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m24s ETA:02m28s
+Epochs[882/1000] lr:0.0000504
+Epochs[882/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m22s ETA:02m27s
+Epochs[883/1000] lr:0.0000504
+Epochs[883/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m28s ETA:02m26s
+Epochs[884/1000] lr:0.0000504
+Epochs[884/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m29s ETA:02m25s
+Epochs[885/1000] lr:0.0000503
+Epochs[885/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:18m30s ETA:02m23s
+Epochs[886/1000] lr:0.0000503
+Epochs[886/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m30s ETA:02m22s
+Epochs[887/1000] lr:0.0000502
+Epochs[887/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m31s ETA:02m21s
+Epochs[888/1000] lr:0.0000502
+Epochs[888/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:18m31s ETA:02m19s
+Epochs[889/1000] lr:0.0000502
+Epochs[889/1000] (0000/0004) loss:0.024(0.024)  dt:00.31s Elapsed:18m32s ETA:02m18s
+Epochs[890/1000] lr:0.0000501
+Epochs[890/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m33s ETA:02m17s
+Epochs[891/1000] lr:0.0000501
+Epochs[891/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m33s ETA:02m15s
+Epochs[892/1000] lr:0.0000501
+Epochs[892/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m34s ETA:02m14s
+Epochs[893/1000] lr:0.0000501
+Epochs[893/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m35s ETA:02m13s
+Epochs[894/1000] lr:0.0000500
+Epochs[894/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m35s ETA:02m11s
+Epochs[895/1000] lr:0.0000500
+Epochs[895/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m36s ETA:02m10s
+Epochs[896/1000] lr:0.0000500
+Epochs[896/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m37s ETA:02m09s
+Epochs[897/1000] lr:0.0000500
+Epochs[897/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m37s ETA:02m07s
+Epochs[898/1000] lr:0.0000500
+Epochs[898/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m38s ETA:02m06s
+Epochs[899/1000] lr:0.0000500
+Epochs[899/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m39s ETA:02m05s
+Epochs[900/1000] lr:0.0000500
+Epochs[900/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m39s ETA:02m04s
+Epochs[901/1000] lr:0.0000500
+Epochs[901/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m40s ETA:02m02s
+Epochs[902/1000] lr:0.0000500
+Epochs[902/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m41s ETA:02m01s
+Epochs[903/1000] lr:0.0000500
+Epochs[903/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m41s ETA:02m00s
+Epochs[904/1000] lr:0.0000500
+Epochs[904/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m42s ETA:01m58s
+Epochs[905/1000] lr:0.0000500
+Epochs[905/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:18m42s ETA:01m57s
+Epochs[906/1000] lr:0.0000500
+Epochs[906/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m43s ETA:01m56s
+Epochs[907/1000] lr:0.0000500
+Epochs[907/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m44s ETA:01m54s
+Epochs[908/1000] lr:0.0000500
+Epochs[908/1000] (0000/0004) loss:0.015(0.015)  dt:00.31s Elapsed:18m44s ETA:01m53s
+Epochs[909/1000] lr:0.0000500
+Epochs[909/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m45s ETA:01m52s
+Epochs[910/1000] lr:0.0000500
+Epochs[910/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m46s ETA:01m51s
+Epochs[911/1000] lr:0.0000500
+Epochs[911/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m46s ETA:01m49s
+Epochs[912/1000] lr:0.0000500
+Epochs[912/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m47s ETA:01m48s
+Epochs[913/1000] lr:0.0000500
+Epochs[913/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m48s ETA:01m47s
+Epochs[914/1000] lr:0.0000500
+Epochs[914/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m48s ETA:01m45s
+Epochs[915/1000] lr:0.0000500
+Epochs[915/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m49s ETA:01m44s
+Epochs[916/1000] lr:0.0000500
+Epochs[916/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m50s ETA:01m43s
+Epochs[917/1000] lr:0.0000500
+Epochs[917/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m50s ETA:01m42s
+Epochs[918/1000] lr:0.0000500
+Epochs[918/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m51s ETA:01m40s
+Epochs[919/1000] lr:0.0000500
+Epochs[919/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m52s ETA:01m39s
+Epochs[920/1000] lr:0.0000500
+Epochs[920/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:18m52s ETA:01m38s
+Epochs[921/1000] lr:0.0000500
+Epochs[921/1000] (0000/0004) loss:0.014(0.014)  dt:00.31s Elapsed:18m53s ETA:01m36s
+Epochs[922/1000] lr:0.0000500
+Epochs[922/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m54s ETA:01m35s
+Epochs[923/1000] lr:0.0000500
+Epochs[923/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:18m54s ETA:01m34s
+Epochs[924/1000] lr:0.0000500
+Epochs[924/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m55s ETA:01m33s
+Epochs[925/1000] lr:0.0000500
+Epochs[925/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:18m56s ETA:01m31s
+Epochs[926/1000] lr:0.0000500
+Epochs[926/1000] (0000/0004) loss:0.022(0.022)  dt:00.31s Elapsed:18m56s ETA:01m30s
+Epochs[927/1000] lr:0.0000500
+Epochs[927/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:18m57s ETA:01m29s
+Epochs[928/1000] lr:0.0000500
+Epochs[928/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:18m55s ETA:01m27s
+Epochs[929/1000] lr:0.0000500
+Epochs[929/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:19m01s ETA:01m26s
+Epochs[930/1000] lr:0.0000500
+Epochs[930/1000] (0000/0004) loss:0.020(0.020)  dt:00.31s Elapsed:19m02s ETA:01m25s
+Epochs[931/1000] lr:0.0000500
+Epochs[931/1000] (0000/0004) loss:0.025(0.025)  dt:00.31s Elapsed:19m02s ETA:01m24s
+Epochs[932/1000] lr:0.0000500
+Epochs[932/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:19m03s ETA:01m23s
+Epochs[933/1000] lr:0.0000500
+Epochs[933/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:19m04s ETA:01m21s
+Epochs[934/1000] lr:0.0000500
+Epochs[934/1000] (0000/0004) loss:0.021(0.021)  dt:00.31s Elapsed:19m04s ETA:01m20s
+Epochs[935/1000] lr:0.0000500
+Epochs[935/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:19m05s ETA:01m19s
+Epochs[936/1000] lr:0.0000500
+Epochs[936/1000] (0000/0004) loss:0.019(0.019)  dt:00.31s Elapsed:19m06s ETA:01m18s
+Epochs[937/1000] lr:0.0000500
+Epochs[937/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:19m06s ETA:01m16s
+Epochs[938/1000] lr:0.0000500
+Epochs[938/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:19m07s ETA:01m15s
+Epochs[939/1000] lr:0.0000500
+Epochs[939/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:19m08s ETA:01m14s
+Epochs[940/1000] lr:0.0000500
+Epochs[940/1000] (0000/0004) loss:0.015(0.015)  dt:00.31s Elapsed:19m08s ETA:01m12s
+Epochs[941/1000] lr:0.0000500
+Epochs[941/1000] (0000/0004) loss:0.018(0.018)  dt:00.31s Elapsed:19m09s ETA:01m11s
+Epochs[942/1000] lr:0.0000500
+Epochs[942/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:19m10s ETA:01m10s
+Epochs[943/1000] lr:0.0000500
+Epochs[943/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:19m11s ETA:01m09s
+Epochs[944/1000] lr:0.0000500
+Epochs[944/1000] (0000/0004) loss:0.016(0.016)  dt:00.31s Elapsed:19m12s ETA:01m08s
+Epochs[945/1000] lr:0.0000500
+Epochs[945/1000] (0000/0004) loss:0.017(0.017)  dt:00.31s Elapsed:19m13s ETA:01m06s
+Epochs[946/1000] lr:0.0000500
+Epochs[946/1000] (0000/0004) loss:0.015(0.015)  dt:00.30s Elapsed:19m14s ETA:01m05s
+Epochs[947/1000] lr:0.0000500
+Epochs[947/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:19m15s ETA:01m04s
+Epochs[948/1000] lr:0.0000500
+Epochs[948/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m15s ETA:01m03s
+Epochs[949/1000] lr:0.0000500
+Epochs[949/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m16s ETA:01m01s
+Epochs[950/1000] lr:0.0000500
+Epochs[950/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m17s ETA:01m00s
+Epochs[951/1000] lr:0.0000500
+Epochs[951/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:19m18s ETA:59.35s
+Epochs[952/1000] lr:0.0000500
+Epochs[952/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m18s ETA:58.10s
+Epochs[953/1000] lr:0.0000500
+Epochs[953/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m19s ETA:56.86s
+Epochs[954/1000] lr:0.0000500
+Epochs[954/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:19m20s ETA:55.62s
+Epochs[955/1000] lr:0.0000500
+Epochs[955/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m20s ETA:54.38s
+Epochs[956/1000] lr:0.0000500
+Epochs[956/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m21s ETA:53.14s
+Epochs[957/1000] lr:0.0000500
+Epochs[957/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m22s ETA:51.90s
+Epochs[958/1000] lr:0.0000500
+Epochs[958/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m22s ETA:50.66s
+Epochs[959/1000] lr:0.0000500
+Epochs[959/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m23s ETA:49.42s
+Epochs[960/1000] lr:0.0000500
+Epochs[960/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m24s ETA:48.19s
+Epochs[961/1000] lr:0.0000500
+Epochs[961/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m25s ETA:46.96s
+Epochs[962/1000] lr:0.0000500
+Epochs[962/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m25s ETA:45.73s
+Epochs[963/1000] lr:0.0000500
+Epochs[963/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m26s ETA:44.51s
+Epochs[964/1000] lr:0.0000500
+Epochs[964/1000] (0000/0004) loss:0.020(0.020)  dt:00.30s Elapsed:19m27s ETA:43.29s
+Epochs[965/1000] lr:0.0000500
+Epochs[965/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m28s ETA:42.07s
+Epochs[966/1000] lr:0.0000500
+Epochs[966/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m29s ETA:40.84s
+Epochs[967/1000] lr:0.0000500
+Epochs[967/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m30s ETA:39.62s
+Epochs[968/1000] lr:0.0000500
+Epochs[968/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m33s ETA:38.39s
+Epochs[969/1000] lr:0.0000500
+Epochs[969/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m34s ETA:37.26s
+Epochs[970/1000] lr:0.0000500
+Epochs[970/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m35s ETA:36.04s
+Epochs[971/1000] lr:0.0000500
+Epochs[971/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m36s ETA:34.82s
+Epochs[972/1000] lr:0.0000500
+Epochs[972/1000] (0000/0004) loss:0.015(0.015)  dt:00.30s Elapsed:19m37s ETA:33.59s
+Epochs[973/1000] lr:0.0000500
+Epochs[973/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m37s ETA:32.37s
+Epochs[974/1000] lr:0.0000500
+Epochs[974/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m38s ETA:31.15s
+Epochs[975/1000] lr:0.0000500
+Epochs[975/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m39s ETA:29.93s
+Epochs[976/1000] lr:0.0000500
+Epochs[976/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m40s ETA:28.71s
+Epochs[977/1000] lr:0.0000500
+Epochs[977/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:19m41s ETA:27.49s
+Epochs[978/1000] lr:0.0000500
+Epochs[978/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m41s ETA:26.27s
+Epochs[979/1000] lr:0.0000500
+Epochs[979/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m42s ETA:25.05s
+Epochs[980/1000] lr:0.0000500
+Epochs[980/1000] (0000/0004) loss:0.021(0.021)  dt:00.30s Elapsed:19m43s ETA:23.84s
+Epochs[981/1000] lr:0.0000500
+Epochs[981/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m43s ETA:22.62s
+Epochs[982/1000] lr:0.0000500
+Epochs[982/1000] (0000/0004) loss:0.020(0.020)  dt:00.30s Elapsed:19m44s ETA:21.41s
+Epochs[983/1000] lr:0.0000500
+Epochs[983/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m45s ETA:20.20s
+Epochs[984/1000] lr:0.0000500
+Epochs[984/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m46s ETA:18.98s
+Epochs[985/1000] lr:0.0000500
+Epochs[985/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m47s ETA:17.77s
+Epochs[986/1000] lr:0.0000500
+Epochs[986/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m48s ETA:16.56s
+Epochs[987/1000] lr:0.0000500
+Epochs[987/1000] (0000/0004) loss:0.023(0.023)  dt:00.30s Elapsed:19m48s ETA:15.35s
+Epochs[988/1000] lr:0.0000500
+Epochs[988/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m50s ETA:14.15s
+Epochs[989/1000] lr:0.0000500
+Epochs[989/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m51s ETA:12.94s
+Epochs[990/1000] lr:0.0000500
+Epochs[990/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m51s ETA:11.73s
+Epochs[991/1000] lr:0.0000500
+Epochs[991/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m52s ETA:10.53s
+Epochs[992/1000] lr:0.0000500
+Epochs[992/1000] (0000/0004) loss:0.012(0.012)  dt:00.30s Elapsed:19m53s ETA:09.32s
+Epochs[993/1000] lr:0.0000500
+Epochs[993/1000] (0000/0004) loss:0.019(0.019)  dt:00.30s Elapsed:19m54s ETA:08.11s
+Epochs[994/1000] lr:0.0000500
+Epochs[994/1000] (0000/0004) loss:0.015(0.015)  dt:00.30s Elapsed:19m55s ETA:06.91s
+Epochs[995/1000] lr:0.0000500
+Epochs[995/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m56s ETA:05.71s
+Epochs[996/1000] lr:0.0000500
+Epochs[996/1000] (0000/0004) loss:0.020(0.020)  dt:00.30s Elapsed:19m57s ETA:04.51s
+Epochs[997/1000] lr:0.0000500
+Epochs[997/1000] (0000/0004) loss:0.016(0.016)  dt:00.30s Elapsed:19m58s ETA:03.30s
+Epochs[998/1000] lr:0.0000500
+Epochs[998/1000] (0000/0004) loss:0.018(0.018)  dt:00.30s Elapsed:19m58s ETA:02.10s
+Epochs[999/1000] lr:0.0000500
+Epochs[999/1000] (0000/0004) loss:0.017(0.017)  dt:00.30s Elapsed:19m59s ETA:00.90s
+train STL Acc:0.759
+val STL Acc:0.051
+STAT train:475 stls, 898 trajs (:0.7595 _0:1.0000 _1:0.8774 _2:0.7313 _3:0.5638) | val:119 stls, 216 trajs (:0.0509 :0.2143 :0.0702 :0.0000 :0.0122)
+Finished in 1301.289 seconds

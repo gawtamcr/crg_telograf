@@ -6,13 +6,18 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - NVIDIA_VISIBLE_DEVICES=all
+      - WANDB_API_KEY=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
+      - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+      - SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
     volumes:
       - .:/app
+      - ~/abb_root.cer:/usr/local/share/ca-certificates/abb_root.crt:ro
       - /tmp/.X11-unix:/tmp/.X11-unix
     command: bash -c "
-      cd project/code && 
-      bash run.sh"
-    stdin_open: true    
+      update-ca-certificates && 
+      wandb login && 
+      cd project/code && bash run.sh"
+    stdin_open: true
     tty: true
     runtime: nvidia
 

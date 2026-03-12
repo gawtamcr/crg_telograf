@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import utils
 import tqdm
+import wandb
 
 from z_diffuser import GaussianDiffusion, GaussianFlow, TemporalUnet, MockNet, MLPNet, GaussianVAE
 from torch_geometric.loader import DataLoader
@@ -131,6 +132,13 @@ def sst_encoder(encoder, tuple_data, train_loader, val_loader):
                     md.update("%s_acc1" % (mode), acc1.item())
                     md.update("%s_acc2" % (mode), acc2.item())
                     if bi % args.print_freq == 0 or bi == len(sel_loader) - 1:
+                        if mode == "train":
+                            wandb.log({
+                                "sst/train_loss": loss.item(),
+                                "sst/train_acc": (acc1.item() + acc2.item()) / 2,
+                                "sst/train_acc1": acc1.item(),
+                                "sst/train_acc2": acc2.item(),
+                                "epoch": epi})
                         print("Pretrain-epoch:%04d/%04d %s [%04d/%04d] loss:%.3f(%.3f) acc:%.3f(%.3f) acc1:%.3f(%.3f) acc2:%.3f(%.3f)" % (
                             epi, args.epochs, mode.upper(), bi, len(sel_loader),
                             md["%s_loss" % (mode)], md("%s_loss" % (mode)),
@@ -161,6 +169,11 @@ def sst_encoder(encoder, tuple_data, train_loader, val_loader):
                     acc_type0.item(), acc_type1.item(), acc_type2.item(), acc_type3.item(),
                     acc_type0_.item(), acc_type1_.item(), acc_type2_.item(), acc_type3_.item(),
                 ))
+                if mode == "val":
+                    wandb.log({
+                        "sst/val_acc1": accuracy1.item(),
+                        "sst/val_acc2": accuracy2.item(),
+                        "epoch": epi})
             scheduler.step()
             utils.save_model_freq_last(encoder.state_dict(), args.model_dir, epi, args.save_freq, args.epochs)
 
@@ -197,6 +210,11 @@ def sst_encoder(encoder, tuple_data, train_loader, val_loader):
                     md.update("%s_loss" % (mode), loss.item())
                     md.update("%s_acc" % (mode), acc.item())
                     if bi % args.print_freq == 0 or bi == len(sel_loader) - 1:
+                        if mode == "train":
+                            wandb.log({
+                                "sst_head/train_loss": loss.item(),
+                                "sst_head/train_acc": acc.item(),
+                                "epoch": epi})
                         print("Pretrain-epoch:%04d/%04d %s [%04d/%04d] loss:%.3f(%.3f)  acc:%.3f(%.3f)" % (
                             epi, args.epochs, mode.upper(), bi, len(sel_loader),
                             md["%s_loss" % (mode)], md("%s_loss" % (mode)),
@@ -214,6 +232,8 @@ def sst_encoder(encoder, tuple_data, train_loader, val_loader):
                     torch.mean((all_y_preds == all_y_gt).float() * ((all_y_gt == 2).float())) / torch.clip(torch.mean((all_y_gt == 2).float()), 1e-4),
                     torch.mean((all_y_preds == all_y_gt).float() * ((all_y_gt == 3).float())) / torch.clip(torch.mean((all_y_gt == 3).float()), 1e-4),
                 ))
+                if mode == "val":
+                    wandb.log({"sst_head/val_acc": accuracy.item(), "epoch": epi})
             scheduler.step()
             utils.save_model_freq_last(encoder.state_dict(), args.model_dir, epi, args.save_freq, args.epochs)
     return
@@ -283,6 +303,11 @@ def train_score_predictor(score_predictor, tuple_data, train_loader, val_loader,
                 md.update("%s_loss" % (mode), loss.item())
                 md.update("%s_acc" % (mode), acc.item())
                 if bi % args.print_freq == 0 or bi == len(sel_loader) - 1:
+                    if mode == "train":
+                        wandb.log({
+                            "sp/train_loss": loss.item(),
+                            "sp/train_acc": acc.item(),
+                            "epoch": epi})
                     print("Score Pred:%04d/%04d %s [%04d/%04d] loss:%.3f(%.3f)  acc:%.3f(%.3f)   dt:%s  elapsed:%s  ETA:%s" % (
                         epi, args.epochs, mode.upper(), bi, len(sel_loader),
                         md["%s_loss" % (mode)], md("%s_loss" % (mode)), md["%s_acc" % (mode)], md("%s_acc" % (mode)),
@@ -291,6 +316,8 @@ def train_score_predictor(score_predictor, tuple_data, train_loader, val_loader,
 
             if epi % 5 == 0 or epi == args.epochs - 1:
                 stl_acc_log_list[-1][mode] = [md("%s_acc" % (mode)), mean_func(acc_d[0]), mean_func(acc_d[1]), mean_func(acc_d[2]), mean_func(acc_d[3])]
+                if mode == "val":
+                    wandb.log({"sp/val_acc": md("%s_acc" % (mode)), "epoch": epi})
         scheduler.step()
         utils.save_model_freq_last(score_predictor.state_dict(), args.model_dir, epi, args.save_freq, args.epochs)
 
@@ -307,6 +334,9 @@ def mean_func(x):
 
 def main():
     utils.setup_exp_and_logger(args, test=args.test, dryrun=args.dryrun)
+
+    if not args.dryrun:
+        wandb.init(entity="gawtamcr-kth", project="diffusion",  name=args.exp_name, config=vars(args))
 
     print("Env:%s  use data %s ..." % (args.env, args.data_path))
     tuple_data = load_dataset(args)
@@ -598,6 +628,8 @@ def main():
                     generate_scene_v1.plot_tree(simp_stl)
                     plt.xticks([])
                     plt.yticks([])
+                    if not args.dryrun:
+                        wandb.log({f"eval_viz/{mode}_b{bi:04d}_{mini_i}": wandb.Image(plt)})
                     utils.plt_save_close("%s/viz_%s_b%04d_%d.png" % (args.viz_dir, mode, bi, mini_i))
 
             stl_acc_log_list[-1][eval_split] = np.mean(eval_scores)
@@ -717,6 +749,9 @@ def main():
                 md.update("loss", loss.detach().item())
 
                 if bi % args.print_freq == 0:
+                    wandb.log({"train/loss": loss.detach().item(), "epoch": epi})
+                    if args.with_predict_head:
+                        wandb.log({"train/acc": md("acc"), "train/ce_loss": md("ce_loss")})
                     print("Epochs[%03d/%03d] (%04d/%04d) loss:%.3f(%.3f) %s dt:%s Elapsed:%s ETA:%s" % (
                         epi, args.epochs, bi, len(train_loader),
                         md["loss"], md("loss"), add_str, eta.interval_str(), eta.elapsed_str(), eta.eta_str()))
@@ -758,6 +793,8 @@ def main():
                     for stl_type in sorted(eval_scores_d.keys()):
                         stl_acc_log_list[-1][eval_split + "_%d" % stl_type] = np.mean(eval_scores_d[stl_type])
                     print("%s STL Acc:%.3f" % (eval_split, np.mean(eval_scores)))
+                    if not args.test:
+                        wandb.log({f"eval/{eval_split}_acc": np.mean(eval_scores), "epoch": epi})
 
                 train_acc_str = " ".join(["%s:%.4f" % (stl_type[5:], stl_acc_log_list[-1][stl_type]) for stl_type in stl_acc_log_list[-1] if "train" in stl_type])
                 val_acc_str = " ".join(["%s:%.4f" % (stl_type[5:], stl_acc_log_list[-1][stl_type]) for stl_type in stl_acc_log_list[-1] if "val" in stl_type])
@@ -807,6 +844,8 @@ def main():
                     plt.yticks([])
                     plt.xlim(x_min, x_max)
                     plt.ylim(y_min, y_max)
+                    if not args.dryrun:
+                        wandb.log({f"train_viz/epi{epi:04d}_b{bi}": wandb.Image(plt)})
                     utils.plt_save_close("%s/viz_epi%04d_b%d.png" % (args.viz_dir, epi, bi))
 
     return

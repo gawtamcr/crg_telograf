@@ -81,6 +81,10 @@ def convert_stl_to_string(stl, numpy=False):
             last_id = last_id + len(node.children)
     return lines
 
+# TODO: Undertand this
+### Parse the STL from the lines, AND store - STL in stl_dict, objects in objects_d
+## Simple STL - 
+## Real STL - 
 def find_ap_in_lines(id, stl_dict, objects_d, lines, numpy=False, real_stl=False, ap_mode="l2", until1=False):
     for line in lines:
         if numpy:
