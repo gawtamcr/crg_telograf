@@ -1,1 +1,0 @@
-python train.py --config configs/test.yaml -T simple_gnn_F
