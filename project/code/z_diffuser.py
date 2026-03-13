@@ -9,7 +9,30 @@ import utils
 from collections import namedtuple
 Sample = namedtuple('Sample', 'trajectories values chains')
 
-from generate_scene_v1 import generate_trajectories
+from generate_scene_v1 import generate_trajectories, generate_trajectories_dubins
+from generate_panda_scene import get_trajectories, panda_postproc
+
+# TODO(Yue)
+# https://stackoverflow.com/questions/77444485/using-positional-encoding-in-pytorch
+class PositionalEncoding(nn.Module):
+    def __init__(self, d_model: int, max_len: int = 5000):
+        super().__init__()
+        position = torch.arange(max_len).unsqueeze(1)
+        div_term = torch.exp(torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model))
+        pe = torch.zeros(max_len, 1, d_model)
+        pe[:, 0, 0::2] = torch.sin(position * div_term)
+        pe[:, 0, 1::2] = torch.cos(position * div_term)
+        self.register_buffer('pe', pe)
+
+    def forward(self, x):
+        """
+        Arguments:
+            x: Tensor, shape ``[seq_len, batch_size, embedding_dim]``
+        """
+        x = x + self.pe[:x.size(0)]
+        # return self.dropout(x)
+        return x
+
 
 #-----------------------------------------------------------------------------#
 #---------------------------------- modules ----------------------------------#
@@ -442,6 +465,181 @@ class TemporalUnet(nn.Module):
         return x
 
 
+class ValueFunction(nn.Module):
+
+    def __init__(
+        self,
+        horizon,
+        transition_dim,
+        cond_dim,
+        dim=32,
+        dim_mults=(1, 2, 4, 8),
+        out_dim=1,
+    ):
+        super().__init__()
+
+        dims = [transition_dim, *map(lambda m: dim * m, dim_mults)]
+        in_out = list(zip(dims[:-1], dims[1:]))
+
+        time_dim = dim
+        self.time_mlp = nn.Sequential(
+            SinusoidalPosEmb(dim),
+            nn.Linear(dim, dim * 4),
+            nn.Mish(),
+            nn.Linear(dim * 4, dim),
+        )
+
+        self.blocks = nn.ModuleList([])
+        num_resolutions = len(in_out)
+
+        print(in_out)
+        for ind, (dim_in, dim_out) in enumerate(in_out):
+            is_last = ind >= (num_resolutions - 1)
+
+            self.blocks.append(nn.ModuleList([
+                ResidualTemporalBlock(dim_in, dim_out, kernel_size=5, embed_dim=time_dim, horizon=horizon),
+                ResidualTemporalBlock(dim_out, dim_out, kernel_size=5, embed_dim=time_dim, horizon=horizon),
+                Downsample1d(dim_out)
+            ]))
+
+            if not is_last:
+                horizon = horizon // 2
+
+        mid_dim = dims[-1]
+        mid_dim_2 = mid_dim // 2
+        mid_dim_3 = mid_dim // 4
+        ##
+        self.mid_block1 = ResidualTemporalBlock(mid_dim, mid_dim_2, kernel_size=5, embed_dim=time_dim, horizon=horizon)
+        self.mid_down1 = Downsample1d(mid_dim_2)
+        horizon = horizon // 2
+        ##
+        self.mid_block2 = ResidualTemporalBlock(mid_dim_2, mid_dim_3, kernel_size=5, embed_dim=time_dim, horizon=horizon)
+        self.mid_down2 = Downsample1d(mid_dim_3)
+        horizon = horizon // 2
+        ##
+        fc_dim = mid_dim_3 * max(horizon, 1)
+
+        self.final_block = nn.Sequential(
+            nn.Linear(fc_dim + time_dim, fc_dim // 2),
+            nn.Mish(),
+            nn.Linear(fc_dim // 2, out_dim),
+        )
+
+    def forward(self, x, cond, time, *args):
+        '''
+            x : [ batch x horizon x transition ]
+        '''
+
+        x = einops.rearrange(x, 'b h t -> b t h')
+
+        ## mask out first conditioning timestep, since this is not sampled by the model
+        # x[:, :, 0] = 0
+
+        t = self.time_mlp(time)
+
+        for resnet, resnet2, downsample in self.blocks:
+            x = resnet(x, t)
+            x = resnet2(x, t)
+            x = downsample(x)
+
+        ##
+        x = self.mid_block1(x, t)
+        x = self.mid_down1(x)
+        ##
+        x = self.mid_block2(x, t)
+        x = self.mid_down2(x)
+        ##
+        x = x.view(len(x), -1)
+        out = self.final_block(torch.cat([x, t], dim=-1))
+        return out
+
+
+
+
+class EMA():
+    '''
+        empirical moving average
+    '''
+    def __init__(self, beta):
+        super().__init__()
+        self.beta = beta
+
+    def update_model_average(self, ma_model, current_model):
+        for current_params, ma_params in zip(current_model.parameters(), ma_model.parameters()):
+            old_weight, up_weight = ma_params.data, current_params.data
+            ma_params.data = self.update_average(old_weight, up_weight)
+
+    def update_average(self, old, new):
+        if old is None:
+            return new
+        return old * self.beta + (1 - self.beta) * new
+
+
+class TransformerBackbone(nn.Module):
+    def __init__(self, horizon, transition_dim, cond_dim, hidden_dim, num_heads, num_layers, args):
+        super().__init__()
+
+        dim = hidden_dim//4
+        self.time_mlp = nn.Sequential(
+            SinusoidalPosEmb(dim),
+            nn.Linear(dim, dim * 4),
+            nn.Mish(),
+            nn.Linear(dim * 4, hidden_dim),
+        )
+
+        # TODO (yue)
+        self.cond_mlp = nn.Sequential(
+            nn.Linear(cond_dim, dim * 4),
+            nn.Mish(),
+            nn.Linear(dim * 4, hidden_dim),
+        )
+        
+        self.pos_enc = PositionalEncoding(hidden_dim)
+        
+        self.input_projection = nn.Linear(transition_dim, hidden_dim)
+        
+        # Transformer Encoder
+        self.transformer_encoder = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(d_model=hidden_dim, nhead=num_heads, dim_feedforward=hidden_dim*4, dropout=0.0),
+            num_layers=num_layers
+        )
+        
+        # Output layer to project back to the feature dimension
+        self.output_projection = nn.Linear(hidden_dim, transition_dim)
+
+
+    def forward(self, x, cond, time):
+        '''
+            x : [ batch x horizon x transition ]
+        '''
+
+        t = self.time_mlp(time)
+                
+        # TODO(yue)
+        tt = self.cond_mlp(cond)
+        
+        ttt = (tt + t).unsqueeze(0)
+        # print(t.shape, tt.shape, ttt.shape, x.shape)
+        x = einops.rearrange(x, 'b t k -> t b k')
+        # print(t.shape, tt.shape, ttt.shape, x.shape)
+        
+        # Project input features
+        x = self.input_projection(x)
+        
+        x = self.pos_enc(x) + ttt
+
+        
+        # Pass through the Transformer encoder
+        x = self.transformer_encoder(x)
+        
+        # Project back to the original feature dimension
+        x = self.output_projection(x)
+        
+        # Permute back to (B, T, k)        
+        x = einops.rearrange(x, 't b k -> b t k')
+        return x
+
+
 @torch.no_grad()
 def default_sample_fn(model, x, cond, t, **sample_kwargs):
     model_mean, _, model_log_variance = model.p_mean_variance(x=x, cond=cond, t=t)
@@ -455,9 +653,45 @@ def default_sample_fn(model, x, cond, t, **sample_kwargs):
     return model_mean + model_std * noise, values
 
 
+def sort_by_values(x, values):
+    inds = torch.argsort(values, descending=True)
+    x = x[inds]
+    values = values[inds]
+    return x, values
+
+
 def make_timesteps(batch_size, i, device):
     t = torch.full((batch_size,), i, device=device, dtype=torch.long)
     return t
+
+
+class GradNN(nn.Module):
+    def __init__(self, model, horizon, observation_dim, action_dim, n_timesteps=1000,
+        loss_type='l1', clip_denoised=False, predict_epsilon=True,
+        action_weight=1.0, loss_discount=1.0, loss_weights=None, encoder=None,
+        clip_value_min=-3, clip_value_max=3, tokenizer=None,
+        trans_model=None, transition_dim=None,
+    ):
+        super().__init__()
+        self.horizon = horizon
+        self.observation_dim = observation_dim
+        self.action_dim = action_dim
+        if transition_dim is None:
+            self.transition_dim = observation_dim + action_dim
+        else:
+            self.transition_dim = transition_dim
+        self.model = model
+        self.encoder = encoder
+    
+    def forward(self, cond):
+        batch_size = cond.shape[0]
+        x = torch.zeros(batch_size, self.horizon, self.transition_dim).to(cond.device)
+        t = make_timesteps(batch_size, 1, cond.device)
+        trajs = self.model(x, cond, t)
+        values = torch.zeros(len(x), device=x.device)
+        res = Sample(trajs, values, None)
+        return res
+    
 
 class GaussianVAE(nn.Module):
     def __init__(self, model, horizon, observation_dim, action_dim, n_timesteps=1000,
@@ -565,6 +799,8 @@ class GaussianFlow(nn.Module):
             loss_func = guidance_data["loss_func"]
             # dyna_func = guidance_data['dyna_func']
             real_stl_list = guidance_data["real_stl_list"]
+            if args.env=="panda":
+                CA = guidance_data["CA"]
             mini_batch_size = args.batch_size
             test_muls = args.test_muls if args.test_muls is not None else 1
             timesteps = self.n_timesteps
@@ -693,6 +929,19 @@ class GaussianFlow(nn.Module):
                                 trajs = generate_trajectories(xs, us, 0.5)
                                 x_real_aug = torch.cat([trajs[..., :-1, :], us], dim=-1)
                                 # x_real_aug_norm = norm_func(x_real_aug)
+                            elif args.env=="dubins":
+                                xs = x_real[..., 0, :4].detach()
+                                us = x_real[..., 4:]
+                                trajs = generate_trajectories_dubins(xs, us, 0.5, v_max=2.0,)
+                                x_real_aug = torch.cat([trajs[..., :-1, :], us], dim=-1)
+                                # x_real_aug_norm = norm_func(x_real_aug)
+                            elif args.env=="panda":
+                                xs = x_real[..., 0, :7].detach()
+                                us = x_real[..., 7:]
+                                trajs = get_trajectories(xs, us, dof=7, dt=0.05)
+                                x_real_aug = trajs[..., :-1, :]
+                            elif args.env in ["pointmaze", "antmaze"]:
+                                do_nothing_here = True
                             else:
                                 raise NotImplementedError
                                                         
@@ -712,6 +961,9 @@ class GaussianFlow(nn.Module):
                                 loss_list=[]
                                 for ii in range(mini_batch_size):
                                     loss_v, dbg_info = loss_func(x_real_4d[ii], real_stl_list[ii])
+                                    if args.env=="dubins":
+                                        loss_reg = torch.mean(torch.nn.ReLU()(us**2-4)) * 10
+                                        loss_v = loss_v + loss_reg
                                     loss_list.append(loss_v)
                             
                                 loss_list = torch.stack(loss_list, dim=0)

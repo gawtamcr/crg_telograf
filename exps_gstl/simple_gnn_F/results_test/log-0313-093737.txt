@@ -1,0 +1,32 @@
+Env:simple  use data data_0_simple ...
+Finished loading numpy data
+Make absolute idx...
+Finished marking idx
+Clip the dataset from 1000 to 50000 => 1000
+Load STLs ...
+TREESIZE original:17.119 add:0.000 new:17.119
+Filter data...
+{0: np.float64(125.0), 1: np.float64(375.0), 2: np.float64(250.0), 3: np.float64(500.0)}
+********** Stat **********
+Expect ratios: 0.100 0.300 0.200 0.400 | Actual: 0.112 0.337 0.224 0.327
+Sat cases: {0: 63, 1: 189, 2: 129, 3: 213}
+Sat inits: {0: 63, 1: 189, 2: 129, 3: 213}
+Sat sols: {0: 125, 1: 375, 2: 250, 3: 364}
+LEN 1000 SAT ratio 0.13925
+train-len:898
+val-len:216
+seq_max_len 1
+[ models/temporal ] Channel dimensions: [(4, 32), (32, 64), (64, 128), (128, 256)]
+[(4, 32), (32, 64), (64, 128), (128, 256)]
+TRAIN [000/128] acc:1 (1.000) runtime:10.589(10.589)   dt:00.00s  Elapsed:09.57s  ETA:00.00s
+TRAIN [001/128] acc:1 (1.000) runtime:10.010(10.300)   dt:07.33s  Elapsed:24.97s  ETA:31m03s
+TRAIN [002/128] acc:1 (1.000) runtime:10.071(10.223)   dt:08.44s  Elapsed:35.65s  ETA:35m36s
+TRAIN [003/128] acc:1 (1.000) runtime:13.466(11.034)   dt:09.00s  Elapsed:49.75s  ETA:37m47s
+TRAIN [004/128] acc:1 (1.000) runtime:10.153(10.858)   dt:10.04s  Elapsed:01m00s  ETA:42m00s
+TRAIN [005/128] acc:1 (1.000) runtime:10.163(10.742)   dt:10.10s  Elapsed:01m11s  ETA:42m06s
+TRAIN [006/128] acc:1 (1.000) runtime:13.521(11.139)   dt:10.15s  Elapsed:01m24s  ETA:42m07s
+TRAIN [007/128] acc:1 (1.000) runtime:10.210(11.023)   dt:10.61s  Elapsed:01m35s  ETA:43m50s
+TRAIN [008/128] acc:1 (1.000) runtime:10.197(10.931)   dt:10.59s  Elapsed:01m45s  ETA:43m36s
+TRAIN [009/128] acc:0 (0.900) runtime:13.518(11.190)   dt:10.58s  Elapsed:01m59s  ETA:43m22s
+TRAIN [010/128] acc:1 (0.909) runtime:10.178(11.098)   dt:10.87s  Elapsed:02m10s  ETA:44m23s
+TRAIN [011/128] acc:1 (0.917) runtime:10.172(11.021)   dt:10.84s  Elapsed:02m20s  ETA:44m03s

@@ -16,7 +16,7 @@ services:
     command: bash -c "
       update-ca-certificates && 
       wandb login && 
-      cd project/code && bash run.sh"
+      cd project/code && bash run_icml2025_test.sh"
     stdin_open: true
     tty: true
     runtime: nvidia

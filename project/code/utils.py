@@ -10,8 +10,9 @@ import numpy as np
 import torch
 import torch.nn as nn
 import imageio
+import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
+from matplotlib.patches import Polygon, Rectangle, Ellipse, Circle
 
 ############################### 
 THE_EXP_ROOT_DIR="exps_gstl"  # 
