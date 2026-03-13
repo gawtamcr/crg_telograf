@@ -19,317 +19,11 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 from z_models import GCN, ScorePredictor
 from dataset import load_dataset, get_data_loader, get_graph_stl_embed_from_tree
+from train_utils import get_encoding, normalize_traj, denorm_traj, parse_batch, get_denoising_results, set_model, mean_func
+from pretrain_utils import sst_encoder, train_score_predictor
+from vis_utils import visualize_plan
 
 from os.path import join as ospj
-
-
-def get_encoding(encoder, ego_states, stl_embeds, stl_str):
-    if args.zero_ego:
-        ego_states = ego_states * 0
-    conditions = encoder(ego_states, stl_embeds)
-    if args.pretraining:
-        conditions = conditions * 0
-    return conditions
-
-
-def normalize_traj(origin_traj, stat_mean, stat_std):
-    assert len(origin_traj.shape) == 3
-    assert len(stat_mean.shape) == len(stat_std.shape)
-    assert origin_traj.shape[-1] == stat_mean.shape[-1] and origin_traj.shape[-1] == stat_std.shape[-1]
-    norm_traj = (origin_traj - stat_mean) / (stat_std.clip(min=1e-4))
-    return norm_traj
-
-
-def denorm_traj(norm_traj, stat_mean, stat_std):
-    assert len(norm_traj.shape) == 3
-    assert len(stat_mean.shape) == len(stat_std.shape)
-    assert norm_traj.shape[-1] == stat_mean.shape[-1] and norm_traj.shape[-1] == stat_std.shape[-1]
-    origin_traj = norm_traj * stat_std + stat_mean
-    return origin_traj
-
-
-def parse_batch(batch):
-    index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = batch
-    index_tensors = index_tensors.to(device)
-    stl_embeds = stl_embeds.to(device)
-    ego_states = ego_states.to(device)
-    us = us.to(device)
-    sa_trajectories = sa_trajectories.to(device)
-    stl_str = stl_str.to(device)
-    sa_par = sa_par.to(device)
-    stl_i_tensors = stl_i_tensors.to(device)
-    stl_type_i_tensors = stl_type_i_tensors.to(device)
-    return index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors
-
-
-def get_denoising_results(diffuser, conditions, stat_mean, stat_std, guidance_data=None):
-    results = diffuser.conditional_sample(conditions, horizon=None, in_painting=None, guidance_data=guidance_data, args=args)
-    diffused_trajs = denorm_traj(results.trajectories, stat_mean=stat_mean, stat_std=stat_std)[:, :, :2]
-    return diffused_trajs
-
-
-def set_model(net, mode):
-    if mode == "train":
-        net.train()
-    else:
-        net.eval()
-
-
-def sst_encoder(encoder, tuple_data, train_loader, val_loader):
-    demo_list, stl_data_list, simple_stl_list, real_stl_list, obj_list, file_list, stl_str_list, type_list, cache = tuple_data
-    encoder = encoder.to(device)
-    optimizer = torch.optim.Adam(encoder.parameters(), lr=args.lr)
-    eta = utils.EtaEstimator(start_iter=0, end_iter=args.epochs * len(train_loader))
-    scheduler = utils.create_custom_lr_scheduler(optimizer, warmup_epochs=args.warmup_epochs, warmup_lr=args.warmup_lr, decay_epochs=args.decay_epochs, decay_lr=args.decay_lr, decay_mode=args.decay_mode)
-
-    if args.predict_score:
-        for epi in range(args.epochs):
-            md = utils.MeterDict()
-            if not args.concise:
-                print("Epochs[%03d/%03d] lr:%.7f" % (epi, args.epochs, optimizer.param_groups[0]['lr']))
-            for mode, sel_loader in [("train", train_loader), ("val", val_loader)]:
-                set_model(encoder, mode)
-                all_y_preds1 = []
-                all_y_preds2 = []
-                all_y_gt = []
-                stl_type_gt = []
-                for bi, batch in enumerate(sel_loader):
-                    eta.update()
-                    index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
-
-                    trajs2d = sa_trajectories[:, :, :2].reshape(sa_trajectories.shape[0], -1)
-                    traj_embed = encoder.predict_score_head(trajs2d)
-                    traj_embed = traj_embed / torch.clip(torch.norm(traj_embed, dim=-1, keepdim=True), min=1e-4)
-
-                    stl_embed = encoder(None, stl_embeds)
-                    stl_embed = stl_embed / torch.clip(torch.norm(stl_embed, dim=-1, keepdim=True), min=1e-4)
-                    logits_pred = torch.mm(stl_embed, traj_embed.t())
-                    batch_size = traj_embed.size(0)
-
-                    y_gt = labels = torch.arange(batch_size, device=traj_embed.device)
-                    loss1 = F.cross_entropy(logits_pred, labels)
-                    loss2 = F.cross_entropy(logits_pred.T, labels)
-                    loss = (loss1 + loss2) / 2
-
-                    if mode == "train":
-                        optimizer.zero_grad()
-                        loss.backward()
-                        optimizer.step()
-
-                    y_pred1 = torch.argmax(logits_pred, dim=1)
-                    y_pred2 = torch.argmax(logits_pred, dim=0)
-                    acc1 = torch.mean((y_pred1 == labels).float())
-                    acc2 = torch.mean((y_pred2 == labels).float())
-                    all_y_preds1.append(y_pred1)
-                    all_y_preds2.append(y_pred2)
-                    all_y_gt.append(y_gt)
-                    stl_type_gt.append(stl_type_i_tensors)
-
-                    md.update("%s_loss" % (mode), loss.item())
-                    md.update("%s_loss1" % (mode), loss1.item())
-                    md.update("%s_loss2" % (mode), loss2.item())
-                    md.update("%s_acc" % (mode), (acc1.item() + acc2.item()) / 2)
-                    md.update("%s_acc1" % (mode), acc1.item())
-                    md.update("%s_acc2" % (mode), acc2.item())
-                    if bi % args.print_freq == 0 or bi == len(sel_loader) - 1:
-                        if mode == "train":
-                            wandb.log({
-                                "sst/train_loss": loss.item(),
-                                "sst/train_acc": (acc1.item() + acc2.item()) / 2,
-                                "sst/train_acc1": acc1.item(),
-                                "sst/train_acc2": acc2.item(),
-                                "epoch": epi})
-                        print("Pretrain-epoch:%04d/%04d %s [%04d/%04d] loss:%.3f(%.3f) acc:%.3f(%.3f) acc1:%.3f(%.3f) acc2:%.3f(%.3f)" % (
-                            epi, args.epochs, mode.upper(), bi, len(sel_loader),
-                            md["%s_loss" % (mode)], md("%s_loss" % (mode)),
-                            md["%s_acc" % (mode)], md("%s_acc" % (mode)),
-                            md["%s_acc1" % (mode)], md("%s_acc1" % (mode)),
-                            md["%s_acc2" % (mode)], md("%s_acc2" % (mode))
-                        ))
-
-                all_y_preds1 = torch.cat(all_y_preds1).detach()
-                all_y_preds2 = torch.cat(all_y_preds2).detach()
-                all_y_gt = torch.cat(all_y_gt).detach()
-                stl_type_gt = torch.cat(stl_type_gt).detach()
-                accuracy1 = torch.mean((all_y_preds1 == all_y_gt).float())
-                accuracy2 = torch.mean((all_y_preds2 == all_y_gt).float())
-
-                acc_type0 = torch.mean((all_y_preds1 == all_y_gt).float() * ((stl_type_gt == 0).float())) / torch.clip(torch.mean((stl_type_gt == 0).float()), 1e-4)
-                acc_type1 = torch.mean((all_y_preds1 == all_y_gt).float() * ((stl_type_gt == 1).float())) / torch.clip(torch.mean((stl_type_gt == 1).float()), 1e-4)
-                acc_type2 = torch.mean((all_y_preds1 == all_y_gt).float() * ((stl_type_gt == 2).float())) / torch.clip(torch.mean((stl_type_gt == 2).float()), 1e-4)
-                acc_type3 = torch.mean((all_y_preds1 == all_y_gt).float() * ((stl_type_gt == 3).float())) / torch.clip(torch.mean((stl_type_gt == 3).float()), 1e-4)
-
-                acc_type0_ = torch.mean((all_y_preds2 == all_y_gt).float() * ((stl_type_gt == 0).float())) / torch.clip(torch.mean((stl_type_gt == 0).float()), 1e-4)
-                acc_type1_ = torch.mean((all_y_preds2 == all_y_gt).float() * ((stl_type_gt == 1).float())) / torch.clip(torch.mean((stl_type_gt == 1).float()), 1e-4)
-                acc_type2_ = torch.mean((all_y_preds2 == all_y_gt).float() * ((stl_type_gt == 2).float())) / torch.clip(torch.mean((stl_type_gt == 2).float()), 1e-4)
-                acc_type3_ = torch.mean((all_y_preds2 == all_y_gt).float() * ((stl_type_gt == 3).float())) / torch.clip(torch.mean((stl_type_gt == 3).float()), 1e-4)
-
-                print(mode, epi, "ACC: %.4f %.4f (%.4f %.4f %.4f %.4f) (%.4f %.4f %.4f %.4f)" % (
-                    accuracy1.item(), accuracy2.item(),
-                    acc_type0.item(), acc_type1.item(), acc_type2.item(), acc_type3.item(),
-                    acc_type0_.item(), acc_type1_.item(), acc_type2_.item(), acc_type3_.item(),
-                ))
-                if mode == "val":
-                    wandb.log({
-                        "sst/val_acc1": accuracy1.item(),
-                        "sst/val_acc2": accuracy2.item(),
-                        "epoch": epi})
-            scheduler.step()
-            utils.save_model_freq_last(encoder.state_dict(), args.model_dir, epi, args.save_freq, args.epochs)
-
-    if args.with_predict_head:
-        CE_loss = torch.nn.CrossEntropyLoss()
-        for epi in range(args.epochs):
-            md = utils.MeterDict()
-            if not args.concise:
-                print("Epochs[%03d/%03d] lr:%.7f" % (epi, args.epochs, optimizer.param_groups[0]['lr']))
-            for mode, sel_loader in [("train", train_loader), ("val", val_loader)]:
-                set_model(encoder, mode)
-                all_logits = []
-                all_y_preds = []
-                all_y_gt = []
-                for bi, batch in enumerate(sel_loader):
-                    eta.update()
-                    index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
-                    y_gt = stl_type_i_tensors
-                    embedding = encoder(None, stl_embeds)
-                    logits_pred = encoder.predict(embedding)
-                    y_pred = torch.argmax(logits_pred, dim=-1)
-                    loss = CE_loss(logits_pred, y_gt)
-
-                    if mode == "train":
-                        optimizer.zero_grad()
-                        loss.backward()
-                        optimizer.step()
-
-                    acc = torch.mean((y_pred == y_gt).float())
-                    all_logits.append(logits_pred)
-                    all_y_preds.append(y_pred)
-                    all_y_gt.append(y_gt)
-
-                    md.update("%s_loss" % (mode), loss.item())
-                    md.update("%s_acc" % (mode), acc.item())
-                    if bi % args.print_freq == 0 or bi == len(sel_loader) - 1:
-                        if mode == "train":
-                            wandb.log({
-                                "sst_head/train_loss": loss.item(),
-                                "sst_head/train_acc": acc.item(),
-                                "epoch": epi})
-                        print("Pretrain-epoch:%04d/%04d %s [%04d/%04d] loss:%.3f(%.3f)  acc:%.3f(%.3f)" % (
-                            epi, args.epochs, mode.upper(), bi, len(sel_loader),
-                            md["%s_loss" % (mode)], md("%s_loss" % (mode)),
-                            md["%s_acc" % (mode)], md("%s_acc" % (mode))
-                        ))
-
-                all_logits = torch.cat(all_logits).detach()
-                all_y_preds = torch.cat(all_y_preds).detach()
-                all_y_gt = torch.cat(all_y_gt).detach()
-                accuracy = torch.mean((all_y_preds == all_y_gt).float())
-                print(mode, epi, "ACC: %.4f | 0:%.4f 1:%.4f 2:%.4f 3:%.4f" % (
-                    accuracy.item(),
-                    torch.mean((all_y_preds == all_y_gt).float() * ((all_y_gt == 0).float())) / torch.clip(torch.mean((all_y_gt == 0).float()), 1e-4),
-                    torch.mean((all_y_preds == all_y_gt).float() * ((all_y_gt == 1).float())) / torch.clip(torch.mean((all_y_gt == 1).float()), 1e-4),
-                    torch.mean((all_y_preds == all_y_gt).float() * ((all_y_gt == 2).float())) / torch.clip(torch.mean((all_y_gt == 2).float()), 1e-4),
-                    torch.mean((all_y_preds == all_y_gt).float() * ((all_y_gt == 3).float())) / torch.clip(torch.mean((all_y_gt == 3).float()), 1e-4),
-                ))
-                if mode == "val":
-                    wandb.log({"sst_head/val_acc": accuracy.item(), "epoch": epi})
-            scheduler.step()
-            utils.save_model_freq_last(encoder.state_dict(), args.model_dir, epi, args.save_freq, args.epochs)
-    return
-
-
-def train_score_predictor(score_predictor, tuple_data, train_loader, val_loader, stat_mean, stat_std):
-    demo_list, stl_data_list, simple_stl_list, real_stl_list, obj_list, file_list, stl_str_list, type_list, cache = tuple_data
-    score_predictor = score_predictor.to(device)
-    optimizer = torch.optim.Adam(score_predictor.parameters(), lr=args.lr)
-    eta = utils.EtaEstimator(start_iter=0, end_iter=args.epochs * len(train_loader))
-    scheduler = utils.create_custom_lr_scheduler(optimizer,
-                                                 warmup_epochs=args.warmup_epochs,
-                                                 warmup_lr=args.warmup_lr,
-                                                 decay_epochs=args.decay_epochs,
-                                                 decay_lr=args.decay_lr, decay_mode=args.decay_mode)
-    stl_acc_log_list = []
-
-    for epi in range(args.epochs):
-        md = utils.MeterDict()
-        MINI_BATCH_N = 8
-        if epi % 5 == 0 or epi == args.epochs - 1:
-            stl_acc_log_list.append({"epoch": epi, "train": 0, "val": 0})
-        if not args.concise:
-            print("Epochs[%03d/%03d] lr:%.7f" % (epi, args.epochs, optimizer.param_groups[0]['lr']))
-        for mode, sel_loader in [("train", train_loader), ("val", val_loader)]:
-            set_model(score_predictor, mode)
-            acc_d = {0: [], 1: [], 2: [], 3: []}
-
-            for bi, batch in enumerate(sel_loader):
-                eta.update()
-                index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
-                BS = ego_states.shape[0]
-
-                noised_trajs = sa_trajectories + torch.randn_like(sa_trajectories)
-                total_trajs = torch.stack([sa_trajectories, noised_trajs], dim=0)  # (2, BS, NT, K)
-
-                scores_gt_list = []
-                for iii in range(MINI_BATCH_N):
-                    rec_i, stl_i, ego_i, sol_i, rel_stl_index, rel_ego_i, rel_sol_i = sel_loader.dataset.fs_list[index_tensors[iii].item()]
-                    real_stl = real_stl_list[stl_i]
-                    scores_gt = real_stl(total_trajs[:, iii], args.smoothing_factor)[:, 0]
-                    scores_gt_list.append(scores_gt)
-                scores_gt_list = torch.stack(scores_gt_list, dim=1)  # (2, MINIBATCH)
-                y_gt = torch.clip(scores_gt_list, -1, 1)
-
-                total_trajs = total_trajs.reshape(2 * BS, total_trajs.shape[-2], total_trajs.shape[-1])
-                normalized_sa_trajs = normalize_traj(total_trajs, stat_mean=stat_mean, stat_std=stat_std)
-                normalized_sa_trajs_flat = normalized_sa_trajs.reshape(2 * BS, -1)
-
-                stl_feat = get_encoding(score_predictor.encoder, None, stl_embeds, stl_str)
-                y_pred = score_predictor.dual_forward(None, stl_embeds, normalized_sa_trajs_flat, MINI_BATCH_N, stl_feat=stl_feat)
-
-                loss = torch.mean(torch.square(y_pred - y_gt))
-                if mode == "train":
-                    optimizer.zero_grad()
-                    loss.backward()
-                    optimizer.step()
-
-                acc_all = (torch.sign(y_pred) == torch.sign(y_gt)).float()
-                acc = torch.mean(acc_all)
-
-                if epi % 5 == 0 or epi == args.epochs - 1:
-                    for iiii in range(acc_all.shape[0]):
-                        stl_type_i = int(stl_type_i_tensors[iiii].item())
-                        acc_d[stl_type_i].append(acc_all[iiii])
-
-                md.update("%s_loss" % (mode), loss.item())
-                md.update("%s_acc" % (mode), acc.item())
-                if bi % args.print_freq == 0 or bi == len(sel_loader) - 1:
-                    if mode == "train":
-                        wandb.log({
-                            "sp/train_loss": loss.item(),
-                            "sp/train_acc": acc.item(),
-                            "epoch": epi})
-                    print("Score Pred:%04d/%04d %s [%04d/%04d] loss:%.3f(%.3f)  acc:%.3f(%.3f)   dt:%s  elapsed:%s  ETA:%s" % (
-                        epi, args.epochs, mode.upper(), bi, len(sel_loader),
-                        md["%s_loss" % (mode)], md("%s_loss" % (mode)), md["%s_acc" % (mode)], md("%s_acc" % (mode)),
-                        eta.interval_str(), eta.elapsed_str(), eta.eta_str()
-                    ))
-
-            if epi % 5 == 0 or epi == args.epochs - 1:
-                stl_acc_log_list[-1][mode] = [md("%s_acc" % (mode)), mean_func(acc_d[0]), mean_func(acc_d[1]), mean_func(acc_d[2]), mean_func(acc_d[3])]
-                if mode == "val":
-                    wandb.log({"sp/val_acc": md("%s_acc" % (mode)), "epoch": epi})
-        scheduler.step()
-        utils.save_model_freq_last(score_predictor.state_dict(), args.model_dir, epi, args.save_freq, args.epochs)
-
-    np.savez("%s/stl_pred_accs.npz" % (args.exp_dir_full), data=stl_acc_log_list)
-    return
-
-
-def mean_func(x):
-    if len(x) == 0:
-        return 0
-    else:
-        return np.mean([utils.to_np(xx) for xx in x])
 
 
 def main():
@@ -361,7 +55,7 @@ def main():
         encoder_extra = GCN(8, ego_state_dim, args).to(device)
 
     if args.sst:
-        sst_encoder(encoder, tuple_data, train_loader, val_loader)
+        sst_encoder(encoder, tuple_data, train_loader, val_loader, args, device)
         return
 
     if args.mock_model:
@@ -384,6 +78,7 @@ def main():
                              attention=args.attention,
                              dropout=args.unet_dropout)
 
+    ## Setting model class
     if args.flow:
         gen_model_class = GaussianFlow
     elif args.vae:
@@ -453,7 +148,7 @@ def main():
             score_predictor = ScorePredictor(encoder_extra, args.condition_dim, args.horizon, args.data_dim, args).to(device)
         else:
             score_predictor = ScorePredictor(encoder, args.condition_dim, args.horizon, args.data_dim, args).to(device)
-            train_score_predictor(score_predictor, tuple_data, train_loader, val_loader, stat_mean, stat_std)
+            train_score_predictor(score_predictor, tuple_data, train_loader, val_loader, stat_mean, stat_std, args, device)
             return
 
     if args.cls_path is not None and (args.train_classifier or args.cls_guidance):
@@ -492,10 +187,10 @@ def main():
                 if bi >= args.num_evals:
                     break
                 eta.update()
-                res_d[mode].append({})
-                RES = res_d[mode][-1]
+                RES = {}
+                res_d[mode].append(RES)
 
-                index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
+                index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch, device)
 
                 compute_t1 = time.time()
                 bs = sa_trajectories.shape[0]
@@ -503,7 +198,7 @@ def main():
                 # learning-based inference
                 if args.cls_guidance:
                     stl_embeds, stl_embeds_gnn = stl_embeds
-                conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str)
+                conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str, args)
                 if args.test_muls is not None:
                     conditions = conditions[:, None].repeat(1, args.test_muls, 1).reshape(bs * args.test_muls, conditions.shape[-1])
 
@@ -528,7 +223,7 @@ def main():
                 else:
                     guidance_data = None
 
-                diffused_trajs = get_denoising_results(diffuser, conditions, stat_mean, stat_std, guidance_data=guidance_data)
+                diffused_trajs = get_denoising_results(diffuser, conditions, stat_mean, stat_std, args, guidance_data=guidance_data)
 
                 compute_t2 = time.time()
                 RES["t"] = compute_t2 - compute_t1
@@ -597,40 +292,14 @@ def main():
                     real_stl = real_stl_list[stl_i]
                     objects_d = obj_list[stl_i]
 
-                    fig = plt.figure(figsize=(12, 4))
-                    plt.subplot(1, 2, 1)
-                    ax = plt.gca()
-                    for obj_i, obj_keyid in enumerate(objects_d):
-                        obj_d = objects_d[obj_keyid]
-                        ax.add_patch(Circle([obj_d["x"], obj_d["y"]], radius=obj_d["r"],
-                                            color="royalblue" if obj_d["r"] < 0.75 else "gray", alpha=0.5))
-                        plt.text(obj_d["x"], obj_d["y"], s="%d" % (obj_keyid))
-
-                    plt.scatter(gt_trajs_np[mini_i, 0, 0], gt_trajs_np[mini_i, 0, 1], color="purple", s=64, zorder=1000)
-                    plt.plot(gt_trajs_np[mini_i, :, 0], gt_trajs_np[mini_i, :, 1], color="green", alpha=0.3, linewidth=4, zorder=999)
-
-                    if args.test_muls is not None:
-                        for iii in range(min(n_viz_trajs_max, args.test_muls)):
-                            m_idx = mini_i * args.test_muls + iii
-                            plt.scatter(diffused_trajs_np[m_idx, 0, 0], diffused_trajs_np[m_idx, 0, 1], color="orange", alpha=0.05, s=48, zorder=1000)
-                            plt.plot(diffused_trajs_np[m_idx, :, 0], diffused_trajs_np[m_idx, :, 1], linewidth=2, color="brown", alpha=0.3)
-                        plt.scatter(RES['trajs'][mini_i, 0, 0], RES['trajs'][mini_i, 0, 1], color="orange", alpha=0.5, s=48, zorder=20)
-                        plt.plot(RES['trajs'][mini_i, :, 0], RES['trajs'][mini_i, :, 1], linewidth=2, color="brown", alpha=0.8, zorder=1500)
-                    else:
-                        plt.scatter(diffused_trajs_np[mini_i, 0, 0], diffused_trajs_np[mini_i, 0, 1], color="orange", alpha=0.05, s=48, zorder=1000)
-                        plt.plot(diffused_trajs_np[mini_i, :, 0], diffused_trajs_np[mini_i, :, 1], linewidth=2, color="brown", alpha=0.3)
-
-                    plt.axis("scaled")
-                    plt.xlim(x_min, x_max)
-                    plt.ylim(y_min, y_max)
-
-                    plt.subplot(1, 2, 2)
-                    generate_scene_v1.plot_tree(simp_stl)
-                    plt.xticks([])
-                    plt.yticks([])
-                    if not args.dryrun:
-                        wandb.log({f"eval_viz/{mode}_b{bi:04d}_{mini_i}": wandb.Image(plt)})
-                    utils.plt_save_close("%s/viz_%s_b%04d_%d.png" % (args.viz_dir, mode, bi, mini_i))
+                    visualize_plan(
+                        mode=mode, bi=bi, mini_i=mini_i,
+                        gt_trajs_np=gt_trajs_np[mini_i],
+                        diffused_trajs_np=diffused_trajs_np[mini_i * (args.test_muls or 1): (mini_i + 1) * (args.test_muls or 1)],
+                        res_trajs=RES['trajs'][mini_i] if args.test_muls is not None else None,
+                        simple_stl=simp_stl, objects_d=objects_d, args=args,
+                        x_lims=(x_min, x_max), y_lims=(y_min, y_max)
+                    )
 
             stl_acc_log_list[-1][eval_split] = np.mean(eval_scores)
             for stl_type in sorted(eval_scores_d.keys()):
@@ -678,13 +347,13 @@ def main():
                 if args.debug:
                     continue
 
-                index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
+                index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch, device)
 
                 normalized_sa_trajs = normalize_traj(sa_trajectories, stat_mean=stat_mean, stat_std=stat_std)
 
                 batch_size = normalized_sa_trajs.shape[0]
 
-                conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str)
+                conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str, args)
 
                 t = torch.randint(0, args.n_timesteps, (batch_size,), device=device).long()
                 noise = torch.randn_like(normalized_sa_trajs)
@@ -693,6 +362,8 @@ def main():
                 noise = noise.reshape(batch_size, args.horizon, args.data_dim)
 
                 x_recon = diffuser.model(x_noisy, conditions, t)
+
+                # Set target for loss calculation
                 if args.flow:
                     x_target = normalized_sa_trajs - noise
                 else:
@@ -770,9 +441,9 @@ def main():
                     for bi, batch in enumerate(sel_loader):
                         if bi >= args.num_evals:
                             continue
-                        index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
-                        conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str)
-                        diffused_trajs = get_denoising_results(diffuser, conditions, stat_mean, stat_std)
+                        index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch, device)
+                        conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str, args)
+                        diffused_trajs = get_denoising_results(diffuser, conditions, stat_mean, stat_std, args)
 
                         for iii in range(diffused_trajs.shape[0]):
                             rec_i, stl_i, ego_i, sol_i, rel_stl_index, rel_ego_i, rel_sol_i = sel_loader.dataset.fs_list[index_tensors[iii].item()]
@@ -812,11 +483,11 @@ def main():
                 for bi, batch in enumerate(sel_loader):
                     if bi >= max_b:
                         continue
-                    index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch)
-                    conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str)
+                    index_tensors, stl_embeds, ego_states, us, sa_trajectories, stl_str, sa_par, stl_i_tensors, stl_type_i_tensors = parse_batch(batch, device)
+                    conditions = get_encoding(encoder, ego_states, stl_embeds, stl_str, args)
 
                     n_viz = 100
-                    diffused_trajs = get_denoising_results(diffuser, conditions[0:1].repeat(n_viz, 1), stat_mean, stat_std)
+                    diffused_trajs = get_denoising_results(diffuser, conditions[0:1].repeat(n_viz, 1), stat_mean, stat_std, args)
                     diffused_trajs_np = utils.to_np(diffused_trajs)
                     gt_trajs_np = utils.to_np(sa_trajectories.reshape(sa_trajectories.shape[0], args.horizon, args.observation_dim + args.action_dim)[0, :, :2])
 
@@ -824,29 +495,13 @@ def main():
                     simp_stl = simple_stl_list[stl_i]
                     objects_d = obj_list[stl_i]
 
-                    plt.figure(figsize=(8, 8))
-                    ax = plt.gca()
-                    for obj_i, obj_keyid in enumerate(objects_d):
-                        obj_d = objects_d[obj_keyid]
-                        circ = Circle([obj_d["x"], obj_d["y"]], radius=obj_d["r"],
-                                      color="royalblue" if obj_d["is_obstacle"] == False else "gray", alpha=0.5)
-                        ax.add_patch(circ)
-                        plt.text(obj_d["x"], obj_d["y"], s="%d" % (obj_keyid))
-
-                    plt.scatter(gt_trajs_np[0, 0], gt_trajs_np[0, 1], color="purple", s=64, zorder=1000)
-                    plt.plot(gt_trajs_np[:, 0], gt_trajs_np[:, 1], color="green", alpha=0.3, linewidth=4, zorder=999)
-
-                    plt.scatter(diffused_trajs_np[:, 0, 0], diffused_trajs_np[:, 0, 1], color="orange", alpha=0.05, s=48, zorder=1000)
-                    for viz_traj_i in range(n_viz):
-                        plt.plot(diffused_trajs_np[viz_traj_i, :, 0], diffused_trajs_np[viz_traj_i, :, 1], linewidth=2, color="brown", alpha=0.3)
-                    plt.axis("scaled")
-                    plt.xticks([])
-                    plt.yticks([])
-                    plt.xlim(x_min, x_max)
-                    plt.ylim(y_min, y_max)
-                    if not args.dryrun:
-                        wandb.log({f"train_viz/epi{epi:04d}_b{bi}": wandb.Image(plt)})
-                    utils.plt_save_close("%s/viz_epi%04d_b%d.png" % (args.viz_dir, epi, bi))
+                    visualize_plan(
+                        mode="train", bi=bi, mini_i=0,
+                        gt_trajs_np=gt_trajs_np,
+                        diffused_trajs_np=diffused_trajs_np,
+                        simple_stl=simp_stl, objects_d=objects_d, args=args,
+                        x_lims=(x_min, x_max), y_lims=(y_min, y_max), step=epi
+                    )
 
     return
 
