@@ -9,4 +9,3 @@ num_evals: 128
 batch_size: 1
 max_viz: 128
 test_muls: 1024
-val_eval_only: true
